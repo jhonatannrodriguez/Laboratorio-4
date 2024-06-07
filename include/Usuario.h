@@ -1,23 +1,24 @@
 #ifndef _USUARIO_H
 #define _USUARIO_H
 
+#include DTFecha.h
 using namespace std;
 #include <string>
 class Usuario
 {
 private:
     string nombre;
-    Fecha fecha_nacimiento;
+    DTFecha fecha_nacimiento;
     string contrasenia; 
 
 public:
     Usuario();
-    Usuario(string nombre,Fecha fecha_nacimiento,string contrasenia);
+    Usuario(string nombre,DTFecha fecha_nacimiento,string contrasenia);
     void setNombre(string);
-    void setFecha_nacimiento(Fecha);
+    void setFecha_nacimiento(DTFecha);
     void setContrasenia(string);
     string getNombre();
-    Fecha getFecha_nacimiento();
+    DTFecha getFecha_nacimiento();
     string getContrasenia();
     
     virtual ~Usuario();
