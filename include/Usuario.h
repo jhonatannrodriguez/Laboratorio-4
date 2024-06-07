@@ -1,7 +1,6 @@
 #ifndef _USUARIO_H
 #define _USUARIO_H
 
-#include "DTUsuario.h"
 using namespace std;
 #include <string>
 class Usuario
