@@ -3,7 +3,6 @@
 
 using namespace std;
 #include "DTFecha.h"
-#include <string>
 class Compra
 {
 private:
