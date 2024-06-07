@@ -34,7 +34,7 @@ string Usuario::getNombre()
     return this->nombre;
 }
 
-Fecha Usuario::getFecha_nacimiento()
+DTFecha Usuario::getFecha_nacimiento()
 {
     return this->fecha_nacimiento;
 }
