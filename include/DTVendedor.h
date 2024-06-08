@@ -12,7 +12,6 @@ class DTUsuario {
         DTVendedor(string RUT);
         DTVendedor();
         string getRUT();
-
         ~DTVendedor();
 };
 

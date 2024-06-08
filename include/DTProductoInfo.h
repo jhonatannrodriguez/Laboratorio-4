@@ -22,7 +22,6 @@ public:
     TipoProducto getTipo();
     unsigned int getStock();
     string getNicknameVenderor();
-
     ~DTProductoInfo();
 };
 

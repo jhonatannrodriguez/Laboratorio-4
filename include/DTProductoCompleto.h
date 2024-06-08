@@ -24,7 +24,6 @@ public:
     float getPrecio();
     TipoProducto getTipo();
     unsigned int getStock();
-
     ~DTProductoCompleto();
 };
 

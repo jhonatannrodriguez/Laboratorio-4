@@ -15,7 +15,6 @@ class DTUsuario {
         DTUsuario();
         string getNickname();
         DTFecha getFechaNacimiento();
-
         ~DTUsuario();
 };
 
