@@ -1,10 +1,11 @@
 #ifndef _DTCOMPRA_H
 #define _DTCOMPRA_H
 
+#include <string>
 #include "DTFecha.h"
 
 using namespace std;
-#include <string>
+
 
 class DTCompra
 {
