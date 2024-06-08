@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class DTUsuario {
+class DTVendedor {
     private:
         string RUT;
     public:
