@@ -1,7 +1,7 @@
 #ifndef _DTCOMPRAINFO_H
 #define _DTCOMPRAINFO_H
 
-#include DTFecha.h
+#include "DTFecha.h"
 
 class DTCompraInfo
 {
