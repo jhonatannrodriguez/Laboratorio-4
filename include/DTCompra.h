@@ -1,7 +1,7 @@
 #ifndef _DTCOMPRA_H
 #define _DTCOMPRA_H
 
-#include DTFecha.h
+#include "DTFecha.h"
 
 using namespace std;
 #include <string>
@@ -14,7 +14,7 @@ private:
 public:
     DTCompra();
     DTCompra(string nicknameCliente,DTFecha Fecha);
-    string getnicknameCliente();
+    string getNicknameCliente();
     DTFecha getFecha();
     
   
