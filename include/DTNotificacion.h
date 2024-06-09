@@ -10,7 +10,7 @@ using namespace std;
 class DTNotificacion {
     private:
         string NombrePromo;
-        set(string) Productos;
+        set<string> Productos;
         float Descuento;
         DTFecha Vencimiento;
     public:

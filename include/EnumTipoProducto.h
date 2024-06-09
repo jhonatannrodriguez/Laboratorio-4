@@ -7,5 +7,5 @@ enum class TipoProducto {
     electrodomesticos,
     otros
 };
-
+//pensar mejor si esto debe existir.
 #endif

@@ -13,9 +13,9 @@ private:
     int numero_puerta;
     string ciudad_residencia; 
     //Pseudoatributos
-    set(DTNotificacion*) nots;
-    set(Vendedor*) vendedor_suscripcion;
-    set(Compra*) compra;
+    set<DTNotificacion*> nots; //pensar mejor si poner *
+    set<Vendedor*> vendedor_suscripcion;
+    set<Compra*> compra;
 
 public:
     Cliente();
@@ -27,10 +27,10 @@ public:
     int getNumeroPuerta();
     string getCiudadResidencia();
     
-    void notificar(DTNotificacion);
-    void suscribirse(Vendedor);
-    set(Vendedor*) getSuscritos();
-    void eliminarNotificaciones();
+    //void notificar(DTNotificacion);
+    //void suscribirse(Vendedor);
+    //set<Vendedor*> getSuscritos();
+    //void eliminarNotificaciones();
 
     ~Cliente();
 };

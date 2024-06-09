@@ -5,6 +5,7 @@
 #include "Comentario.h"
 using namespace std;
 #include <string>
+#include <set>
 
 class Usuario {
 private:
@@ -13,7 +14,7 @@ private:
     DTFecha fecha_nacimiento;
     string contrasenia; 
     //Pseudoatributos
-    set(Comentario*) comentario;  //<--- Supongamos que es asi con el set()
+    set<Comentario*> comentario;  
 
 public:
     Usuario();
@@ -25,9 +26,9 @@ public:
     DTFecha getFecha_nacimiento();
     string getContrasenia();
     
-    set(Cometario*) getComentarios();
+    set<Comentario*> getComentarios();
     
-    virtual ~Usuario();
+    virtual ~Usuario() = 0;
 };
 
 #endif

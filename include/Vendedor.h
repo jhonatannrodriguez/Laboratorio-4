@@ -12,8 +12,8 @@ private:
     //Atributos
     string codigo_rut;
     //Pseudoatributos
-    set(Producto*) producto;
-    set(Promocion*) promocion;
+    set<Producto*> producto;
+    set<Promocion*> promocion;
 
 public:
     Vendedor();
@@ -21,7 +21,7 @@ public:
     void setCodigoRut(string);
     string getCodigoRut();
 
-    set(Producto*) getProductos();
+    set<Producto*> getProductos();
     void agregar(IObserver);
     void eliminar(IObserver);
     void modificar(DTNotificacion);
