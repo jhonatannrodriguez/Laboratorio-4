@@ -2,6 +2,7 @@
 #define DTUSUARIO_H
 
 #include <string>
+#include <set>
 #include "DTFecha.h"
 
 using namespace std;
