@@ -2,6 +2,7 @@
 #define DTFECHA_H
 
 using namespace std;
+#include <iostream>
 
 class DTFecha {
     private:
@@ -11,11 +12,18 @@ class DTFecha {
     public:
         DTFecha();
         DTFecha(int, int, int);
+
+        void setDia(int);
+        void setMes(int);
+        void setAnio(int);
+
         int getdia();
         int getmes();
         int getanio();
         
         ~DTFecha();
 } ;
+
+ostream &operator<<(ostream &o, DTFecha &f);
 
 #endif
