@@ -3,7 +3,7 @@
     DTProductoInfo :: DTProductoInfo() {
         this->descripcion = "";
         this->precio = 0;
-        this->tipo = "otros" // no se como inicializar tipoproducto default
+        this->tipo = "otros"; // no se como inicializar tipoproducto default
         this->stock = 0;
         this->nicknameVendedor = "";
     }
