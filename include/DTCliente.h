@@ -1,7 +1,7 @@
 #ifndef DTCLIENTE_H
 #define DTCLIENTE_H
 
-#incldue "DTUsuario.h"
+#include "DTUsuario.h"
 #include <string>
 
 using namespace std;

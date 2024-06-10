@@ -9,12 +9,17 @@ using namespace std;
 
 class DTNotificacion {
     private:
-        string NombrePromo;
-        set<string> Productos;
-        float Descuento;
-        DTFecha Vencimiento;
+        string nombrePromo;
+        set<string> productos;
+        float descuento;
+        DTFecha vencimiento;
     public:
-        
+        DTNotificacion();
+        DTNotificacion(string nombrePromo, set<string> productos, float descuento,  DTFecha vencimiento);
+        string getNombrePromo();
+        set<string> getProductos();
+        float getDescuento();
+        DTFecha getVencimiento();
 } ;
 
-#endif
+#endifa
