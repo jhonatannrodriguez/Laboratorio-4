@@ -18,8 +18,8 @@ private:
 public:
     Vendedor();
     Vendedor(string codigo_rut);
-    void setCodigoRut(string);
     string getCodigoRut();
+    void setCodigoRut(string codigo_rut);
 
     set<Producto*> getProductos();
     void agregar(IObserver);

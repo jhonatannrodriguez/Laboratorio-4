@@ -20,13 +20,12 @@ private:
 public:
     Cliente();
     Cliente(string calle, int numero_puerta, string ciudad_residencia);
-    void setCalle(string);
-    void setNumeroPuerta(int);
-    void setCiudadResidencia(string);
     string getCalle();
     int getNumeroPuerta();
     string getCiudadResidencia();
-    
+    void setCalle(string calle);
+    void setNumeroPuerta(int numero_puerta);
+    void setCiudadResidencia(string ciudad_residencia);
     //void notificar(DTNotificacion);
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos();
