@@ -9,8 +9,8 @@ class DTVendedor {
     private:
         string RUT;
     public:
-        DTVendedor(string RUT);
         DTVendedor();
+        DTVendedor(string RUT);
         string getRUT();
         ~DTVendedor();
 };
