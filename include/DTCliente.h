@@ -1,11 +1,12 @@
 #ifndef DTCLIENTE_H
 #define DTCLIENTE_H
 
+#incldue "DTUsuario.h"
 #include <string>
 
 using namespace std;
 
-class DTUsuario {
+class DTCliente : public DTUsuario {
     private:
         string direccion;
         string ciudad;
