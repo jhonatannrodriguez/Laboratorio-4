@@ -1,4 +1,4 @@
-#include "DTVendedor.h"
+#include "../include/DTVendedor.h"
 
     DTVendedor :: DTVendedor() {
         this->RUT = "";

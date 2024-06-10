@@ -1,4 +1,4 @@
-#include "DTVendedorInfo.h"
+#include "../include/DTVendedorInfo.h"
 
     DTVendedorInfo :: DTVendedorInfo() {
         this->nicknameVendedor = "";
@@ -23,3 +23,4 @@
     DTFecha DTVendedorInfo :: getNacimiento() {
         return this->nacimiento;
     }
+    DTVendedorInfo :: ~DTVendedorInfo() {} // Llevan destructor ??

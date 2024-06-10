@@ -17,6 +17,7 @@ class DTVendedorInfo {
         string getRUT();
         string getNickname();
         DTFecha getNacimiento();
+        ~DTVendedorInfo();
 
 };
 

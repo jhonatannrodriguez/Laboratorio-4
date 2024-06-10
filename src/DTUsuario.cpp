@@ -1,4 +1,5 @@
-#include "DTUsuario.h"
+#include "../include/DTUsuario.h"
+
         DTUsuario :: DTUsuario() {
             this->nickname = "";
             this->fecha_nacimiento = DTFecha(0,0,0);
@@ -16,4 +17,4 @@
         DTFecha DTUsuario :: getFechaNacimiento() {
             return this->fecha_nacimiento;
         }
-        DTUsuario :: ~DTUsuario() {}
+        DTUsuario :: ~DTUsuario() {} // Llevan destructor ??
