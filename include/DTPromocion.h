@@ -14,7 +14,7 @@ class DTPromocion {
         float  descuento;
     public:
         DTPromocion();
-        DTFecha(DTFecha, string, string, float);
+        DTPromocion(DTFecha, string, string, float);
         DTFecha getVencimiento();
         string getDescripcion();
         string getNombre();
