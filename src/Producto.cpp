@@ -1,4 +1,4 @@
-#include "Producto.h"
+#include "../include/Producto.h"
 
     Producto :: Producto() {
         this->codigo = "";

@@ -1,4 +1,4 @@
-#include "Comentario.h"
+#include "../include/Comentario.h"
 
     Comentario :: Comentario() {
         this->texto = "";

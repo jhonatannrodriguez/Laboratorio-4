@@ -1,4 +1,4 @@
-#include "Compra.h"
+#include "../include/Compra.h"
 
     Compra :: Compra() {
         this->fecha = DTFecha(0,0,0);

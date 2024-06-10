@@ -1,4 +1,4 @@
-#include "Promocion.h"
+#include "../include/Promocion.h"
 
     Promocion :: Promocion() {
         this->nombre = "";

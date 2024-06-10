@@ -1,4 +1,4 @@
-#include "Vendedor.h"
+#include "../include/Vendedor.h"
 
     Vendedor :: Vendedor() {
         this->codigo_rut = "";

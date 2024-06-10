@@ -11,9 +11,9 @@ DTFecha::DTFecha()
 
 DTFecha::DTFecha(int dia, int mes,int anio)
 {
-    dia = dia;
-    mes = mes;
-    anio = anio;
+    this->dia = dia;
+    this->mes = mes;
+    this->anio = anio;
     
 }
 
