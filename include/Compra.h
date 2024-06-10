@@ -15,16 +15,18 @@ struct cp {
 class Compra
 {
 private:
+    // atributos
     DTFecha fecha;
     float monto; 
+    // pseudoatributos
     set<cp> productos;
 public:
     Compra();
     Compra(DTFecha fecha,float monto);
-    void setMonto(float);
-    void setFecha(DTFecha);
     float getMonto();
     DTFecha getFecha();
+    void setMonto(float monto);
+    void setFecha(DTFecha fecha);
     ~Compra();
 };
 
