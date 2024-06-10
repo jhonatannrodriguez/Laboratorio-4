@@ -9,10 +9,11 @@
 
 class Comentario {
 private:
+    // atributos
     string texto;
     DTFecha fecha;
     string id;
-
+    // pseudoatributos
     set<Comentario*> respuestas;
     Comentario* padre;
     Producto* producto;
@@ -20,12 +21,12 @@ private:
 public:
     Comentario();
     Comentario(string texto, DTFecha fecha, string id);
-    void setTexto(string);
-    void setFecha(DTFecha);
-    void setId(string);
     string getTexto();
     DTFecha getFecha();
     string getId();
+    void setTexto(string texto);
+    void setFecha(DTFecha fecha);
+    void setId(string id);
 
     ~Comentario();
 };

@@ -14,13 +14,14 @@ enum class TipoProducto {
 class Promocion;
 class Producto {
 private:
+    // atributos
     string codigo;
     string nombre;
     string descripcion;
     float precio;
     TipoProducto tipo;
     unsigned int stock;
-
+    // pseudoatributos
     Promocion* promocion;
 public:
     Producto();
