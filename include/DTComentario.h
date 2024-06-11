@@ -15,6 +15,7 @@ class DTComentario {
         DTComentario(string texto, DTFecha fecha);
         DTFecha getFecha();
         string getComentario();
+        ~DTComentario();
 } ;
 
 #endif

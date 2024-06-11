@@ -6,14 +6,14 @@
 class DTCompraInfo
 {
 private:
-    float Monto;
-    DTFecha Fecha_compra; 
+    float monto;
+    DTFecha fecha_compra; 
 public:
     DTCompraInfo();
-    DTCompraInfo(float Monto,DTFecha Fecha_compra);
-    string getMonto();
+    DTCompraInfo(float monto,DTFecha fecha_compra);
+    float getMonto();
     DTFecha getFecha();
-  
+    ~DTCompraInfo();
 };
 
 #endif
