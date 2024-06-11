@@ -7,7 +7,7 @@
         this->descuento = 0;
     }
 
-    Promocion :: Promocion(string nombre,string descripcion,DTFecha vencimiento,float descuento) {
+    Promocion :: Promocion(string nombre,string descripcion, DTFecha vencimiento,float descuento) {
         this->nombre = nombre;
         this->descripcion = descripcion;
         this->vencimiento = vencimiento;
