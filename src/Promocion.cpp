@@ -13,7 +13,7 @@
         this->vencimiento = vencimiento;
         this->descuento = descuento;
     }
-
+    
     string Promocion :: getNombre() {
         return this->nombre;
     }

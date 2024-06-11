@@ -5,7 +5,7 @@
         this->nombre = "";
         this->descripcion = "";
         this->precio = 0;
-        this->tipo = "otros"; // No se como inicializar un tipoproducto default
+        this->tipo = TipoProducto::otros;
         this->stock = 0;
     }
 
