@@ -11,13 +11,13 @@ class DTCompra
 {
 private:
     string nicknameCliente;
-    DTFecha Fecha; 
+    DTFecha fecha; 
 public:
     DTCompra();
-    DTCompra(string nicknameCliente,DTFecha Fecha);
+    DTCompra(string nicknameCliente,DTFecha fecha);
     string getNicknameCliente();
     DTFecha getFecha();
-    
+    ~DTCompra();
   
 };
 

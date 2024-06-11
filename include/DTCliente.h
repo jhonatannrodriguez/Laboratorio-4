@@ -11,8 +11,8 @@ class DTCliente : public DTUsuario {
         string direccion;
         string ciudad;
     public:
-        DTCliente(string RUT);
         DTCliente();
+        DTCliente(string direccion, string ciudad);
         string getDireccion();
         string getCiudad();
 
