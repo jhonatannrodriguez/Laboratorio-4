@@ -17,7 +17,7 @@ private:
 
 public:
     Vendedor();
-    Vendedor(string codigo_rut);
+    Vendedor(string nombre,DTFecha fecha_nacimiento,string contrasenia,string codigo_rut);
     string getCodigoRut();
     void setCodigoRut(string codigo_rut);
 

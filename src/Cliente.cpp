@@ -6,7 +6,10 @@
         this->ciudad_residencia="";
     }
 
-    Cliente :: Cliente(string calle, int numero_puerta, string ciudad_residencia) {
+    Cliente :: Cliente(string nombre, DTFecha fecha_nacimiento, string contrasenia, string calle, int numero_puerta, string ciudad_residencia) {
+        setNombre(nombre);
+        setFecha_nacimiento(fecha_nacimiento);
+        setContrasenia(contrasenia);
         this->calle = calle;
         this->numero_puerta = numero_puerta;
         this-> ciudad_residencia = ciudad_residencia;
@@ -33,7 +36,7 @@
     
     //void notificar(DTNotificacion);
     //void suscribirse(Vendedor);
-    //set<Vendedor*> getSuscritos();
+    //set<Vendedor*> getSuscritos(); 
     //void eliminarNotificaciones();
 
     Cliente::~Cliente() {}

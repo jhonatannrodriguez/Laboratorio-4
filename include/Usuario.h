@@ -18,7 +18,7 @@ private:
 
 public:
     Usuario();
-    Usuario(string nombre,DTFecha fecha_nacimiento,string contrasenia);
+    Usuario(string nombre,DTFecha fecha_nacimiento,string contrasenia); 
     void setNombre(string);
     void setFecha_nacimiento(DTFecha);
     void setContrasenia(string);

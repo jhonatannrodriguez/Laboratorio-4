@@ -3,7 +3,10 @@
     Vendedor :: Vendedor() {
         this->codigo_rut = "";
     }
-    Vendedor :: Vendedor(string codigo_rut) {
+    Vendedor :: Vendedor(string nombre, DTFecha fecha_nacimiento, string contrasenia, string codigo_rut) {
+        setNombre(nombre);
+        setFecha_nacimiento(fecha_nacimiento);
+        setContrasenia(contrasenia);
         this->codigo_rut = codigo_rut;
     }
     string Vendedor :: getCodigoRut() {

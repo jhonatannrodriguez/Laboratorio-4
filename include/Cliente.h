@@ -3,23 +3,24 @@
 
 #include "Usuario.h"
 #include "DTNotificacion.h"
+#include "IObserver.h"
 #include "Vendedor.h"
 #include "Compra.h"
 
+class Vendedor;
 class Cliente : public Usuario {
 private:
-    //Atributos
     string calle;
     int numero_puerta;
     string ciudad_residencia; 
-    //Pseudoatributos
+
     set<DTNotificacion*> nots; //pensar mejor si poner *
     set<Vendedor*> vendedor_suscripcion;
     set<Compra*> compra;
 
 public:
     Cliente();
-    Cliente(string calle, int numero_puerta, string ciudad_residencia);
+    Cliente(string nombre,DTFecha fecha_nacimiento,string contrasenia,string calle, int numero_puerta, string ciudad_residencia);
     string getCalle();
     int getNumeroPuerta();
     string getCiudadResidencia();
