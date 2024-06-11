@@ -2,14 +2,9 @@
 #define _PRODUCTO_H
 
 #include "Promocion.h"
+#include "EnumTipoProducto.h"
 using namespace std;
 #include <string>
-
-enum class TipoProducto {
-    ropa,
-    electrodomesticos,
-    otros
-};
 
 class Promocion;
 class Producto {

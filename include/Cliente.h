@@ -14,7 +14,7 @@ private:
     int numero_puerta;
     string ciudad_residencia; 
 
-    set<DTNotificacion*> nots; //pensar mejor si poner *
+    set<DTNotificacion> nots; 
     set<Vendedor*> vendedor_suscripcion;
     set<Compra*> compra;
 
