@@ -1,17 +1,32 @@
-#ifndef _IUSUARIO_H
-#define _IUSUARIO_H
-
-#include "DTFecha.h"
-using namespace std;
+#ifndef _INTERFAZUSUARIO_H
+#define _INTERFAZUSUARIO_H
+#include "DTCliente.h"
+#include "DTVendedor.h"
+#include "DTUsuario.h"
+#include <map>
 #include <string>
+#include <set>
+using namespace std;
 
-class IUsuario {
+class InterfazUsuario
+{
 public:
+
+//Operaciones de la interface
+  
+    virtual bool NuevoUsuario(DTUsuario*) = 0;
+    virtual void Registrar()=0;
+    virtual set<DTUsuario *> ListarUsuarios()=0;
+   
     
-    virtual bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento) = 0;
-    virtual void nuevoCliente(string direccion, string ciudad) = 0;
-    virtual void nuevoVendedor(string RUT) = 0;
-    virtual ~IUsuario();
+   
+   
+    virtual ~InterfazUsuario()
+    
+   
+    {
+
+    }  
 };
 
 #endif

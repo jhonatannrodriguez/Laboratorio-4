@@ -24,6 +24,8 @@ class DTFecha {
         ~DTFecha();
 } ;
 
-ostream &operator<<(ostream &o, DTFecha &f);
+ostream &operator<<(ostream &o, DTFecha f);
+
+ostream &operator>>(ostream &o, DTFecha f); // revisar (DTFecha &f) o (DTFecha f) esta mal??
 
 #endif
