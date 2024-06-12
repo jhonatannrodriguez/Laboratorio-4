@@ -54,7 +54,8 @@ int main()
             }
             case 4: 
             {
-           
+                cout << "Estos son los productos disponibles:" << endl;
+                set<DTProducto> setDTP = iProducto->consultarProducto();
             }
             case 5: 
             {
