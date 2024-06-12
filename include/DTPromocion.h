@@ -24,4 +24,6 @@ class DTPromocion {
 
 } ;
 
+ostream& operator<<(ostream& os, const DTPromocion& prom);
+
 #endif

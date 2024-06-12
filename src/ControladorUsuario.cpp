@@ -21,3 +21,14 @@ void ControladorUsuario :: nuevoCliente(string direccion, string ciudad) {
 void ControladorUsuario :: nuevoVendedor(string RUT) {
 
 }
+
+set<DTPromocion> ControladorUsuario :: consultarPromocion(){
+    set<DTPromocion> promociones;
+
+
+    return promociones;
+}
+
+DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
+
+}

@@ -30,4 +30,12 @@
         return this->descuento;
     }
 
-    DTPromocion :: ~DTPromocion() {} // Llevan destructor??
+ostream& operator<<(ostream& os, const DTPromocion& prom) {
+    os << "Nombre: " << prom.getNombre() << "\n"
+       << "Descripcion: " << prom.getDescripcion() << "\n"
+       << "Descuento: " << prom.getDescuento() << "\n"
+       << "Vencimiento: " << prom.getVencimiento() <<endl;
+    return os;
+} 
+
+    DTPromocion :: ~DTPromocion() {}

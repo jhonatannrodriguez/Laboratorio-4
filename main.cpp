@@ -62,7 +62,22 @@ int main()
             }
             case 6:
             {
-           
+                cout << "Lista de Promociones: " << endl; 
+
+                set<DTPromocion> promociones = iUsuario.consultarPromocion();
+
+                set<DTPromocion>::iterator iter;
+
+                for (iter = promociones.begin(); iter != promociones.end(); iter++) {
+                    cout << *iter;
+                }
+
+                cout << "Ingrese el nombre de la Promocion (0 si no): " << endl; 
+                cin >> nombre_promocion;
+;
+
+
+
             }
             case 7:
             {
