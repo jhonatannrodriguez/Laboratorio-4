@@ -10,14 +10,14 @@ ControladorUsuario * ControladorUsuario :: getInstancia() {
     return instancia;
 }
 
-bool ControladorUsuario :: nuevoUsuario() {
+bool ControladorUsuario :: nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento) {
 
 }
 
-void ControladorUsuario :: nuevoCliente() {
+void ControladorUsuario :: nuevoCliente(string direccion, string ciudad) {
 
 }
 
-void ControladorUsuario :: nuevoVendedor() {
+void ControladorUsuario :: nuevoVendedor(string RUT) {
 
 }

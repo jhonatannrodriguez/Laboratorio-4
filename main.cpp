@@ -1,9 +1,14 @@
 
 #include <iostream>
+#include "../include/Fabrica.h"
 using namespace std;
 
 int main()
 {
+    Fabrica * fabrica = Fabrica::getInstancia();
+    IUsuario * iUsuario = fabrica->getIUsuario();
+    IProducto * iProducto = fabrica->getIProducto();
+
     int opcion;
     cout << "Elija una opción:" << endl;
     cout << "0: Cargar de Datos de Prueba." << endl;
@@ -23,6 +28,9 @@ int main()
     cout << "14: Eliminar suscripciones. " << endl;
     cout << "15: Ayuda. " << endl;
     cout << "16: Salir. " << endl;
+    
+    
+
     do
     {
         cin >> opcion;

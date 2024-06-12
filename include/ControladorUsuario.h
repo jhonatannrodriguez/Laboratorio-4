@@ -9,8 +9,8 @@ class ControladorUsuario : public IUsuario {
         ControladorUsuario();
     public:
         static ControladorUsuario * getInstancia();
-        bool nuevoUsuario();
-        void nuevoCliente();
-        void nuevoVendedor();
+        bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento);
+        void nuevoCliente(string direccion, string ciudad);
+        void nuevoVendedor(string RUT);
 };
 #endif
