@@ -9,5 +9,7 @@ class ControladorProducto : public IProducto {
         ControladorProducto();
     public:
         static ControladorProducto * getInstancia();
+        set<DTProducto> consultarProducto();
+        DTProductoInfo seleccionarProducto(string codigo);
 };
 #endif

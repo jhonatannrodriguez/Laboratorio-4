@@ -9,3 +9,10 @@ ControladorProducto * ControladorProducto :: getInstancia() {
          instancia = new ControladorProducto();
     return instancia;
 }
+set<DTProducto> ControladorProducto :: consultarProducto() {
+    
+}
+
+DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
+
+}
