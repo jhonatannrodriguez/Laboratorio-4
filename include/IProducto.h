@@ -4,6 +4,7 @@
 #include "DTFecha.h"
 #include "DTProductoInfo.h"
 #include "DTProducto.h"
+#include "Producto.h"
 using namespace std;
 #include <string>
 #include <set>

@@ -56,6 +56,10 @@ int main()
             {
                 cout << "Estos son los productos disponibles:" << endl;
                 set<DTProducto> setDTP = iProducto->consultarProducto();
+                cout << "Ingrese el código del producto del cual desea información." << endl;
+                string codigo;
+                cin >> codigo;
+                DTProductoInfo DTPI = iProducto->seleccionarProducto(codigo);
             }
             case 5: 
             {
