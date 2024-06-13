@@ -69,7 +69,7 @@ int main()
                 cout << "Precio: " << DTPI.getPrecio() << endl
                      << "Stock: " << DTPI.getStock() << endl
                      << "Descripción: " << DTPI.getDescripcion() << endl
-                     << "Categoría: " << to_string(DTPI.getTipo()) << endl // Supongo que falta sobrecarga de la funcion to_string
+                     << "Categoría: " << DTPI.getTipo() << endl // Supongo que falta sobrecarga de la funcion to_string
                      << "Nickname del vendedor: " << DTPI.getNicknameVendedor() << endl;
             }
             case 5: 

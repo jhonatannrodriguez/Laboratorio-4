@@ -21,14 +21,8 @@ set<DTProducto> ControladorProducto :: consultarProducto() {
         DTP_aux = DTProducto(c,n); //new???
         setDTP.insert(DTP_aux);
     }
-    // termina el foreach creando el set que vamos a devolver, realmente no necesito que devuelve el set porque no lo voy a usar
-    // Impresion en pantalla se puede hacer directamente en el foreach anterior con la siguientes lineas al final
-        cout << "Codigo | Nombre" << endl;
-        cout << c << " | " << n << endl;
-    // Fin del foreach para la impresion en pantalla
     return setDTP;
     }
-}
 
 DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
     //La recorrida va a tener que ser un map
@@ -37,7 +31,7 @@ DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
     unsigned int s = prod->getStock();
     string d = prod->getDescripcion();
     TipoProducto t = prod->getTipo();
-    string n = prod->getVendedor()->getNickname(); // Vendedor no tiene acceso a getNickname problemas
+    string n = prod->getVendedor()->getNombre();
     DTProductoInfo DTPI = DTProductoInfo(d,p,t,s,n);
     return DTPI;
 }
