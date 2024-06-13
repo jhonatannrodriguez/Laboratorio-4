@@ -2,6 +2,7 @@
 #define _IUSUARIO_H
 
 #include "DTFecha.h"
+#include "DTProducto"
 using namespace std;
 #include <string>
 
@@ -12,7 +13,7 @@ public:
     virtual void nuevoCliente(string direccion, string ciudad) = 0;
     virtual void nuevoVendedor(string RUT) = 0;
     virtual set(string) ConsultarUsuarios();
-    
+    virtual set(DTProducto) seleccionarUsuario(string nickname);
     virtual ~IUsuario();
 };
 

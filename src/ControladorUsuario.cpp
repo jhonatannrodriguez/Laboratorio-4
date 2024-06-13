@@ -30,3 +30,7 @@ set(string) ControladorUsuario :: ConsultarUsuarios() {
     }
     return nicknames;
 }
+
+set(DTProducto) ControladorUsuario :: (string nickname) {
+    
+}

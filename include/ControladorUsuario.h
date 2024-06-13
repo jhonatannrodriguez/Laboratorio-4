@@ -16,6 +16,6 @@ class ControladorUsuario : public IUsuario {
         void nuevoCliente(string direccion, string ciudad);
         void nuevoVendedor(string RUT);
         set(string) ConsultarUsuarios();
-        set(DTProdcuto)
+        set(DTProducto) seleccionarUsuario(string nickname);
 };
 #endif
