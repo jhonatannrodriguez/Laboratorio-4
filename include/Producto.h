@@ -2,6 +2,7 @@
 #define _PRODUCTO_H
 
 #include "Promocion.h"
+#include "Vendedor.h"
 #include "EnumTipoProducto.h"
 using namespace std;
 #include <string>
@@ -17,7 +18,8 @@ private:
     TipoProducto tipo;
     unsigned int stock;
     // pseudoatributos
-    Promocion* promocion;
+    Promocion * promocion;
+    Vendedor * vendedor;
 public:
     Producto();
     Producto(string codigo,string nombre,string descripcion,float precio,TipoProducto tipo, unsigned int stock);
@@ -33,7 +35,7 @@ public:
     void setPrecio(float precio);
     void setTipo(TipoProducto tipo);
     void setStock(unsigned int stock);
-
+    Vendedor * getVendedor();
     ~Producto();
 };
 

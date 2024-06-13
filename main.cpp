@@ -56,10 +56,21 @@ int main()
             {
                 cout << "Estos son los productos disponibles:" << endl;
                 set<DTProducto> setDTP = iProducto->consultarProducto();
+                // Tambien se puede imprimir acá usando el set pasado anteriormente
+                cout << "Codigo | Nombre" << endl;
+                for (DTProducto DTP_for : setDTP) {
+                cout << DTP_for.getCodigo() << " | " << DTP_for.getNombre() << endl;
+                }
                 cout << "Ingrese el código del producto del cual desea información." << endl;
                 string codigo;
                 cin >> codigo;
                 DTProductoInfo DTPI = iProducto->seleccionarProducto(codigo);
+                //Mismo que antes puedo imprimir aca la información del producto o dentro de la función
+                cout << "Precio: " << DTPI.getPrecio() << endl
+                     << "Stock: " << DTPI.getStock() << endl
+                     << "Descripción: " << DTPI.getDescripcion() << endl
+                     << "Categoría: " << to_string(DTPI.getTipo()) << endl // Supongo que falta sobrecarga de la funcion to_string
+                     << "Nickname del vendedor: " << DTPI.getNicknameVendedor() << endl;
             }
             case 5: 
             {

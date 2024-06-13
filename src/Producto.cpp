@@ -65,5 +65,8 @@
     void Producto :: setStock(unsigned int stock) {
         this->stock = stock;
     }
+    Vendedor * Producto :: getVendedor() {
+        return this->vendedor;
+    }
 
     Producto :: ~Producto() {}

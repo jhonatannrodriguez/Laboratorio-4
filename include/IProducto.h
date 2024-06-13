@@ -8,6 +8,7 @@
 using namespace std;
 #include <string>
 #include <set>
+#include <map>
 
 class IProducto {
 public:
