@@ -11,6 +11,8 @@ public:
     virtual bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento) = 0;
     virtual void nuevoCliente(string direccion, string ciudad) = 0;
     virtual void nuevoVendedor(string RUT) = 0;
+    virtual set(string) ConsultarUsuarios();
+    
     virtual ~IUsuario();
 };
 

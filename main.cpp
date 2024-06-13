@@ -30,6 +30,8 @@ int main()
     IUsuario iUsuario = fabrica->getIUsuario();
     IProducto iProducto = fabrica->getIProducto();
 
+    Usuario 
+
     int opcion;
     Menu();
     
@@ -72,7 +74,8 @@ int main()
             }
             case 8: 
             {
-                //Llamar a la función ListarUsuarios();
+                iUsuario.ConsultarUsuarios();
+                cout << "Seleccione un Usuario" << endl;
 
             }
             case 9: 
