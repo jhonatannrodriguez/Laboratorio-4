@@ -7,6 +7,7 @@ using namespace std;
 
 class IProducto {
 public:
-    
+    virtual (DTProducto) getDTProductos();
+    virtual ~IProducto();
 };
 #endif

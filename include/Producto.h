@@ -4,7 +4,7 @@
 #include "Promocion.h"
 #include "EnumTipoProducto.h"
 using namespace std;
-#include <string>
+#include <string>A
 
 class Promocion;
 class Producto {

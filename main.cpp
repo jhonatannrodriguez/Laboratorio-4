@@ -24,13 +24,13 @@ void Menu() {
     cout << "16: Salir. " << endl;
 }
 
+
+
 int main()
 {
     Fabrica * fabrica = Fabrica::getInstancia();
     IUsuario iUsuario = fabrica->getIUsuario();
     IProducto iProducto = fabrica->getIProducto();
-
-    Usuario 
 
     int opcion;
     Menu();
@@ -76,6 +76,7 @@ int main()
             {
                 iUsuario.ConsultarUsuarios();
                 cout << "Seleccione un Usuario" << endl;
+                
 
             }
             case 9: 

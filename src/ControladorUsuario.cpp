@@ -24,13 +24,13 @@ void ControladorUsuario :: nuevoVendedor(string RUT) {
 
 set(string) ControladorUsuario :: ConsultarUsuarios() {
     set(string) nicknames;
-    for (const Usuario& usuario : this->usuarios) { //Aquí accedo directamente a travéz del "this", quizá convendría un getUsuarios(), (si no funcióna Usuario&, probar con auto&)
-        nicknames.insert(usuario.getNombre());
-        cout << ">" Usuario.getNombre() << endl;
+    for (const auto& usuario : this->usuarios) { //Aquí accedo directamente a travéz del "this", quizá convendría un getUsuarios()
+        nicknames.insert(usuario.first);         //Suponiendo que la clave es el nombre
+        cout << usuario.first << endl; 
     }
     return nicknames;
 }
 
-set(DTProducto) ControladorUsuario :: (string nickname) {
-    
+set(DTProducto) ControladorUsuario :: SeleccionarUsuario(string nickname, IProducto iproducto) {
+    return iproducto.getDTProductos();
 }

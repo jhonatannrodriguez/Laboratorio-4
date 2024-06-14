@@ -2,12 +2,15 @@
 #define _CONTROLADORUSUARIO_H
 
 #include "IUsuario.h"
+#include "IProducto.h"
 #include "Usuario.h"
+#include "Producto.h"
+#include <map>
 
 
 class ControladorUsuario : public IUsuario {
     private:
-        set(Usuario) usuarios;
+        map<string, Usuario> usuarios;
         static ControladorUsuario * instancia;
         ControladorUsuario();
     public:
@@ -16,6 +19,6 @@ class ControladorUsuario : public IUsuario {
         void nuevoCliente(string direccion, string ciudad);
         void nuevoVendedor(string RUT);
         set(string) ConsultarUsuarios();
-        set(DTProducto) seleccionarUsuario(string nickname);
+        set(DTProducto) SeleccionarUsuario(string nickname, IProducto);
 };
 #endif
