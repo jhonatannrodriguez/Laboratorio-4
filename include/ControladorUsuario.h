@@ -20,5 +20,6 @@ class ControladorUsuario : public IUsuario {
         void nuevoVendedor(string RUT);
         set(string) ConsultarUsuarios();
         Usuario* SeleccionarUsuario(string nickname);
+        DTComentario nuevoComentario(string texto, Usuario u);
 };
 #endif

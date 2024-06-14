@@ -15,7 +15,7 @@ public:
     virtual void nuevoVendedor(string RUT) = 0;
     virtual set(string) ConsultarUsuarios();
     virtual Usuario* SeleccionarUsuario(string nickname);
-    virtual DTComentario 
+    virtual DTComentario nuevoComentario(string texto, Usuario u);
     virtual ~IUsuario();
 };
 

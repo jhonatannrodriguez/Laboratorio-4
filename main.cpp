@@ -112,15 +112,18 @@ int main()
                             switch (option) {
                                 case 1:
                                 {
-                                    
+                                    cout << "Ingrese el texto del Coentario: "
+                                    string txt;
+                                    cin >> txt;
+                                    IUsuario.nuevoComentario(txt, user);
                                 }
                                 case 2:
                                 {
-
+                                    
                                 }
                                 case 3:
                                 {
-
+                                    OpcionesComentario();
                                 }
                                 default
                                 {
@@ -129,6 +132,7 @@ int main()
                                         OpcionesComentario()
                                     }
                                 }
+                                cout << "Seleccione nuevamente una opcion" << endl;
                             }
                         } while (option == 4)
                     }

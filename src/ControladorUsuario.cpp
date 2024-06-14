@@ -24,8 +24,8 @@ void ControladorUsuario :: nuevoVendedor(string RUT) {
 
 set(string) ControladorUsuario :: ConsultarUsuarios() {
     set(string) nicknames;
-    for (const auto& usuario : this->usuarios) { //Aquí accedo directamente a travéz del "this", quizá convendría un getUsuarios()
-        nicknames.insert(usuario.first);         //Suponiendo que la clave es el nombre
+    for (const auto& usuario : this->usuarios) {    //Aquí accedo directamente a travéz del "this", quizá convendría un getUsuarios()
+        nicknames.insert(usuario.first);            //Suponiendo que la clave es el nombre
         cout << usuario.first << endl; 
     }
     return nicknames;
@@ -38,4 +38,14 @@ Usuario* ControladorUsuario :: SeleccionarUsuario(string nickname) {
         cout << "No existe un Usuario registrado como: " nickname << endl;
         return null;
     }
+}
+
+DTComentario nuevoComentario(string texto, Usuario u) {
+    DTFecha fechaActual = DTFecha(0,0,0);                       //Temporal
+    DTComentario dtc = DTComentario(texto, fechaActual);
+    string id = "NOSE"                                          //Temporal 
+    Comentario coment = Comentario(texto, fechaActual, id);
+    set<Comentario*> coms = u.getComentarios()
+    coms.insert(coment*);
+    return dtc;
 }
