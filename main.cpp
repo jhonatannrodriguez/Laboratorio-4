@@ -4,7 +4,9 @@
 using namespace std;
 
 void listarString(set<string> s) {
-    
+    for (string st:s) {
+        cout << st << endl;
+    }
 }
 
 int main()
@@ -78,6 +80,7 @@ int main()
             tipo = static_cast<TipoProducto>(categoria);
             codigo = iProducto->ingresarProducto(nombre, precio, stock, descripcion, tipo);
             iProducto->darAltaProducto(codigo);
+            cout << "El producto ha sido registrado" << endl;
             }
             case 4: 
             {

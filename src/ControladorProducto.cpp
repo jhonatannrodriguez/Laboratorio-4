@@ -16,3 +16,7 @@ string ControladorProducto :: ingresarProducto(string nombre, float precio, unsi
 void ControladorProducto :: darAltaProducto(string codigo) {
     
 }
+
+string ControladorProducto :: generarCodigo() {
+    
+}
