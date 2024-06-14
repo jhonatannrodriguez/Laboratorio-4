@@ -1,14 +1,11 @@
-
+#include "./include/Fabrica.h"
+//#include "./include/DTFecha.h"
 #include <iostream>
-#include "../include/Fabrica.h"
 using namespace std;
 
 int main()
-{
-    Fabrica * fabrica = Fabrica::getInstancia();
-    IUsuario iUsuario = fabrica->getIUsuario();
-    IProducto iProducto = fabrica->getIProducto();
-
+{   
+    Fabrica *fabrica = Fabrica::getInstancia();
     int opcion;
     cout << "Elija una opción:" << endl;
     cout << "0: Cargar de Datos de Prueba." << endl;
@@ -28,9 +25,6 @@ int main()
     cout << "14: Eliminar suscripciones. " << endl;
     cout << "15: Ayuda. " << endl;
     cout << "16: Salir. " << endl;
-    
-    
-
     do
     {
         cin >> opcion;
@@ -40,61 +34,145 @@ int main()
             {
            
             }
-            case 1: 
+            case 1: //Alta de usuario
             {
+            bool nick_en_uso;
+            string nombre = "0";
+            string contrasenia = "0";
+            DTFecha fecha = DTFecha(0,0,0);
+            DTUsuario *dtusuario;
+            int tipo;
+            int dia;
+            int mes;
+            int anio;
             
+                
+                cout << "Selecione el tipo de usuario:" << endl;
+                cout << "1- Cliente." << endl;
+                cout << "2- Vendedor." << endl;
+                cin >> tipo;
+                cout << "Ingrese el nombre: ";
+                cin >> nombre;   
+                cout << "Ingrese fecha de nacimiento."<< endl;
+                cout << "Dia:"<< endl;
+                cin >> dia;
+                cout << "Mes:"<< endl;
+                cin >> mes;
+                cout << "Año:"<< endl;
+                cin >> anio;
+                fecha =DTFecha(dia,mes,anio);
+                //cin >> fecha;
+                cout << "Ingrese contraseña: ";
+                cin >> contrasenia;
+
+                
+                    if (tipo == 1)
+                    {
+                        string calle;
+                        string ciudad;
+                        int numero; 
+                        cout << "Ingrese la calle del cliente:" << endl;
+                        cin >> calle;
+                        cout << "Ingrese la ciudad del cliente:" << endl;
+                        cin >> ciudad;
+                        cout << "Ingrese el numero de puerta del cliente:" << endl;
+                        cin >> numero;
+                        dtusuario = new DTCliente(nombre, fecha, contrasenia, calle,numero,ciudad);
+                        
+                    }
+                    if (tipo==2)
+                    {
+                        string codigo_rut;
+                        cout << "Ingrese el codigo RUT del vendedor:" << endl;
+                        cin >> codigo_rut;
+                        dtusuario = new DTVendedor(nombre, fecha, contrasenia, codigo_rut);
+                    }
+                
+                
+            
+                InterfazUsuario *Iusuario = fabrica->getInterfazUsuario();
+                nick_en_uso = Iusuario->NuevoUsuario(dtusuario); 
+                if(!nick_en_uso){
+                fabrica->getInterfazUsuario()->Registrar(); //???
+                cout << "Se registro el usuario en el sistema." << endl;
+                }
+                else{
+                cout << "Nickname no disponible." << endl;   
+                }
+
+                //liberar el dt
+            
+                delete dtusuario;
+                break;
+            
+
+
             }
-            case 2: 
+            case 2: //Listar Usuarios
             {
-            ;
+            InterfazUsuario *Iusuario = fabrica->getInterfazUsuario();
+            set<DTUsuario *> listaUsuarios = Iusuario->ListarUsuarios(); 
+            cout << "Lista de usuarios: " << endl;
+
+                for (set<DTUsuario *>::iterator it = listaUsuarios.begin(); it != listaUsuarios.end(); ++it) // liberar la memoria
+                {
+                    cout << **it << endl;
+                    delete *it;
+                }
+            break;
             }
             case 3: 
             {
-            
+
+
+
+
+                
+            break;
             }
             case 4: 
             {
-           
+            break;
             }
             case 5: 
             {
-            
+            break;
             }
             case 6:
             {
-           
+            break;
             }
             case 7:
             {
-           
+            break;
             }
             case 8: 
             {
-           
+            break;
             }
             case 9: 
             {
-           
+            break;
             }
             case 10: 
             {
-            
+            break;
             }
             case 11: 
             {
-            
+            break;
             }
             case 12: 
             {
-            
+            break;
             }
             case 13: 
             {
-           
+            break;
             }
             case 14: 
             {
-          
+            break;
             }
             case 15:
             {
@@ -115,6 +193,14 @@ int main()
             cout << "14: Eliminar suscripciones. " << endl;
             cout << "15: Ayuda. " << endl;
             cout << "16: Salir. " << endl;
+            break;
+            }
+
+
+            case 16: 
+            {
+            delete fabrica;
+            break;
             }
         }
 

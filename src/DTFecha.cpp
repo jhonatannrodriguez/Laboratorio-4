@@ -51,8 +51,16 @@ int DTFecha::getanio()
 }
 
 
-ostream &operator<<(ostream &os, DTFecha &f)
+DTFecha::~DTFecha()
+{
+
+}
+
+
+
+ostream &operator<<(ostream &os, DTFecha f) //DTFecha &f puede que sea asi??
 {   
     os << f.getdia() << "/" << f.getmes() << "/" << f.getanio() << endl;
     return os;
 }
+

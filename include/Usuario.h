@@ -2,7 +2,9 @@
 #define _USUARIO_H
 
 #include "DTFecha.h"
-#include "Comentario.h"
+#include "DTUsuario.h"
+#include "Usuario.h"
+//#include "Comentario.h"
 using namespace std;
 #include <string>
 #include <set>
@@ -10,25 +12,30 @@ using namespace std;
 class Usuario {
 private:
     //Atributos
-    string nombre;
+    string nickname;
     DTFecha fecha_nacimiento;
     string contrasenia; 
     //Pseudoatributos
-    set<Comentario*> comentario;  
+    //set<Comentario*> comentario;  
 
 public:
     Usuario();
-    Usuario(string nombre,DTFecha fecha_nacimiento,string contrasenia); 
-    void setNombre(string);
+    Usuario(string nickname,DTFecha fecha_nacimiento,string contrasenia);
+    void setNickname(string);
     void setFecha_nacimiento(DTFecha);
     void setContrasenia(string);
-    string getNombre();
+    string getNickname();
     DTFecha getFecha_nacimiento();
     string getContrasenia();
     
-    set<Comentario*> getComentarios();
+    //set<Comentario*> getComentarios();
     
     virtual ~Usuario() = 0;
+
+    virtual DTUsuario* getDTUsuario() = 0;
+
 };
+
+
 
 #endif

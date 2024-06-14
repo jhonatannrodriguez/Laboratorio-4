@@ -1,22 +1,30 @@
 #ifndef DTCLIENTE_H
 #define DTCLIENTE_H
 
-#include "DTUsuario.h"
 #include <string>
-
+#include "DTUsuario.h"
+#include <iostream>
 using namespace std;
 
 class DTCliente : public DTUsuario {
     private:
-        string direccion;
+        string calle;
+        int numero_puerta;
         string ciudad;
     public:
-        DTCliente();
-        DTCliente(string direccion, string ciudad);
-        string getDireccion();
-        string getCiudad();
+        DTCliente(string nickname, DTFecha fecha, string contrasenia, string calle, int numero_Puerta, string ciudad );
 
+        DTCliente();
+        void setCalle(string);
+        string getCalle();
+        void setNumeroPuerta(string);
+        int getNumeroPuerta();
+        void setCiudad(string);
+        string getCiudad();
         ~DTCliente();
+
+        virtual void Imprimir(ostream &o);
 };
 
 #endif
+

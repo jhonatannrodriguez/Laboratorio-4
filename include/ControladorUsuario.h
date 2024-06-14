@@ -2,15 +2,56 @@
 #define _CONTROLADORUSUARIO_H
 
 #include "IUsuario.h"
+#include "Usuario.h"
 
-class ControladorUsuario : public IUsuario {
-    private:
-        static ControladorUsuario * instancia;
-        ControladorUsuario();
-    public:
-        static ControladorUsuario * getInstancia();
-        bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento);
-        void nuevoCliente(string direccion, string ciudad);
-        void nuevoVendedor(string RUT);
+#include "Vendedor.h"
+
+#include "Cliente.h"
+
+using namespace std;
+
+class ControladorUsuario : public InterfazUsuario
+{
+private:
+    static ControladorUsuario* instancia;
+    ControladorUsuario();
+
+    map<string, Usuario *> coleccionUsuarios;
+    DTUsuario *datosUsuario;
+   
+
+public:
+    
+
+    static ControladorUsuario *getInstancia();
+
+    ~ControladorUsuario();
+
+    // getters
+   
+    
+
+    map<string, Usuario*> getColeccionUsuarios();
+
+    // setters
+    
+    
+
+
+
+    // Operaciones del Diagrama de Comunicacion
+
+
+    virtual bool NuevoUsuario(DTUsuario* usuario);
+    virtual void Registrar();
+    virtual set< DTUsuario *> ListarUsuarios(); // set 
+   
+
+
+    
+
+
+
 };
+
 #endif

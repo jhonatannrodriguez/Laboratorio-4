@@ -1,7 +1,8 @@
 TARGET = $(BINDIR)/main
 
 
-OBJS   = $(OBJDIR)/main.o
+OBJS   = $(OBJDIR)/main.o $(OBJDIR)/Fabrica.o $(OBJDIR)/Cliente.o $(OBJDIR)/ControladorUsuario.o $(OBJDIR)/DTFecha.o $(OBJDIR)/DTCliente.o \
+		 $(OBJDIR)/Usuario.o $(OBJDIR)/DTUsuario.o $(OBJDIR)/DTVendedor.o $(OBJDIR)/Vendedor.o \
 		
 
 INCDIR = include

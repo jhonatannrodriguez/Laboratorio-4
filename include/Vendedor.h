@@ -2,31 +2,34 @@
 #define _VENDEDOR_H
 
 #include "Usuario.h"
-#include "Producto.h"
-#include "IObserver.h"
-#include "DTNotificacion.h"
-#include "Promocion.h"
+#include "DTVendedor.h"
+//#include "Producto.h"
+//#include "IObserver.h"
+//#include "DTNotificacion.h"
+//#include "Promocion.h"
 
 class Vendedor : public Usuario {
 private:
     //Atributos
     string codigo_rut;
     //Pseudoatributos
-    set<Producto*> producto;
-    set<Promocion*> promocion;
+   // set<Producto*> producto;
+  //  set<Promocion*> promocion;
 
 public:
     Vendedor();
-    Vendedor(string nombre,DTFecha fecha_nacimiento,string contrasenia,string codigo_rut);
+    Vendedor(string nickname,DTFecha fecha_nacimiento ,string contrasenia, string codigo_rut);
+    void setCodigoRut(string);
     string getCodigoRut();
-    void setCodigoRut(string codigo_rut);
 
-    set<Producto*> getProductos();
-    void agregar(IObserver);
-    void eliminar(IObserver);
-    void modificar(DTNotificacion);
+   // set<Producto*> getProductos();
+   // void agregar(IObserver);
+   // void eliminar(IObserver);
+   // void modificar(DTNotificacion);
 
     ~Vendedor();
-};
+    
+    DTVendedor *getDTVendedor();
+    virtual DTUsuario* getDTUsuario();};
 
 #endif

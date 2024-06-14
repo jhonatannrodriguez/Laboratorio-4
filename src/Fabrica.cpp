@@ -2,18 +2,28 @@
 
 Fabrica * Fabrica::instancia = NULL;
 
-Fabrica :: Fabrica() {}
+Fabrica::Fabrica()
+{
 
-Fabrica * Fabrica :: getInstancia() {
+}
+
+Fabrica::~Fabrica() 
+{
+    
+    InterfazUsuario *iUsuario = instancia->getInterfazUsuario();
+    delete iUsuario;
+    
+}
+
+Fabrica * Fabrica::getInstancia() 
+{
     if (instancia == NULL)
-         instancia = new Fabrica();
+        instancia = new Fabrica();
     return instancia;
 }
 
-IUsuario * Fabrica :: getIUsuario() {
-    return ControladorUsuario :: getInstancia();
+InterfazUsuario* Fabrica::getInterfazUsuario() 
+{
+    return ControladorUsuario::getInstancia();
 }
 
-IProducto * Fabrica :: getIProducto() {
-    return ControladorProducto :: getInstancia();
-}

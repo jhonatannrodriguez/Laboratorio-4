@@ -2,37 +2,44 @@
 #define _CLIENTE_H
 
 #include "Usuario.h"
-#include "DTNotificacion.h"
-#include "IObserver.h"
-#include "Vendedor.h"
-#include "Compra.h"
+#include "DTCliente.h"
+//#include "DTNotificacion.h"
+//#include "Vendedor.h"
+//#include "Compra.h"
 
-class Vendedor;
 class Cliente : public Usuario {
 private:
+    //Atributos
     string calle;
     int numero_puerta;
     string ciudad_residencia; 
-
-    set<DTNotificacion> nots; 
-    set<Vendedor*> vendedor_suscripcion;
-    set<Compra*> compra;
+    //Pseudoatributos
+    //set<DTNotificacion*> nots; //pensar mejor si poner *
+   // set<Vendedor*> vendedor_suscripcion;
+    //set<Compra*> compra;
 
 public:
     Cliente();
-    Cliente(string nombre,DTFecha fecha_nacimiento,string contrasenia,string calle, int numero_puerta, string ciudad_residencia);
+    Cliente(string nickname,DTFecha fecha_nacimiento ,string contrasenia, string calle,  int numero_puerta, string ciudad_residencia );    
+    void setNumeroPuerta(int);
+    void setCiudadResidencia(string); 
+    void setCalle(string);
+
     string getCalle();
     int getNumeroPuerta();
     string getCiudadResidencia();
-    void setCalle(string calle);
-    void setNumeroPuerta(int numero_puerta);
-    void setCiudadResidencia(string ciudad_residencia);
+    
     //void notificar(DTNotificacion);
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos();
     //void eliminarNotificaciones();
 
     ~Cliente();
+
+    
+    DTCliente *getDTCliente();
+    virtual DTUsuario* getDTUsuario();
+    
 };
 
 #endif
