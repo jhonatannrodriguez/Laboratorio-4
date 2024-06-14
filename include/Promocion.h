@@ -7,12 +7,13 @@ using namespace std;
 #include <string>
 #include <set>
 
-struct Minimo {
-    unsigned int cantidad;
-    Producto* producto;
-};
+//class Producto;
 
-class Producto;
+//struct Minimo {
+    //unsigned int cantidad;
+    //Producto * producto;
+//};
+
 class Promocion {
 private:
     //atributos
@@ -21,7 +22,7 @@ private:
     DTFecha vencimiento;
     float descuento;
     // pseudoatributos
-    set<Minimo> productos;
+    //set<Minimo> productos;
 public:
     Promocion();
     Promocion(string nombre,string descripcion,DTFecha vencimiento,float descuento);

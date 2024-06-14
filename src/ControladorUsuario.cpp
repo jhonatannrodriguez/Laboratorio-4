@@ -16,18 +16,36 @@ ControladorUsuario *ControladorUsuario::getInstancia()
     return instancia;
 }
 
+Usuario * ControladorUsuario :: getusuarioRecordado() {
+    return this->usuarioRecordado;
+}
+
 map<string, Usuario *> ControladorUsuario::getColeccionUsuarios()
 {
     return instancia->coleccionUsuarios;
 }
 
+set<string> ControladorUsuario :: listarVendedores() {
+    set<string> res;
+    for (map<string, Usuario *>::iterator it= instancia->coleccionUsuarios.begin(); it != instancia->coleccionUsuarios.end(); ++it)
+    {
+        Vendedor *v = dynamic_cast<Vendedor *>(it->second);
+        if (v != NULL) {
+            res.emplace(v->getNickname());
+        }       
+    } 
+    return res;
+}
 
+void ControladorUsuario :: seleccionarVendedor(string nombre) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombre);
+    this->usuarioRecordado = it->second;
+}
 
-
-
-
-
-
+void ControladorUsuario :: asociarProducto(Producto * p) {
+    Vendedor * v = dynamic_cast<Vendedor *>(getusuarioRecordado());
+    v->asociarProducto(p);
+}
 
 //destructor
 ControladorUsuario::~ControladorUsuario()

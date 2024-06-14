@@ -3,7 +3,7 @@
 
 
 enum class TipoProducto {
-    ropa,
+    ropa = 1,
     electrodomesticos,
     otros
 };

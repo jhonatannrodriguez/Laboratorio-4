@@ -9,8 +9,7 @@
         this->stock = 0;
     }
 
-    Producto :: Producto(string codigo,string nombre,string descripcion,float precio,TipoProducto tipo, unsigned int stock) {
-        this->codigo = codigo;
+    Producto :: Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo) {
         this->nombre = nombre;
         this->descripcion = descripcion;
         this->precio = precio;

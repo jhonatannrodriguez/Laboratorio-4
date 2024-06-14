@@ -3,6 +3,12 @@
 #include <iostream>
 using namespace std;
 
+void listarString(set<string> setS) {
+    for (string s:setS) {
+        cout << s << endl;
+    }
+}
+
 int main()
 {
 

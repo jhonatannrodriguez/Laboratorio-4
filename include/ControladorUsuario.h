@@ -4,7 +4,7 @@
 #include "IUsuario.h"
 #include "Usuario.h"
 
-
+#include "Producto.h"
 #include "Vendedor.h"
 
 #include "Cliente.h"
@@ -16,7 +16,7 @@ class ControladorUsuario : public IUsuario
 private:
     static ControladorUsuario* instancia;
     ControladorUsuario();
-
+    Usuario * usuarioRecordado;
     map<string, Usuario *> coleccionUsuarios;
     DTUsuario *datosUsuario;
    
@@ -25,7 +25,7 @@ public:
     static ControladorUsuario *getInstancia();
     ~ControladorUsuario();
     // getters
-
+    Usuario * getusuarioRecordado();
     map<string, Usuario*> getColeccionUsuarios();
 
     // setters
@@ -37,7 +37,7 @@ public:
     set< DTUsuario *> ListarUsuarios(); // set 
     set<string> listarVendedores();
     void seleccionarVendedor(string nickname);
-
+    void asociarProducto(Producto * p);
 };
 
 #endif

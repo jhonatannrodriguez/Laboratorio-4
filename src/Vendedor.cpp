@@ -17,9 +17,11 @@ Vendedor::Vendedor():Usuario()
 Vendedor::Vendedor(string nickname,DTFecha fecha_nacimiento ,string contrasenia, string codigo_rut):Usuario(nickname,fecha_nacimiento, contrasenia)
 {
     this->codigo_rut = codigo_rut;
-    
+}
 
-
+void Vendedor :: asociarProducto(Producto * p) {
+    this->productos.emplace(p);
+    //emplazar producto a vendedor, hacelo andres no restes.
 }
 
 Vendedor::~Vendedor()

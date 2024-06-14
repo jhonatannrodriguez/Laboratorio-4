@@ -20,7 +20,7 @@ private:
     Promocion* promocion;
 public:
     Producto();
-    Producto(string codigo,string nombre,string descripcion,float precio,TipoProducto tipo, unsigned int stock);
+    Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo);
     string getCodigo();
     string getNombre();
     string getDescripcion();
