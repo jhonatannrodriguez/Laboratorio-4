@@ -3,6 +3,8 @@
 #include "../include/Fabrica.h"
 using namespace std;
 
+#ifndef FuncionesAuxiliares
+#define FuncionesAuxiliares
 void Menu() {
     cout << "Elija una opción:" << endl;
     cout << "0: Cargar de Datos de Prueba." << endl;
@@ -24,6 +26,14 @@ void Menu() {
     cout << "16: Salir. " << endl;
 }
 
+void OpcionesComentario() {
+    cout << "Elija una opción:" << endl;
+    cout << "1: Redactar nuevo comentario." << endl;
+    cout << "2: Responder comentario." << endl;
+    cout << "3: Ayuda." << endl;
+    cout << "4: Salir." << endl;
+}
+#endif
 
 
 int main()
@@ -74,17 +84,55 @@ int main()
             }
             case 8: 
             {
+                //Lista todos los Usuarios en Consola
                 iUsuario.ConsultarUsuarios();
-                cout << "Seleccione un Usuario" << endl;
+                //El Administrador selecciona un Usuario
+                cout << "Seleccione un Usuario por nombre: " << endl;
                 string nickname;
                 cin >> nickname;
-                //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
                 Usuario* user = iUsuario.SeleccionarUsuario(nickname);
-                set(DTProducto) dtproductos = iProducto.getDTProductos();
-                for (const auto& dtp : dtproductos) {
-                    cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
+                //Se listan todos los Productos presentes (en caso de que "user" exista)
+                if (user != null) {
+                    set(DTProducto) dtproductos = iProducto.getDTProductos(); //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
+                    for (const auto& dtp : dtproductos) {
+                        cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
+                    }
+                    //Se elije el produco a comentar
+                    cout << "" << endl;
+                    cout << "Seleccione un Producto por código: " << endl;
+                    string codigo;
+                    cin >> codigo;
+                    Producto* producto = iProducto.elegirProducto(string codigo);
+                    //Se decide entre escribir un comentario, responder, o no hacer nada (todo esto, en caso de que "producto" exista)
+                    if (producto != null) {
+                        OpcionesComentario();
+                        do {
+                            int option = 0;
+                            cin >> option;
+                            switch (option) {
+                                case 1:
+                                {
+                                    
+                                }
+                                case 2:
+                                {
+
+                                }
+                                case 3:
+                                {
+
+                                }
+                                default
+                                {
+                                    if (option != 4) {
+                                        cout << "Opción no disponible..." << endl;
+                                        OpcionesComentario()
+                                    }
+                                }
+                            }
+                        } while (option == 4)
+                    }
                 }
-                
             }
             case 9: 
             {

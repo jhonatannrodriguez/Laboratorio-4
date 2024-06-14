@@ -8,11 +8,12 @@
 
 class ControladorProducto : public IProducto {
     private:
-        map<string, Producto> productos;
+        map<string, Producto*> productos;  //Codigo | Producto
         static ControladorProducto * instancia;
         ControladorProducto();
     public:
         static ControladorProducto * getInstancia();
+        Producto* elegirProducto(string codigo);
         set(DTProducto) getDTProductos();
 };
 #endif

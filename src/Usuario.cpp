@@ -36,6 +36,10 @@ string Usuario::getContrasenia() {
     return this->contrasenia;
 }
 
+set<Comentario*> Usuario::getComentarios() {
+    return this->comentarios;
+}
+
 Usuario::~Usuario() {
     
 }

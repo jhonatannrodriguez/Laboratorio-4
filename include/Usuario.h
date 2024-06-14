@@ -14,7 +14,7 @@ private:
     DTFecha fecha_nacimiento;
     string contrasenia; 
     //Pseudoatributos
-    set<Comentario*> comentario;  
+    set<Comentario*> comentarios;  
 
 public:
     Usuario();

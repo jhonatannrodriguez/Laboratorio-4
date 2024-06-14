@@ -3,6 +3,7 @@
 
 #include "DTFecha.h"
 #include "DTProducto"
+#include "DTComentario.h"
 using namespace std;
 #include <string>
 
@@ -14,6 +15,7 @@ public:
     virtual void nuevoVendedor(string RUT) = 0;
     virtual set(string) ConsultarUsuarios();
     virtual Usuario* SeleccionarUsuario(string nickname);
+    virtual DTComentario 
     virtual ~IUsuario();
 };
 
