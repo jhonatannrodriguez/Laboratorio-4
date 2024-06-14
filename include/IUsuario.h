@@ -17,6 +17,8 @@ public:
     virtual bool NuevoUsuario(DTUsuario*) = 0;
     virtual void Registrar()=0;
     virtual set<DTUsuario*> ListarUsuarios()=0;
+    virtual set<string> listarVendedores() = 0;
+    virtual void seleccionarVendedor(string nickname) = 0;
    
     virtual ~IUsuario() {}  
 };
