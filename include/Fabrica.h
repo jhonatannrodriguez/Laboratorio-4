@@ -3,7 +3,7 @@
 
 #include "ControladorUsuario.h"
 #include "ControladorProducto.h"
-
+#include "fechaSistema.h"
 
 class Fabrica
 {
@@ -13,6 +13,7 @@ private:
 public:
     IUsuario* getIUsuario();
     IProducto* getIProducto();
+    fechaSistema* getfechaSistema();
     static Fabrica * getInstancia();
     ~Fabrica();
 };
