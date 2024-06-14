@@ -4,8 +4,14 @@
 using namespace std;
 
 int main()
-{   
-    Fabrica *fabrica = Fabrica::getInstancia();
+{
+
+
+    Fabrica * fabrica = Fabrica::getInstancia();
+    IUsuario * iUsuario = fabrica->getIUsuario();
+    IProducto * iProducto = fabrica->getIProducto();
+
+
     int opcion;
     cout << "Elija una opción:" << endl;
     cout << "0: Cargar de Datos de Prueba." << endl;
