@@ -11,14 +11,16 @@
 class ControladorUsuario : public IUsuario {
     private:
         map<string, Usuario*> usuarios;
+        Usuario* user; //Opcional
         static ControladorUsuario * instancia;
         ControladorUsuario();
     public:
         static ControladorUsuario * getInstancia();
+        Usuario* getUsuario();
         bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento);
         void nuevoCliente(string direccion, string ciudad);
         void nuevoVendedor(string RUT);
-        set(string) ConsultarUsuarios();
+        set<string> ConsultarUsuarios();
         Usuario* SeleccionarUsuario(string nickname);
         DTComentario nuevoComentario(string texto, Usuario u);
 };

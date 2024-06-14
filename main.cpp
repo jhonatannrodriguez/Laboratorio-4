@@ -85,15 +85,18 @@ int main()
             case 8: 
             {
                 //Lista todos los Usuarios en Consola
-                iUsuario.ConsultarUsuarios();
+                set(string) nicknames = iUsuario->ConsultarUsuarios();
+                for (const string& n = nicknames) {
+                    cout << n << endl;
+                }
                 //El Administrador selecciona un Usuario
-                cout << "Seleccione un Usuario por nombre: " << endl;
+                cout << "Seleccione un Usuario: " << endl;
                 string nickname;
                 cin >> nickname;
-                Usuario* user = iUsuario.SeleccionarUsuario(nickname);
+                Usuario* user = iUsuario->SeleccionarUsuario(nickname); //<-- Cambiar
                 //Se listan todos los Productos presentes (en caso de que "user" exista)
                 if (user != null) {
-                    set(DTProducto) dtproductos = iProducto.getDTProductos(); //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
+                    set(DTProducto) dtproductos = iProducto->getDTProductos(); //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
                     for (const auto& dtp : dtproductos) {
                         cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
                     }
@@ -102,17 +105,17 @@ int main()
                     cout << "Seleccione un Producto por código: " << endl;
                     string codigo;
                     cin >> codigo;
-                    Producto* producto = iProducto.elegirProducto(string codigo);
+                    Producto* producto = iProducto.elegirProducto(string codigo); //<-- Cambiar
                     //Se decide entre escribir un comentario, responder, o no hacer nada (todo esto, en caso de que "producto" exista)
                     if (producto != null) {
                         OpcionesComentario();
+                        int option = 0;
                         do {
-                            int option = 0;
                             cin >> option;
                             switch (option) {
                                 case 1:
                                 {
-                                    cout << "Ingrese el texto del Coentario: "
+                                    cout << "Ingrese el texto del Coentario: " << endl
                                     string txt;
                                     cin >> txt;
                                     IUsuario.nuevoComentario(txt, user);
