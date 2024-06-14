@@ -31,6 +31,11 @@ set(string) ControladorUsuario :: ConsultarUsuarios() {
     return nicknames;
 }
 
-set(DTProducto) ControladorUsuario :: SeleccionarUsuario(string nickname, IProducto iproducto) {
-    return iproducto.getDTProductos();
+Usuario* ControladorUsuario :: SeleccionarUsuario(string nickname) {
+    if (this->usuarios.find(nickname) != this->usuarios.end()) {
+        return this->usuarios[nickname];
+    } else {
+        cout << "No existe un Usuario registrado como: " nickname << endl;
+        return null;
+    }
 }

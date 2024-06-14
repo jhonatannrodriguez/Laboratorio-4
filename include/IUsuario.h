@@ -13,7 +13,7 @@ public:
     virtual void nuevoCliente(string direccion, string ciudad) = 0;
     virtual void nuevoVendedor(string RUT) = 0;
     virtual set(string) ConsultarUsuarios();
-    virtual set(DTProducto) SeleccionarUsuario(string nickname);
+    virtual Usuario* SeleccionarUsuario(string nickname);
     virtual ~IUsuario();
 };
 

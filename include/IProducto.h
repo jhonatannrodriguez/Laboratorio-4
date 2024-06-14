@@ -2,6 +2,7 @@
 #define _IPRODUCTO_H
 
 #include "DTFecha.h"
+#include "DTProducto.h"
 using namespace std;
 #include <string>
 

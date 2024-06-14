@@ -76,8 +76,15 @@ int main()
             {
                 iUsuario.ConsultarUsuarios();
                 cout << "Seleccione un Usuario" << endl;
+                string nickname;
+                cin >> nickname;
+                //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
+                Usuario* user = iUsuario.SeleccionarUsuario(nickname);
+                set(DTProducto) dtproductos = iProducto.getDTProductos();
+                for (const auto& dtp : dtproductos) {
+                    cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
+                }
                 
-
             }
             case 9: 
             {

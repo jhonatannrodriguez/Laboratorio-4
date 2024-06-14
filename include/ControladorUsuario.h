@@ -10,7 +10,7 @@
 
 class ControladorUsuario : public IUsuario {
     private:
-        map<string, Usuario> usuarios;
+        map<string, Usuario*> usuarios;
         static ControladorUsuario * instancia;
         ControladorUsuario();
     public:
@@ -19,6 +19,6 @@ class ControladorUsuario : public IUsuario {
         void nuevoCliente(string direccion, string ciudad);
         void nuevoVendedor(string RUT);
         set(string) ConsultarUsuarios();
-        set(DTProducto) SeleccionarUsuario(string nickname, IProducto);
+        Usuario* SeleccionarUsuario(string nickname);
 };
 #endif
