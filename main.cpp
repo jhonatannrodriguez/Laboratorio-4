@@ -3,6 +3,10 @@
 #include "../include/Fabrica.h"
 using namespace std;
 
+void listarString(set<string> s) {
+    
+}
+
 int main()
 {
     Fabrica * fabrica = Fabrica::getInstancia();
@@ -50,7 +54,8 @@ int main()
             }
             case 3: 
             {
-            iUsuario->listarVendedores();
+            set<string> vendedores = iUsuario->listarVendedores();
+            listarString(vendedores);
             string v, nombre, descripcion, codigo;
             float precio;
             unsigned int stock;
