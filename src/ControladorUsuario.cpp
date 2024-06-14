@@ -21,3 +21,11 @@ void ControladorUsuario :: nuevoCliente(string direccion, string ciudad) {
 void ControladorUsuario :: nuevoVendedor(string RUT) {
 
 }
+
+set<string> ControladorUsuario :: listarVendedores() {
+
+}
+
+void ControladorUsuario :: seleccionarVendedor(string nickname) {
+    
+}

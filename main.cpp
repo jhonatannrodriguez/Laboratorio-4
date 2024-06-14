@@ -6,8 +6,8 @@ using namespace std;
 int main()
 {
     Fabrica * fabrica = Fabrica::getInstancia();
-    IUsuario iUsuario = fabrica->getIUsuario();
-    IProducto iProducto = fabrica->getIProducto();
+    IUsuario * iUsuario = fabrica->getIUsuario();
+    IProducto * iProducto = fabrica->getIProducto();
 
     int opcion;
     cout << "Elija una opción:" << endl;
@@ -50,7 +50,29 @@ int main()
             }
             case 3: 
             {
-            
+            iUsuario->listarVendedores();
+            string v, nombre, descripcion, codigo;
+            float precio;
+            unsigned int stock;
+            int categoria;
+            TipoProducto tipo;
+            cout << "seleccione un vendedor:" << endl;
+            cin >> v;
+            iUsuario->seleccionarVendedor(v);
+            cout << "elija el nombre del producto:" << endl;
+            cin >> nombre;
+            cout << "elija la descripcion del producto:" << endl;
+            cin >> descripcion;
+            cout << "elija el precio del producto:" << endl;
+            cin >> precio;
+            cout << "elija el stock del producto:" << endl;
+            cin >> stock;
+            cout << "elija la categoría del producto:" << endl;
+            cout << "1: ropa" << endl << "2: electrodomésticos" << endl << "3: otros" << endl;
+            cin >> categoria;
+            tipo = static_cast<TipoProducto>(categoria);
+            codigo = iProducto->ingresarProducto(nombre, precio, stock, descripcion, tipo);
+            iProducto->darAltaProducto(codigo);
             }
             case 4: 
             {

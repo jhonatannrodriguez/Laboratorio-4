@@ -12,5 +12,7 @@ class ControladorUsuario : public IUsuario {
         bool nuevoUsuario(string nickname, string contrasenia, DTFecha fecha_nacimiento);
         void nuevoCliente(string direccion, string ciudad);
         void nuevoVendedor(string RUT);
+        set<string> listarVendedores();
+        void seleccionarVendedor(string nickname);
 };
 #endif
