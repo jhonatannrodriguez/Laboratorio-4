@@ -7,7 +7,7 @@
 
 class ControladorUsuario : public IUsuario {
     private:
-        map<string, Promocion> promociones;
+        map<string, Promocion*> promociones;
         static ControladorUsuario * instancia;
         ControladorUsuario();
     public:
