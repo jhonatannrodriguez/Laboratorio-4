@@ -10,6 +10,7 @@ class ControladorProducto : public IProducto {
     private:
         static ControladorProducto * instancia;
         ControladorProducto();
+        map <string, Producto *> coleccionProducto;
     public:
         static ControladorProducto * getInstancia();
         set<DTProducto> consultarProducto();

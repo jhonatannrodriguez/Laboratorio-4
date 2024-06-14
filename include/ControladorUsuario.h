@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class ControladorUsuario : public InterfazUsuario
+class ControladorUsuario : public IUsuario
 {
 private:
     static ControladorUsuario* instancia;
@@ -20,41 +20,21 @@ private:
     map<string, Usuario *> coleccionUsuarios;
     DTUsuario *datosUsuario;
    
-
 public:
-    
 
     static ControladorUsuario *getInstancia();
-
     ~ControladorUsuario();
-
     // getters
-   
-    
 
     map<string, Usuario*> getColeccionUsuarios();
 
     // setters
-    
-    
-
-
 
     // Operaciones del Diagrama de Comunicacion
-
 
     virtual bool NuevoUsuario(DTUsuario* usuario);
     virtual void Registrar();
     virtual set< DTUsuario *> ListarUsuarios(); // set 
-   
-
-
-    
-
-
-
-
-
 
 };
 

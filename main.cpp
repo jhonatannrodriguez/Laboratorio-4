@@ -94,16 +94,14 @@ int main()
                         dtusuario = new DTVendedor(nombre, fecha, contrasenia, codigo_rut);
                     }
                 
+                nick_en_uso = iUsuario->NuevoUsuario(dtusuario); 
                 
-            
-                InterfazUsuario *Iusuario = fabrica->getInterfazUsuario();
-                nick_en_uso = Iusuario->NuevoUsuario(dtusuario); 
                 if(!nick_en_uso){
-                fabrica->getInterfazUsuario()->Registrar(); //???
-                cout << "Se registro el usuario en el sistema." << endl;
+                    iUsuario->Registrar(); 
+                    cout << "Se registro el usuario en el sistema." << endl;
                 }
                 else{
-                cout << "Nickname no disponible." << endl;   
+                    cout << "Nickname no disponible." << endl;   
                 }
 
                 //liberar el dt
@@ -116,8 +114,7 @@ int main()
             }
             case 2: //Listar Usuarios
             {
-            InterfazUsuario *Iusuario = fabrica->getInterfazUsuario();
-            set<DTUsuario *> listaUsuarios = Iusuario->ListarUsuarios(); 
+            set<DTUsuario *> listaUsuarios = iUsuario->ListarUsuarios(); 
             cout << "Lista de usuarios: " << endl;
 
                 for (set<DTUsuario *>::iterator it = listaUsuarios.begin(); it != listaUsuarios.end(); ++it) // liberar la memoria

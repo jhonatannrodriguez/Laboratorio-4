@@ -2,6 +2,7 @@
 #define _IPRODUCTO_H
 
 #include "DTProducto.h"
+#include "DTProductoInfo.h"
 using namespace std;
 #include <string>
 #include <set>

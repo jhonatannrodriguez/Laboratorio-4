@@ -10,7 +10,7 @@ Fabrica::Fabrica()
 Fabrica::~Fabrica() 
 {
     
-    InterfazUsuario *iUsuario = instancia->getInterfazUsuario();
+    IUsuario *iUsuario = instancia->getIUsuario();
     delete iUsuario;
     
 }
@@ -22,7 +22,7 @@ Fabrica * Fabrica::getInstancia()
     return instancia;
 }
 
-InterfazUsuario* Fabrica::getInterfazUsuario() 
+IUsuario* Fabrica::getIUsuario() 
 {
     return ControladorUsuario::getInstancia();
 }
