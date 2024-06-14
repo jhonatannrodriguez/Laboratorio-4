@@ -6,8 +6,8 @@ using namespace std;
 int main()
 {
     Fabrica * fabrica = Fabrica::getInstancia();
-    IUsuario iUsuario = fabrica->getIUsuario();
-    IProducto iProducto = fabrica->getIProducto();
+    IUsuario * iUsuario = fabrica->getIUsuario();
+    IProducto * iProducto = fabrica->getIProducto();
 
     int opcion;
     cout << "Elija una opción:" << endl;
