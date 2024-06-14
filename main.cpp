@@ -72,8 +72,13 @@ int main()
                     cout << *iter;
                 }
 
+                string nombre_promocion;
+
                 cout << "Ingrese el nombre de la Promocion (0 si no): " << endl; 
                 cin >> nombre_promocion;
+
+
+                 iUsuario.seleccionarPromocion(nombre_promocion);
 ;
 
 

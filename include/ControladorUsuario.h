@@ -2,9 +2,12 @@
 #define _CONTROLADORUSUARIO_H
 
 #include "IUsuario.h"
+#include "Promocion.h"
+#include <map>
 
 class ControladorUsuario : public IUsuario {
     private:
+        map<string, Promocion> promociones;
         static ControladorUsuario * instancia;
         ControladorUsuario();
     public:
