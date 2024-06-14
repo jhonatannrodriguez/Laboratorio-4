@@ -126,11 +126,31 @@ int main()
             }
             case 3: 
             {
-
-
-
-
-                
+            set<string> vendedores = iUsuario->listarVendedores();
+            listarString(vendedores);
+            string v, nombre, descripcion, codigo;
+            float precio;
+            unsigned int stock;
+            int categoria;
+            TipoProducto tipo;
+            cout << "seleccione un vendedor:" << endl;
+            cin >> v;
+            iUsuario->seleccionarVendedor(v);
+            cout << "elija el nombre del producto:" << endl;
+            cin >> nombre;
+            cout << "elija la descripcion del producto:" << endl;
+            cin >> descripcion;
+            cout << "elija el precio del producto:" << endl;
+            cin >> precio;
+            cout << "elija el stock del producto:" << endl;
+            cin >> stock;
+            cout << "elija la categoría del producto:" << endl;
+            cout << "1: ropa" << endl << "2: electrodomésticos" << endl << "3: otros" << endl;
+            cin >> categoria;
+            tipo = static_cast<TipoProducto>(categoria);
+            codigo = iProducto->ingresarProducto(nombre, precio, stock, descripcion, tipo);
+            iProducto->darAltaProducto(codigo);
+            cout << "El producto ha sido registrado" << endl;
             break;
             }
             case 4: 
