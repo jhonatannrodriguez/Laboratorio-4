@@ -42,9 +42,149 @@ int main()
         cin >> opcion;
         switch (opcion)
         {
-            case 0:
+            case 0: //Cargar datos
             {
-           
+                //Clientes
+                
+                DTUsuario *U= new DTCliente("juan87", DTFecha(20,10,1992), "1qaz2wsx ", "Av. 18 de Julio ",456,"Melo ");
+                bool nickenuso1 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso1)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTCliente("laura", DTFecha(22,9,1979), "3edc4rfv ", "Rondeau ",1617,"Montevideo");
+                bool nickenuso2 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso2)
+                iUsuario->Registrar();
+                delete U;
+
+                U= new DTCliente("natalia", DTFecha(14,4,1982), "poiuyt ", "Paysandú  ",2021,"Salto");
+                bool nickenuso3 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso3)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTCliente("pablo10 ", DTFecha(30,11,1995), "lkjhgv ", "Av. Rivera",1819 ,"Mercedes");
+                bool nickenuso4 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso4)
+                iUsuario->Registrar();
+               
+                delete U;
+
+                U= new DTCliente("roberto ", DTFecha(12,8,1990), "mnbvcx ", "Av. Brasil",1011 ,"Montevideo");
+                bool nickenuso5 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso5)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                //Vendedores
+                
+
+                U= new DTVendedor("ana23  ", DTFecha(15,5,1988), "qwer1234  ", "212345678001");
+                bool nickenuso6 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso6)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTVendedor("carlos78  ", DTFecha(18,6,1986), "asdfghj   ", "356789012345");
+                bool nickenuso7 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso7)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTVendedor("diegom  ", DTFecha(28,7,1993), "zxcvbn   ", "190123456789 ");
+                bool nickenuso8 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso8)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTVendedor("maria01  ", DTFecha(25,3,1985), "5tgb6yhn   ", "321098765432");
+                bool nickenuso9 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso9)
+                iUsuario->Registrar();
+                
+                delete U;
+
+                U= new DTVendedor("sofia25   ", DTFecha(7,12,1983), "1234asdf   ", "445678901234");
+                bool nickenuso10 = iUsuario->NuevoUsuario(U);
+                if (!nickenuso10)
+                iUsuario->Registrar();
+            
+                delete U;
+
+              
+                //Productos
+                /*iUsuario->seleccionarVendedor("carlos78" );
+                string codigo = iProducto->ingresarProducto( "Camiseta Azul ", 1400, 50 , "Camiseta de poliester, color azul", TipoProducto::ropa);
+                //cout << "Codigo:" << codigo << endl;
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("ana23" );
+                codigo = iProducto->ingresarProducto( "Televisor LED  ", 40500, 30  , "Televisor LED 55 pulgadas", TipoProducto::electrodomesticos);
+                //cout << "Codigo:" << codigo << endl;
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("carlos78");
+                codigo = iProducto->ingresarProducto("Chaqueta de Cuero", 699.99, 20, "Chaqueta de cuero, color negro", TipoProducto::ropa);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("ana23");
+                codigo = iProducto->ingresarProducto("Microondas Digital", 1199.99, 15, "", TipoProducto::electrodomesticos);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("diegom");
+                codigo = iProducto->ingresarProducto("Luz LED", 599.99, 40, "Luz Bluetooth LED", TipoProducto::otros);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("carlos78");
+                codigo = iProducto->ingresarProducto("Pantalones Vaqueros", 60, 25, "Pantalones vaqueros, talla 32", TipoProducto::ropa);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("diegom");
+                codigo = iProducto->ingresarProducto("Auriculares Bluetooth", 199.99, 35, "Auriculares bluethooth para celular", TipoProducto::otros);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("ana23");
+                codigo = iProducto->ingresarProducto("Refrigerador", 15499, 10, "Refrigerador de doble puerta", TipoProducto::electrodomesticos);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("ana23");
+                codigo = iProducto->ingresarProducto("Cafetera", 23000, 50, "Cafetera de goteo programable", TipoProducto::electrodomesticos);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("carlos78");
+                codigo = iProducto->ingresarProducto("Zapatillas Deportivas", 5500, 20, "Zapatillas para correr, talla 42", TipoProducto::ropa);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("carlos78");
+                codigo = iProducto->ingresarProducto("Mochila", 9000, 30, "Mochila de viaje, 40L", TipoProducto::otros);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("diegom");
+                codigo = iProducto->ingresarProducto("Plancha de Ropa", 2534, 25, "Plancha a vapor, 1500W", TipoProducto::electrodomesticos);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("sofia25");
+                codigo = iProducto->ingresarProducto("Gorra", 200, 50, "Gorra para deportes, color rojo", TipoProducto::ropa);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("diegom");
+                codigo = iProducto->ingresarProducto("Tablet", 15000, 15, "Tablet Android de 10 pulg", TipoProducto::electrodomesticos);
+                iProducto->darAltaProducto(codigo);
+
+                iUsuario->seleccionarVendedor("sofia25");
+                codigo = iProducto->ingresarProducto("Reloj de Pared", 150.50, 20, "", TipoProducto::otros);
+                iProducto->darAltaProducto(codigo);*/
+
+
+
+            break;
             }
             case 1: //Alta de usuario
             {
