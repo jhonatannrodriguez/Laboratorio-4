@@ -133,6 +133,7 @@ int main()
             case 3: 
             {
             set<string> vendedores = iUsuario->listarVendedores();
+            cout << "Lista de vendedores: " << endl;
             listarString(vendedores);
             vendedores.clear();
             string v, nombre, descripcion, codigo;
@@ -156,6 +157,7 @@ int main()
             cin >> categoria;
             tipo = static_cast<TipoProducto>(categoria);
             codigo = iProducto->ingresarProducto(nombre, precio, stock, descripcion, tipo);
+            cout << "Codigo:" << codigo << endl;
             iProducto->darAltaProducto(codigo);
             cout << "El producto ha sido registrado" << endl;
             break;
