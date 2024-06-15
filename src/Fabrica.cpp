@@ -12,6 +12,9 @@ Fabrica::~Fabrica()
     
     IUsuario *iUsuario = instancia->getIUsuario();
     delete iUsuario;
+
+    IProducto *iProducto=instancia->getIProducto();
+    delete iProducto;
     
 }
 
@@ -25,5 +28,10 @@ Fabrica * Fabrica::getInstancia()
 IUsuario* Fabrica::getIUsuario() 
 {
     return ControladorUsuario::getInstancia();
+}
+
+IProducto* Fabrica::getIProducto() 
+{
+    return ControladorProducto::getInstancia();
 }
 

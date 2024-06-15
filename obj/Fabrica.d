@@ -1,6 +1,7 @@
 obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
- src/../include/Fabrica.h src/../include/IUsuario.h \
- src/../include/DTCliente.h /usr/include/c++/9/string \
+ src/../include/Fabrica.h src/../include/ControladorUsuario.h \
+ src/../include/IUsuario.h src/../include/DTCliente.h \
+ /usr/include/c++/9/string \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -148,5 +149,9 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
  /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- src/../include/ControladorUsuario.h src/../include/Usuario.h \
- src/../include/Vendedor.h src/../include/Cliente.h
+ src/../include/Usuario.h src/../include/Producto.h \
+ src/../include/Promocion.h src/../include/EnumTipoProducto.h \
+ src/../include/Vendedor.h src/../include/Cliente.h \
+ src/../include/ControladorProducto.h src/../include/DTProductoInfo.h \
+ src/../include/IProducto.h src/../include/DTProducto.h \
+ src/../include/fechaSistema.h

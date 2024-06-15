@@ -25,6 +25,10 @@ map<string, Usuario *> ControladorUsuario::getColeccionUsuarios()
     return instancia->coleccionUsuarios;
 }
 
+
+
+
+
 set<string> ControladorUsuario :: listarVendedores() {
     set<string> res;
     for (map<string, Usuario *>::iterator it= instancia->coleccionUsuarios.begin(); it != instancia->coleccionUsuarios.end(); ++it)

@@ -134,6 +134,7 @@ int main()
             {
             set<string> vendedores = iUsuario->listarVendedores();
             listarString(vendedores);
+            vendedores.clear();
             string v, nombre, descripcion, codigo;
             float precio;
             unsigned int stock;

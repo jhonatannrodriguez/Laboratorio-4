@@ -24,16 +24,35 @@ Producto * ControladorProducto :: getpRecordado() {
     return this->pRecordado;
 }
 
-set<DTProducto> ControladorProducto :: consultarProducto() {
 
+
+
+
+
+//destructor
+ControladorProducto::~ControladorProducto()
+{
+    for (map<string, Producto *>::iterator it = coleccionProducto.begin(); it != coleccionProducto.end(); ++it)
+        delete it->second; 
+    coleccionProducto.clear();
 }
 
-DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
 
-}
+
+
+
+//Operaciones del diagrama de comunicacion
+/*set<DTProducto> ControladorProducto :: consultarProducto() {
+
+}*/
+
+/*DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
+
+}*/
 
 string ControladorProducto :: ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria) {
     Producto * p = new Producto(nombre, precio, stock, descripcion, categoria);
+
     this->pRecordado = p;
     this->codigo++;
     return to_string(this->codigo);
@@ -42,6 +61,8 @@ string ControladorProducto :: ingresarProducto(string nombre, float precio, unsi
 void ControladorProducto :: darAltaProducto(string codigo) {
     Producto * p = getpRecordado();
     p->setCodigo(codigo);
+    string c = p->getCodigo();
+    this->coleccionProducto[c] = p;
     ControladorUsuario * CU = ControladorUsuario::getInstancia();
     CU->asociarProducto(p);
 }

@@ -18,9 +18,13 @@ class ControladorProducto : public IProducto {
         static ControladorProducto * getInstancia();
         Producto * getpRecordado();
         int getCodigo();
-        set<DTProducto> consultarProducto();
-        DTProductoInfo seleccionarProducto(string codigo);
-        string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria);
-        void darAltaProducto(string codigo);
+         ~ControladorProducto();
+
+
+
+       //  set<DTProducto> consultarProducto();
+       // DTProductoInfo seleccionarProducto(string codigo);
+         string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria);
+         void darAltaProducto(string codigo);
 };
 #endif

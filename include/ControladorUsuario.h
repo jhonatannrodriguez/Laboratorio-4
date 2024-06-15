@@ -32,10 +32,10 @@ public:
 
     // Operaciones del Diagrama de Comunicacion
 
-    bool NuevoUsuario(DTUsuario* usuario);
-    void Registrar();
-    set< DTUsuario *> ListarUsuarios(); // set 
-    set<string> listarVendedores();
+     bool NuevoUsuario(DTUsuario* usuario);
+     void Registrar();
+     set< DTUsuario *> ListarUsuarios(); // set 
+     set<string> listarVendedores();
     void seleccionarVendedor(string nickname);
     void asociarProducto(Producto * p);
 };

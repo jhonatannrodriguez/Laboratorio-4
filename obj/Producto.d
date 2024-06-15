@@ -1,6 +1,7 @@
-obj/Vendedor.o: src/Vendedor.cpp /usr/include/stdc-predef.h \
- src/../include/Vendedor.h src/../include/Usuario.h \
- src/../include/DTFecha.h /usr/include/c++/9/iostream \
+obj/Producto.o: src/Producto.cpp /usr/include/stdc-predef.h \
+ src/../include/Producto.h src/../include/Promocion.h \
+ src/../include/Producto.h src/../include/DTFecha.h \
+ /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -135,10 +136,8 @@ obj/Vendedor.o: src/Vendedor.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc src/../include/DTUsuario.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/set \
+ /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/ext/aligned_buffer.h \
  /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
- /usr/include/c++/9/bits/erase_if.h src/../include/DTVendedor.h \
- src/../include/Producto.h src/../include/Promocion.h \
- src/../include/EnumTipoProducto.h /usr/include/c++/9/stdlib.h
+ /usr/include/c++/9/bits/erase_if.h src/../include/EnumTipoProducto.h

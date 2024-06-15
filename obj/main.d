@@ -1,5 +1,6 @@
 obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
- include/IUsuario.h include/DTCliente.h /usr/include/c++/9/string \
+ include/ControladorUsuario.h include/IUsuario.h include/DTCliente.h \
+ /usr/include/c++/9/string \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -147,5 +148,7 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
  /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- include/ControladorUsuario.h include/Usuario.h include/Vendedor.h \
- include/Cliente.h
+ include/Usuario.h include/Producto.h include/Promocion.h \
+ include/EnumTipoProducto.h include/Vendedor.h include/Cliente.h \
+ include/ControladorProducto.h include/DTProductoInfo.h \
+ include/IProducto.h include/DTProducto.h include/fechaSistema.h
