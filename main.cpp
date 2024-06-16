@@ -85,7 +85,7 @@ int main()
             case 8: 
             {
                 //Lista todos los Usuarios en Consola
-                set(string) nicknames = iUsuario->ConsultarUsuarios();
+                set<string> nicknames = iUsuario->consultarUsuarios();
                 ListarStrings(nicknames); 
                 //El Administrador selecciona un Usuario
                 cout << "Seleccione un Usuario: " << endl;
@@ -94,7 +94,7 @@ int main()
                 iUsuario.SeleccionarUsuario(nickname); //Guarda una referencia del Usuario (lo recuerda)
                 //Se listan todos los Productos presentes (en caso de que "user" exista)
                 if (iUsuario.getUsuario() != null) {
-                    set(DTProducto) dtproductos = iProducto->getDTProductos();
+                    set<DTProducto> dtproductos = iProducto->getDTProductos();
                     for (const auto& dtp : dtproductos) {
                         cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
                     }
@@ -121,12 +121,12 @@ int main()
                                 case 2:
                                 {
                                     cout << "Comentarios del Producto: " << endl;
-                                    map<int, DTComentario> textosComentarios = iProducto.listarComentarios(); 
+                                    map<string, DTComentario> textosComentarios = iProducto.listarComentarios(); 
                                     for (const auto& dtc : textosComentarios) {
                                         //Listar dependiendo de la Implementacion
                                     }
                                     cout << "Seleccione un Comentario por ID: " << endl;
-                                    int id;
+                                    string id;
                                     cin >> id;
                                     cout << "Escriba una Respuesta: " <<endl;
                                     string respuesta;
@@ -152,7 +152,22 @@ int main()
             }
             case 9: 
             {
-           
+                //Lista todos los Usuarios en Consola
+                set<string> nicknames = iUsuario->consultarUsuarios();
+                ListarStrings(nicknames);
+                //Se selecciona un Usuario, se recuerda y se listan sus comentarios
+                cout << "Seleccione un Usuario: " << endl;
+                string nickname;
+                cin >> nickname;
+                map<string, DTComentario> setdtc = iUsuario.listarComentarios(nickname);
+                for (const auto& dtc : setdtc) {
+                    //Listar dependiendo de la Implementacion
+                }
+                cout << "Seleccione el Comentario a eliminar por ID: "
+                string id;
+                cin << id;
+                eliminarComentario(id);
+                cout << "Comentarios Eliminados" << endl;
             }
             case 10: 
             {
