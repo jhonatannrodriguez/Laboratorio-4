@@ -66,14 +66,14 @@ int main()
                 
                 delete U;
 
-                U= new DTCliente("pablo10 ", DTFecha(30,11,1995), "lkjhgv ", "Av. Rivera",1819 ,"Mercedes");
+                U= new DTCliente("pablo10", DTFecha(30,11,1995), "lkjhgv ", "Av. Rivera",1819 ,"Mercedes");
                 bool nickenuso4 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso4)
                 iUsuario->Registrar();
                
                 delete U;
 
-                U= new DTCliente("roberto ", DTFecha(12,8,1990), "mnbvcx ", "Av. Brasil",1011 ,"Montevideo");
+                U= new DTCliente("roberto", DTFecha(12,8,1990), "mnbvcx ", "Av. Brasil",1011 ,"Montevideo");
                 bool nickenuso5 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso5)
                 iUsuario->Registrar();
@@ -83,35 +83,35 @@ int main()
                 //Vendedores
                 
 
-                U= new DTVendedor("ana23  ", DTFecha(15,5,1988), "qwer1234  ", "212345678001");
+                U= new DTVendedor("ana23", DTFecha(15,5,1988), "qwer1234  ", "212345678001");
                 bool nickenuso6 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso6)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("carlos78  ", DTFecha(18,6,1986), "asdfghj   ", "356789012345");
+                U= new DTVendedor("carlos78", DTFecha(18,6,1986), "asdfghj   ", "356789012345");
                 bool nickenuso7 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso7)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("diegom  ", DTFecha(28,7,1993), "zxcvbn   ", "190123456789 ");
+                U= new DTVendedor("diegom", DTFecha(28,7,1993), "zxcvbn   ", "190123456789 ");
                 bool nickenuso8 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso8)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("maria01  ", DTFecha(25,3,1985), "5tgb6yhn   ", "321098765432");
+                U= new DTVendedor("maria01", DTFecha(25,3,1985), "5tgb6yhn   ", "321098765432");
                 bool nickenuso9 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso9)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("sofia25   ", DTFecha(7,12,1983), "1234asdf   ", "445678901234");
+                U= new DTVendedor("sofia25", DTFecha(7,12,1983), "1234asdf   ", "445678901234");
                 bool nickenuso10 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso10)
                 iUsuario->Registrar();
@@ -120,7 +120,7 @@ int main()
 
               
                 //Productos
-                /*iUsuario->seleccionarVendedor("carlos78" );
+                iUsuario->seleccionarVendedor("carlos78" );
                 string codigo = iProducto->ingresarProducto( "Camiseta Azul ", 1400, 50 , "Camiseta de poliester, color azul", TipoProducto::ropa);
                 //cout << "Codigo:" << codigo << endl;
                 iProducto->darAltaProducto(codigo);
@@ -180,7 +180,7 @@ int main()
 
                 iUsuario->seleccionarVendedor("sofia25");
                 codigo = iProducto->ingresarProducto("Reloj de Pared", 150.50, 20, "", TipoProducto::otros);
-                iProducto->darAltaProducto(codigo);*/
+                iProducto->darAltaProducto(codigo);
 
 
 
@@ -308,7 +308,7 @@ int main()
             }
             case 5: 
             {
-                string nombre, descripcion, vendedor;
+                /*string nombre, descripcion, vendedor;
                 float descuento;
                 int dia, mes, anio;
                 DTFecha vencimiento = DTFecha(0,0,0);
@@ -332,14 +332,14 @@ int main()
 
                 cout << "Ingrese el vendedor que desea seleccionar:"<< endl;
                 cin >> vendedor;
-                set<DTProducto> productos = iUsuario->seleccionarVendedor(vendedor);
+                set<DTProducto> productos = iUsuario->seleccionarVendedor(vendedor);*/
 
 
             break;
             }
             case 6:
             {
-                cout << "Lista de Promociones: " << endl; 
+               /* cout << "Lista de Promociones: " << endl; 
                 set<DTPromocion> promociones = iUsuario.consultarPromocion();
                 set<DTPromocion>::iterator iter;
                 for (iter = promociones.begin(); iter != promociones.end(); iter++) {
@@ -351,7 +351,7 @@ int main()
 
                 if(nombre_promocion != "N"){
                     iUsuario.seleccionarPromocion(nombre_promocion);
-                }
+                }*/
 
 
                  

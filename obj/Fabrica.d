@@ -149,9 +149,10 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
  /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- src/../include/Usuario.h src/../include/Producto.h \
- src/../include/Promocion.h src/../include/EnumTipoProducto.h \
- src/../include/Vendedor.h src/../include/Cliente.h \
- src/../include/ControladorProducto.h src/../include/DTProductoInfo.h \
- src/../include/IProducto.h src/../include/DTProducto.h \
+ src/../include/Usuario.h src/../include/DTVendedorInfo.h \
+ src/../include/DTProducto.h src/../include/Producto.h \
+ src/../include/Promocion.h src/../include/DTPromocion.h \
+ src/../include/EnumTipoProducto.h src/../include/Vendedor.h \
+ src/../include/Cliente.h src/../include/ControladorProducto.h \
+ src/../include/DTProductoInfo.h src/../include/IProducto.h \
  src/../include/fechaSistema.h

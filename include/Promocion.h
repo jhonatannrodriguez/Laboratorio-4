@@ -3,6 +3,7 @@
 
 #include "Producto.h"
 #include "DTFecha.h"
+#include "DTPromocion.h"
 using namespace std;
 #include <string>
 #include <set>

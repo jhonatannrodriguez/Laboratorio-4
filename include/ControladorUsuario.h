@@ -3,10 +3,11 @@
 
 #include "IUsuario.h"
 #include "Usuario.h"
-
+#include "DTVendedorInfo.h"
+#include "DTProducto.h"
 #include "Producto.h"
 #include "Vendedor.h"
-#include "Promocion"
+#include "Promocion.h"
 
 #include "Cliente.h"
 
@@ -41,11 +42,11 @@ public:
     void seleccionarVendedor(string nickname);
     void asociarProducto(Producto * p);
 
-    set<DTPromocion> consultarPromocion();
+   /**/ set<DTPromocion> consultarPromocion();
     DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
-    set<DTProducto> seleccionarVendedor(string nickname);
+   // set<DTProducto> seleccionarVendedor(string nickname);
 };
 
 #endif

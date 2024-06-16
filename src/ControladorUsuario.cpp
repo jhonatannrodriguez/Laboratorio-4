@@ -118,7 +118,7 @@ void ControladorUsuario::Registrar()
    return res;
 }
 
-set<DTPromocion> ControladorUsuario::consultarPromocion() {
+/*set<DTPromocion> ControladorUsuario::consultarPromocion() {
     set<DTPromocion> promociones;
     for (const auto& promocion : this->promocion) {
         DTPromocion prom(promocion.second.getVencimiento(), 
@@ -128,22 +128,22 @@ set<DTPromocion> ControladorUsuario::consultarPromocion() {
         promociones.insert(prom);
     }
     return promociones;
-}
+}*/
 
 
-set<string> Controlador::Usuario crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
+/*set<string> ControladorUsuario crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
 
-}
+}*/
 
-set<DTProducto> Controlador::Usuario seleccionarVendedor(string nickname){
+/*set<DTProducto> Controlador::Usuario seleccionarVendedor(string nickname){
     
-}
+}*/
 
 
 
-DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
+/*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     
-}
+}*/
 
 
 
