@@ -38,4 +38,4 @@
     return os;
 } 
 
-    DTPromocion :: ~DTPromocion() {} // Llevan destructor??
+    DTPromocion :: ~DTPromocion() {} 
