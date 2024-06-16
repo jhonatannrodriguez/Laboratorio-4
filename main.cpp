@@ -86,17 +86,15 @@ int main()
             {
                 //Lista todos los Usuarios en Consola
                 set(string) nicknames = iUsuario->ConsultarUsuarios();
-                for (const string& n = nicknames) {
-                    cout << n << endl;
-                }
+                ListarStrings(nicknames); 
                 //El Administrador selecciona un Usuario
                 cout << "Seleccione un Usuario: " << endl;
                 string nickname;
                 cin >> nickname;
-                Usuario* user = iUsuario->SeleccionarUsuario(nickname); //<-- Cambiar
+                iUsuario.SeleccionarUsuario(nickname); //Guarda una referencia del Usuario (lo recuerda)
                 //Se listan todos los Productos presentes (en caso de que "user" exista)
-                if (user != null) {
-                    set(DTProducto) dtproductos = iProducto->getDTProductos(); //set(DTProducto) dtproductos = iUsuario.SeleccionarUsuario(string nickname, IProducto);
+                if (iUsuario.getUsuario() != null) {
+                    set(DTProducto) dtproductos = iProducto->getDTProductos();
                     for (const auto& dtp : dtproductos) {
                         cout << "Nombre Producto: " dtp.getNombre(), " Código Producto: " dtp.getCodigo() << endl
                     }
@@ -105,9 +103,9 @@ int main()
                     cout << "Seleccione un Producto por código: " << endl;
                     string codigo;
                     cin >> codigo;
-                    Producto* producto = iProducto.elegirProducto(string codigo); //<-- Cambiar
+                    iProducto.elegirProducto(string codigo); //Guarda una referencia del Producto (lo recuerda)
                     //Se decide entre escribir un comentario, responder, o no hacer nada (todo esto, en caso de que "producto" exista)
-                    if (producto != null) {
+                    if (iProducto.getProducto() != null) {
                         OpcionesComentario();
                         int option = 0;
                         do {
@@ -115,14 +113,25 @@ int main()
                             switch (option) {
                                 case 1:
                                 {
-                                    cout << "Ingrese el texto del Coentario: " << endl
+                                    cout << "Ingrese el texto del Coentario: " << endl;
                                     string txt;
                                     cin >> txt;
-                                    IUsuario.nuevoComentario(txt, user);
+                                    IUsuario.nuevoComentario(txt); //Partimos de la base que ControladorUsuario recuerda el User
                                 }
                                 case 2:
                                 {
-                                    
+                                    cout << "Comentarios del Producto: " << endl;
+                                    map<int, DTComentario> textosComentarios = iProducto.listarComentarios(); 
+                                    for (const auto& dtc : textosComentarios) {
+                                        //Listar dependiendo de la Implementacion
+                                    }
+                                    cout << "Seleccione un Comentario por ID: " << endl;
+                                    int id;
+                                    cin >> id;
+                                    cout << "Escriba una Respuesta: " <<endl;
+                                    string respuesta;
+                                    cin >> respuesta;
+                                    iProducto.nuevoComentario(id, respuesta); //Accede al atributo map<int id, Comentario*> y le asigna un nuevo hijo con el texto "respuesta" 
                                 }
                                 case 3:
                                 {
