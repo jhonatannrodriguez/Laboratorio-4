@@ -118,6 +118,22 @@ void ControladorUsuario::Registrar()
    return res;
 }
 
+set<DTPromocion> ControladorUsuario::consultarPromocion() {
+    set<DTPromocion> promociones;
+    for (const auto& promocion : this->promocion) {
+        DTPromocion prom(promocion.second.getVencimiento(), 
+                        promocion.second.getDescripcion(), 
+                        promocion.second.getNombre(), 
+                        promocion.second.getDescuento());
+        promociones.insert(prom);
+    }
+    return promociones;
+}
+
+DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
+    
+}
+
 
 
 

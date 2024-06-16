@@ -6,6 +6,7 @@
 
 #include "Producto.h"
 #include "Vendedor.h"
+#include "Promocion"
 
 #include "Cliente.h"
 
@@ -18,6 +19,7 @@ private:
     ControladorUsuario();
     Usuario * usuarioRecordado;
     map<string, Usuario *> coleccionUsuarios;
+    map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
    
 public:
@@ -32,12 +34,15 @@ public:
 
     // Operaciones del Diagrama de Comunicacion
 
-     bool NuevoUsuario(DTUsuario* usuario);
-     void Registrar();
-     set< DTUsuario *> ListarUsuarios(); // set 
-     set<string> listarVendedores();
+    bool NuevoUsuario(DTUsuario* usuario);
+    void Registrar();
+    set< DTUsuario *> ListarUsuarios(); // set 
+    set<string> listarVendedores();
     void seleccionarVendedor(string nickname);
     void asociarProducto(Producto * p);
+
+    set<DTPromocion> consultarPromocion();
+    DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 };
 
 #endif
