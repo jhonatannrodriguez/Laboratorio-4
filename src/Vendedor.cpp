@@ -44,6 +44,10 @@ string Vendedor::getCodigoRut()
 
 }
 
+set<Producto*> Vendedor::getProductos(){
+    return this->productos;
+}
+
 
 
 DTVendedor *Vendedor::getDTVendedor()

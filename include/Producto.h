@@ -25,6 +25,7 @@ public:
     string getNombre();
     string getDescripcion();
     float getPrecio();
+    Promocion * getPromo();
     TipoProducto getTipo();
     unsigned int getStock();
     void setCodigo(string codigo);
@@ -33,6 +34,8 @@ public:
     void setPrecio(float precio);
     void setTipo(TipoProducto tipo);
     void setStock(unsigned int stock);
+    void setPromo(Promocion * promo);
+    DTProducto getDTP();
 
     ~Producto();
 };

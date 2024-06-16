@@ -308,9 +308,9 @@ int main()
             }
             case 5: 
             {
-                /*string nombre, descripcion, vendedor;
+                string nombre, descripcion, vendedor, cod;
                 float descuento;
-                int dia, mes, anio;
+                int dia, mes, anio, cantMin;
                 DTFecha vencimiento = DTFecha(0,0,0);
                 cout << "Ingrese los datos de la Promocion:" << endl;
                 cout << "Ingrese el Nombre:" << endl;
@@ -328,11 +328,31 @@ int main()
                 cin >> anio;
                 vencimiento =DTFecha(dia,mes,anio);
                 set<string> vendedores = iUsuario->crearPromocion(vencimiento, descripcion, nombre, descuento);
-                //falta imprimir
+
+                listarStrings(vendedores);
 
                 cout << "Ingrese el vendedor que desea seleccionar:"<< endl;
                 cin >> vendedor;
-                set<DTProducto> productos = iUsuario->seleccionarVendedor(vendedor);*/
+                set<DTProducto> productos = iUsuario->seleccionarUnVendedor(vendedor);
+                for (DTProducto s:productos){
+                    cout << s << endl;
+                }
+                int a;
+                do {
+                    cout << "1: Añadir producto"<< endl;
+                    cout << "2: Salir"<< endl;
+                    cin >> a;
+                    if(a == 1){
+                        cout << "Ingrese el Codigo:"<< endl;
+                        cin >> cod;
+                        cout << "Ingrese la Cantidad minima:"<< endl;
+                        cin >> cantMin;
+                        iUsuario->añadirProducto(cod, cantMin);
+                    }
+
+                }while(a != 1);
+
+                iUsuario->darDeAltaPromo();
 
 
             break;

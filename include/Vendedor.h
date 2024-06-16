@@ -23,7 +23,7 @@ public:
     string getCodigoRut();
     void asociarProducto(Producto * p);
 
-   // set<Producto*> getProductos();
+    set<Producto*> getProductos();
    // void agregar(IObserver);
    // void eliminar(IObserver);
    // void modificar(DTNotificacion);

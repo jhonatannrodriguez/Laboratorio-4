@@ -17,4 +17,6 @@ public:
     string getCodigo();
 };
 
+ostream& operator<<(ostream& os, const DTProducto& prod);
+
 #endif

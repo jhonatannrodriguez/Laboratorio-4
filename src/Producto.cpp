@@ -65,4 +65,17 @@
         this->stock = stock;
     }
 
+    DTProducto Producto :: getDTP(){
+        return DTProducto(this->codigo, this->nombre);
+    }
+
+    Promocion * Producto :: getPromo(){
+        return this->promocion;
+    }
+
+    void Producto :: setPromo(Promocion * promo){
+        this->promocion = promo;
+    }
+
+
     Producto :: ~Producto() {}

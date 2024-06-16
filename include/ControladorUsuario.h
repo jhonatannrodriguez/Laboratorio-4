@@ -19,8 +19,9 @@ private:
     static ControladorUsuario* instancia;
     ControladorUsuario();
     Usuario * usuarioRecordado;
+    Promocion * promocionRecordada;
     map<string, Usuario *> coleccionUsuarios;
-    map<string, Promocion *> coleccionPromociones;
+   // map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
    
 public:
@@ -29,6 +30,7 @@ public:
     ~ControladorUsuario();
     // getters
     Usuario * getusuarioRecordado();
+    Promocion * getPromocionRecordada();
     map<string, Usuario*> getColeccionUsuarios();
 
     // setters
@@ -46,7 +48,9 @@ public:
     DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
-   // set<DTProducto> seleccionarVendedor(string nickname);
+    set<DTProducto> seleccionarUnVendedor(string nickname);
+    void añadirProducto(string codigo, unsigned int cantidad);
+    void darDeAltaPromo();
 };
 
 #endif

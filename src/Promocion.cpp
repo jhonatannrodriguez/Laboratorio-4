@@ -46,6 +46,13 @@
         this->descuento = descuento;
     }
 
+    void Promocion :: asociarProducto(Producto * prod, unsigned int cantidad){
+        Minimo min;
+        min.cantidad = cantidad;
+        min.producto = prod;
+        this->productos.emplace(min);
+    }
+
     Promocion :: ~Promocion() {
 
     }

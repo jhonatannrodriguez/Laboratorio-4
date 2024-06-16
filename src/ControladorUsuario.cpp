@@ -20,6 +20,10 @@ Usuario * ControladorUsuario :: getusuarioRecordado() {
     return this->usuarioRecordado;
 }
 
+Promocion * ControladorUsuario :: getPromocionRecordada() {
+    return this->promocionRecordada;
+}
+
 map<string, Usuario *> ControladorUsuario::getColeccionUsuarios()
 {
     return instancia->coleccionUsuarios;
@@ -131,14 +135,27 @@ void ControladorUsuario::Registrar()
 }*/
 
 
-/*set<string> ControladorUsuario crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
+set<string> ControladorUsuario :: crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
+    Promocion * promo = new Promocion(nombre, descripcion, vencimiento, descuento);
+    this->promocionRecordada = promo;
+    return this->listarVendedores();
+}
 
-}*/
+set<DTProducto> ControladorUsuario :: seleccionarUnVendedor(string nickname){
+    this->seleccionarVendedor(nickname);
+    set<Producto*> setProd = this->usuarioRecordado.getProductos();
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    return CP->obtenerDTP(setProd);
+}
 
-/*set<DTProducto> Controlador::Usuario seleccionarVendedor(string nickname){
-    
-}*/
+void ControladorUsuario :: añadirProducto(string codigo, unsigned int cantidad){
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    CP->añadirProducto(codigo, cantidad);
+}
 
+void ControladorUsuario :: darDeAltaPromo(){
+
+}
 
 
 /*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){

@@ -66,3 +66,20 @@ void ControladorProducto :: darAltaProducto(string codigo) {
     ControladorUsuario * CU = ControladorUsuario::getInstancia();
     CU->asociarProducto(p);
 }
+
+set<DTProducto> ControladorProducto :: obtenerDTP(set<Producto*> setP){
+    set<DTProducto> res;
+    for(Producto * p : setP){
+        res.emplace(p.getDTP());
+    }
+    return res;
+}
+
+void ControladorProducto :: añadirProducto(string codigo, unsigned int cantidad){
+    map<string, Producto *>::iterator it = coleccionProductos.find(codigo);
+    Producto * prod = it->second;
+    if(prod->getPromo() == NULL){
+        prod->setPromo(this->promocionRecordada);
+        this->promocionRecordada->asociarProducto(prod, cantidad);
+    };
+}
