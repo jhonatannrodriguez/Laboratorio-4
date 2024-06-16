@@ -45,6 +45,7 @@ public:
     DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
+    set<DTProducto> seleccionarVendedor(string nickname);
 };
 
 #endif

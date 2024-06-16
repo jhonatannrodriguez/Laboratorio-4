@@ -132,6 +132,10 @@ set<DTPromocion> ControladorUsuario::consultarPromocion() {
 
 
 set<string> Controlador::Usuario crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
+
+}
+
+set<DTProducto> Controlador::Usuario seleccionarVendedor(string nickname){
     
 }
 
