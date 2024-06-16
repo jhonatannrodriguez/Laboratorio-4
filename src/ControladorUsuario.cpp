@@ -130,6 +130,13 @@ set<DTPromocion> ControladorUsuario::consultarPromocion() {
     return promociones;
 }
 
+
+set<string> Controlador::Usuario crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
+    
+}
+
+
+
 DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     
 }

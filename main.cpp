@@ -308,6 +308,26 @@ int main()
             }
             case 5: 
             {
+                string nombre, descripcion;
+                float descuento;
+                int dia, mes, anio;
+                DTFecha vencimiento = DTFecha(0,0,0);
+                cout << "Ingrese los datos de la Promocion:" << endl;
+                cout << "Ingrese el Nombre:" << endl;
+                cin >> nombre;
+                cout << "Ingres la Descripcion:" << endl;
+                cin >> descripcion;
+                cout << "Ingres el Descuento:" << endl;
+                cin >> descuento;
+                cout << "Ingres la Fecha de Vencimiento:" << endl;
+                cout << "Dia:"<< endl;
+                cin >> dia;
+                cout << "Mes:"<< endl;
+                cin >> mes;
+                cout << "Año:"<< endl;
+                cin >> anio;
+                vencimiento =DTFecha(dia,mes,anio);
+                set<string> vendedores = iUsuario->crearPromocion(vencimiento, descripcion, nombre, descuento);
             break;
             }
             case 6:
