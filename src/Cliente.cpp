@@ -35,7 +35,7 @@
     }
     
     void Cliente :: notificar(DTNotificacion dtn) {
-        // No se que tiene que hacer aca
+        this->nots.emplace(dtn);
     }
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos(); 

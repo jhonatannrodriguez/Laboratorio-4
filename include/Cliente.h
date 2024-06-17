@@ -8,7 +8,7 @@
 #include "Compra.h"
 
 class Vendedor;
-class Cliente : public Usuario {
+class Cliente : public Usuario, public IObserver{
 private:
     string calle;
     int numero_puerta;

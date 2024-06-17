@@ -25,8 +25,7 @@
         observers.erase(o);
     }
     void Vendedor :: notificarObservadores (DTNotificacion dtn) {
-        set<IObserver*>::iterator it;
-        for(it = observers.begin(); it != observers.end(); ++it)
+        for(IObserver * it : this->observers)
             it->notificar(dtn);
     }
 
