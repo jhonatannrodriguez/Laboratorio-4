@@ -8,8 +8,11 @@
 #include "Producto.h"
 #include "Vendedor.h"
 #include "Promocion.h"
+#include "ControladorProducto.h"   /////////
 
 #include "Cliente.h"
+
+class ControladorProducto; /////////////
 
 using namespace std;
 

@@ -143,14 +143,15 @@ set<string> ControladorUsuario :: crearPromocion(DTFecha vencimiento, string des
 
 set<DTProducto> ControladorUsuario :: seleccionarUnVendedor(string nickname){
     this->seleccionarVendedor(nickname);
-    set<Producto*> setProd = this->usuarioRecordado.getProductos();
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(this->usuarioRecordado); ////////////
+    set<Producto*> setProd = vendedor->getProductos(); ////////////////
     ControladorProducto * CP = ControladorProducto::getInstancia();
     return CP->obtenerDTP(setProd);
 }
 
 void ControladorUsuario :: aniadirProducto(string codigo, unsigned int cantidad){
     ControladorProducto * CP = ControladorProducto::getInstancia();
-    CP->aniadirProducto(codigo, cantidad);
+    CP->aniadirProducto(this->promocionRecordada, codigo, cantidad); //////
 }
 
 void ControladorUsuario :: darDeAltaPromo(){

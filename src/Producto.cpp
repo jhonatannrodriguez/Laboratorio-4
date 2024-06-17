@@ -68,7 +68,11 @@
     DTProducto Producto :: getDTP(){
         return DTProducto(this->codigo, this->nombre);
     }
-
+    /////////
+    DTProductoInfo Producto :: getDTPI() {
+        return DTProductoInfo(this->descripcion,this->precio,this->tipo,this->stock,this->getVendedor()->getNickname());
+    }
+    /////////
     Promocion * Producto :: getPromo(){
         return this->promocion;
     }
@@ -76,6 +80,14 @@
     void Producto :: setPromo(Promocion * promo){
         this->promocion = promo;
     }
+    ////////
+    Vendedor * Producto :: getVendedor() {
+        return this->vendedor;
+    }
 
+    void Producto :: setVendedor(Vendedor * vendedor) {
+        this->vendedor = vendedor;
+    }
+    //////////
 
     Producto :: ~Producto() {}

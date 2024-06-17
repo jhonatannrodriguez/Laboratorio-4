@@ -42,13 +42,26 @@ ControladorProducto::~ControladorProducto()
 
 
 //Operaciones del diagrama de comunicacion
-/*set<DTProducto> ControladorProducto :: consultarProducto() {
 
-}*/
+//////////////////////
+set<DTProducto> ControladorProducto :: consultarProducto() {
+    set<DTProducto> setDTP;
+    DTProducto DTP_aux;
+    map <string, Producto*> :: iterator p;
+    for (p=coleccionProducto.begin();p!=coleccionProducto.end(); ++p) {
+        DTP_aux = p->second->getDTP();
+        setDTP.insert(DTP_aux);
+    }
+    return setDTP;
+}
 
-/*DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
-
-}*/
+DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    Producto * prod = it->second;
+    DTProductoInfo DTPI = prod->getDTPI();
+    return DTPI;
+}
+/////////////////
 
 string ControladorProducto :: ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria) {
     Producto * p = new Producto(nombre, precio, stock, descripcion, categoria);
@@ -70,16 +83,16 @@ void ControladorProducto :: darAltaProducto(string codigo) {
 set<DTProducto> ControladorProducto :: obtenerDTP(set<Producto*> setP){
     set<DTProducto> res;
     for(Producto * p : setP){
-        res.emplace(p.getDTP());
+        res.emplace(p->getDTP());
     }
     return res;
 }
 
-void ControladorProducto :: aniadirProducto(string codigo, unsigned int cantidad){
-    map<string, Producto *>::iterator it = coleccionProductos.find(codigo);
+void ControladorProducto :: aniadirProducto(Promocion* promo, string codigo, unsigned int cantidad){
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
     Producto * prod = it->second;
     if(prod->getPromo() == NULL){
-        prod->setPromo(this->promocionRecordada);
-        this->promocionRecordada->asociarProducto(prod, cantidad);
+        prod->setPromo(promo); ////////////
+        promo->asociarProducto(prod, cantidad); /////////////
     };
 }

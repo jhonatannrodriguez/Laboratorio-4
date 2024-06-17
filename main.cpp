@@ -304,6 +304,29 @@ int main()
             }
             case 4: 
             {
+                cout << "Estos son los productos disponibles:" << endl;
+                set<DTProducto> setDTP = iProducto->consultarProducto();
+                cout << "Codigo, Nombre" << endl;
+                for (DTProducto DTP_for : setDTP) {
+                cout << DTP_for.getCodigo() << ", " << DTP_for.getNombre() << endl;
+                }
+                cout << "Ingrese el código del producto del cual desea información." << endl;
+                string codigo;
+                cin >> codigo;
+                DTProductoInfo DTPI = iProducto->seleccionarProducto(codigo);
+                cout << "Precio: " << DTPI.getPrecio() << endl
+                     << "Stock: " << DTPI.getStock() << endl
+                     << "Descripción: " << DTPI.getDescripcion() << endl;
+                string categoria;
+                TipoProducto tipo = DTPI.getTipo();
+                if (tipo == static_cast<TipoProducto>(1)) 
+                    categoria = "ropa";
+                else if (tipo == static_cast<TipoProducto>(2))
+                    categoria = "electrodomésticos";
+                    else 
+                        categoria = "otros";
+                cout << "Categoría: " << categoria << endl 
+                     << "Nickname del vendedor: " << DTPI.getNicknameVendedor() << endl;
             break;
             }
             case 5: 

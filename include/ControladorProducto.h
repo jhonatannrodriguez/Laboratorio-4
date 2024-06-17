@@ -7,6 +7,8 @@
 #include "IProducto.h"
 #include <map>
 
+class ControladorUsuario; /////////////
+
 class ControladorProducto : public IProducto {
     private:
         static ControladorProducto * instancia;
@@ -22,11 +24,11 @@ class ControladorProducto : public IProducto {
 
 
 
-       //  set<DTProducto> consultarProducto();
-       // DTProductoInfo seleccionarProducto(string codigo);
+        set<DTProducto> consultarProducto();  //////////////
+        DTProductoInfo seleccionarProducto(string codigo); ///////////////
         string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria);
         void darAltaProducto(string codigo);
         set<DTProducto> obtenerDTP(set<Producto*> setP);  
-        void aniadirProducto(string codigo, unsigned int cantidad);   
+        void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
 };
 #endif

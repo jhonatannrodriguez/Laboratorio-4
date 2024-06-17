@@ -21,7 +21,7 @@ Vendedor::Vendedor(string nickname,DTFecha fecha_nacimiento ,string contrasenia,
 
 void Vendedor :: asociarProducto(Producto * p) {
     this->productos.emplace(p);
-    //emplazar producto a vendedor, hacelo andres no restes.
+    p->setVendedor(this);  //////////
 }
 
 Vendedor::~Vendedor()
