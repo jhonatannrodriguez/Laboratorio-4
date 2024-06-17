@@ -3,19 +3,20 @@
 
 #include "Usuario.h"
 #include "DTCliente.h"
-//#include "DTNotificacion.h"
-//#include "Vendedor.h"
-//#include "Compra.h"
+#include "DTNotificacion.h"
+#include "Vendedor.h"
+#include "Compra.h"
+#include "IObserver.h"
 
-class Cliente : public Usuario {
+class Cliente : public Usuario, public IObserver {
 private:
     //Atributos
     string calle;
     int numero_puerta;
     string ciudad_residencia; 
     //Pseudoatributos
-    //set<DTNotificacion*> nots; //pensar mejor si poner *
-   // set<Vendedor*> vendedor_suscripcion;
+    set<DTNotificacion> nots; 
+    //set<Vendedor*> vendedor_suscripcion;
     //set<Compra*> compra;
 
 public:
@@ -29,7 +30,7 @@ public:
     int getNumeroPuerta();
     string getCiudadResidencia();
     
-    //void notificar(DTNotificacion);
+    void notificar(DTNotificacion dtn);
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos();
     //void eliminarNotificaciones();

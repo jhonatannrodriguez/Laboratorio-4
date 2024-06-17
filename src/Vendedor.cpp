@@ -62,3 +62,13 @@ DTUsuario* Vendedor::getDTUsuario()
     return u;
 }
 
+void Vendedor :: notificarObservadores(DTNotificacion dtn) {
+    for (IObserver* it : this->observers)
+        it->notificar(dtn);
+}
+void Vendedor :: agregar(IObserver* o) {
+    observers.emplace(o);
+}
+void Vendedor :: eliminar(IObserver* o) {
+    observers.erase(o);
+}

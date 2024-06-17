@@ -4,9 +4,9 @@
 #include "Usuario.h"
 #include "DTVendedor.h"
 #include "Producto.h"
-//#include "IObserver.h"
-//#include "DTNotificacion.h"
-//#include "Promocion.h"
+#include "IObserver.h"
+#include "DTNotificacion.h"
+#include "Promocion.h"
 
 class Vendedor : public Usuario {
 private:
@@ -14,7 +14,9 @@ private:
     string codigo_rut;
     //Pseudoatributos
     set<Producto*> productos;
-  //  set<Promocion*> promocion;
+    set<Promocion*> promocion;
+    set<IObserver*> observers;
+    void notificarObservadores(DTNotificacion dtn);
 
 public:
     Vendedor();
@@ -26,7 +28,6 @@ public:
     set<Producto*> getProductos();
     void agregar(IObserver* o);
     void eliminar(IObserver* o);
-   // void modificar(DTNotificacion);
 
     ~Vendedor();
     
