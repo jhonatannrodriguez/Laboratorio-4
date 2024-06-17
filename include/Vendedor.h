@@ -16,7 +16,7 @@ private:
     set<Producto*> producto;
     set<Promocion*> promocion;
     set<IObserver*> observers;
-    void modificar(DTNotificacion dtn);
+    void notificarObservadores(DTNotificacion dtn);
 
 public:
     Vendedor();

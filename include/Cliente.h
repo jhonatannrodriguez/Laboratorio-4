@@ -27,7 +27,7 @@ public:
     void setCalle(string calle);
     void setNumeroPuerta(int numero_puerta);
     void setCiudadResidencia(string ciudad_residencia);
-    //void notificar(DTNotificacion);
+    void notificar(DTNotificacion dtn);
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos();
     //void eliminarNotificaciones();

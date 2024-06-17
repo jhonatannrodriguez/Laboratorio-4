@@ -19,16 +19,15 @@
 
     }
     void Vendedor :: agregar(IObserver * o) {
-        observers->insert(o);
+        observers.insert(o);
     }
     void Vendedor :: eliminar(IObserver * o) {
-        observers->erase(o);
+        observers.erase(o);
     }
-    void Vendedor :: modificar (DTNotificacion dtn) {
+    void Vendedor :: notificarObservadores (DTNotificacion dtn) {
         set<IObserver*>::iterator it;
         for(it = observers.begin(); it != observers.end(); ++it)
             it->notificar(dtn);
-
     }
 
     Vendedor::~Vendedor() {}

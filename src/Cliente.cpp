@@ -34,7 +34,9 @@
         this->ciudad_residencia = ciudad_residencia;
     }
     
-    //void notificar(DTNotificacion);
+    void Cliente :: notificar(DTNotificacion dtn) {
+        // No se que tiene que hacer aca
+    }
     //void suscribirse(Vendedor);
     //set<Vendedor*> getSuscritos(); 
     //void eliminarNotificaciones();
