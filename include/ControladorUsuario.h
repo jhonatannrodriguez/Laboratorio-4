@@ -49,7 +49,7 @@ public:
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
     set<DTProducto> seleccionarUnVendedor(string nickname);
-    void añadirProducto(string codigo, unsigned int cantidad);
+    void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
 };
 

@@ -148,9 +148,9 @@ set<DTProducto> ControladorUsuario :: seleccionarUnVendedor(string nickname){
     return CP->obtenerDTP(setProd);
 }
 
-void ControladorUsuario :: añadirProducto(string codigo, unsigned int cantidad){
+void ControladorUsuario :: aniadirProducto(string codigo, unsigned int cantidad){
     ControladorProducto * CP = ControladorProducto::getInstancia();
-    CP->añadirProducto(codigo, cantidad);
+    CP->aniadirProducto(codigo, cantidad);
 }
 
 void ControladorUsuario :: darDeAltaPromo(){

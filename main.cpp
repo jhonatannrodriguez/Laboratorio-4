@@ -329,7 +329,7 @@ int main()
                 vencimiento =DTFecha(dia,mes,anio);
                 set<string> vendedores = iUsuario->crearPromocion(vencimiento, descripcion, nombre, descuento);
 
-                listarStrings(vendedores);
+                listarString(vendedores);
 
                 cout << "Ingrese el vendedor que desea seleccionar:"<< endl;
                 cin >> vendedor;
@@ -347,7 +347,7 @@ int main()
                         cin >> cod;
                         cout << "Ingrese la Cantidad minima:"<< endl;
                         cin >> cantMin;
-                        iUsuario->añadirProducto(cod, cantMin);
+                        iUsuario->aniadirProducto(cod, cantMin);
                     }
 
                 }while(a != 1);

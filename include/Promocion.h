@@ -8,7 +8,7 @@ using namespace std;
 #include <string>
 #include <set>
 
-//class Producto;
+class Producto;
 
 struct Minimo {
     unsigned int cantidad;

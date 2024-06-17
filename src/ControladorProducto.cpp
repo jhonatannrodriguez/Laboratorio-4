@@ -75,7 +75,7 @@ set<DTProducto> ControladorProducto :: obtenerDTP(set<Producto*> setP){
     return res;
 }
 
-void ControladorProducto :: añadirProducto(string codigo, unsigned int cantidad){
+void ControladorProducto :: aniadirProducto(string codigo, unsigned int cantidad){
     map<string, Producto *>::iterator it = coleccionProductos.find(codigo);
     Producto * prod = it->second;
     if(prod->getPromo() == NULL){
