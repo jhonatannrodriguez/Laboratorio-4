@@ -18,14 +18,17 @@
     set<Producto*> Vendedor :: getProductos() {
 
     }
-    void Vendedor :: agregar(IObserver) {
-
+    void Vendedor :: agregar(IObserver * o) {
+        observers->insert(o);
     }
-    void Vendedor :: eliminar(IObserver) {
-
+    void Vendedor :: eliminar(IObserver * o) {
+        observers->erase(o);
     }
-    void Vendedor :: modificar(DTNotificacion) {
-        
+    void Vendedor :: modificar (DTNotificacion dtn) {
+        set<IObserver*>::iterator it;
+        for(it = observers.begin(); it != observers.end(); ++it)
+            it->notificar(dtn);
+
     }
 
     Vendedor::~Vendedor() {}
