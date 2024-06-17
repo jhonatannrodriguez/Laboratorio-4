@@ -24,8 +24,8 @@ public:
     void asociarProducto(Producto * p);
 
     set<Producto*> getProductos();
-   // void agregar(IObserver);
-   // void eliminar(IObserver);
+    void agregar(IObserver* o);
+    void eliminar(IObserver* o);
    // void modificar(DTNotificacion);
 
     ~Vendedor();
