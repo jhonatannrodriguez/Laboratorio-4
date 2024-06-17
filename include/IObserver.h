@@ -1,4 +1,4 @@
-#ifndef _IOBSERVER_H
+/*#ifndef _IOBSERVER_H
 #define _IOBSERVER_H
 
 #include "DTNotificacion.h"
@@ -8,4 +8,4 @@ public:
     virtual void notificar(DTNotificacion dtn);
     virtual ~IObserver() {}  
 };
-#endif
+#endif*/

@@ -26,7 +26,12 @@ void Vendedor :: asociarProducto(Producto * p) {
 
 Vendedor::~Vendedor()
 {
+    for (Promocion* it: this->promocion)
+        
+        delete it; 
+        
     
+
 }
 
 //setters
@@ -62,13 +67,13 @@ DTUsuario* Vendedor::getDTUsuario()
     return u;
 }
 
-void Vendedor :: notificarObservadores(DTNotificacion dtn) {
+/*void Vendedor :: notificarObservadores(DTNotificacion dtn) {
     for (IObserver* it : this->observers)
         it->notificar(dtn);
-}
-void Vendedor :: agregar(IObserver* o) {
+}*/
+/*void Vendedor :: agregar(IObserver* o) {
     observers.emplace(o);
 }
 void Vendedor :: eliminar(IObserver* o) {
     observers.erase(o);
-}
+}*/

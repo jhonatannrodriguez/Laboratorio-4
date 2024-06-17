@@ -8,7 +8,8 @@
 #include "Compra.h"
 #include "IObserver.h"
 
-class Cliente : public Usuario, public IObserver {
+class Cliente : public Usuario//, public IObserver 
+{
 private:
     //Atributos
     string calle;

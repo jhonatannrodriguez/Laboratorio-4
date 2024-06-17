@@ -59,7 +59,9 @@ void ControladorUsuario :: asociarProducto(Producto * p) {
 ControladorUsuario::~ControladorUsuario()
 {
     for (map<string, Usuario *>::iterator it = coleccionUsuarios.begin(); it != coleccionUsuarios.end(); ++it)
+        //DTVendedor *dtv = dynamic_cast<DTVendedor *>(this->datosUsuario);
         delete it->second; 
+        
     coleccionUsuarios.clear();
 }
 

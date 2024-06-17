@@ -47,12 +47,16 @@
     }
 
     void Promocion :: asociarProducto(Producto * prod, unsigned int cantidad){
-        Minimo min;
-        min.cantidad = cantidad;
-        min.producto = prod;
+        Minimo* min=new Minimo;
+        min->cantidad = cantidad;
+        min->producto = prod;
         this->productos.emplace(min);
     }
 
     Promocion :: ~Promocion() {
+
+        for (Minimo* it: this->productos)
+        
+        delete it;
 
     }

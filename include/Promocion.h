@@ -23,7 +23,7 @@ private:
     DTFecha vencimiento;
     float descuento;
     //pseudoatributos
-    set<Minimo> productos;
+    set<Minimo*> productos;
 public:
     Promocion();
     Promocion(string nombre,string descripcion,DTFecha vencimiento,float descuento);

@@ -75,7 +75,7 @@ DTUsuario* Cliente::getDTUsuario()
 }
 
 void Cliente :: notificar(DTNotificacion dtn) {
-    this->nots.emplace(dtn);
+   // this->nots.emplace(dtn);
 }
 
 

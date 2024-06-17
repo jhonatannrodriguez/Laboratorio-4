@@ -44,21 +44,22 @@ ControladorProducto::~ControladorProducto()
 //Operaciones del diagrama de comunicacion
 
 //////////////////////
-set<DTProducto> ControladorProducto :: consultarProducto() {
-    set<DTProducto> setDTP;
-    DTProducto DTP_aux;
+set<DTProducto*> ControladorProducto :: consultarProducto() {
+    set<DTProducto*> setDTP;
+    DTProducto* DTP_aux;
     map <string, Producto*> :: iterator p;
     for (p=coleccionProducto.begin();p!=coleccionProducto.end(); ++p) {
-        DTP_aux = p->second->getDTP();
+        DTP_aux = new DTProducto(p->second->getCodigo(),p->second->getNombre());
+        
         setDTP.insert(DTP_aux);
     }
     return setDTP;
 }
 
-DTProductoInfo ControladorProducto :: seleccionarProducto(string codigo) {
+DTProductoInfo* ControladorProducto :: seleccionarProducto(string codigo) {
     map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
     Producto * prod = it->second;
-    DTProductoInfo DTPI = prod->getDTPI();
+    DTProductoInfo* DTPI = new DTProductoInfo(prod->getDescripcion(),prod->getPrecio(),prod->getTipo(),prod->getStock(),prod->getVendedor()->getNickname());
     return DTPI;
 }
 /////////////////
@@ -73,6 +74,7 @@ string ControladorProducto :: ingresarProducto(string nombre, float precio, unsi
 
 void ControladorProducto :: darAltaProducto(string codigo) {
     Producto * p = getpRecordado();
+    p->setPromo(NULL);
     p->setCodigo(codigo);
     string c = p->getCodigo();
     this->coleccionProducto[c] = p;
@@ -82,9 +84,9 @@ void ControladorProducto :: darAltaProducto(string codigo) {
 
 set<DTProducto> ControladorProducto :: obtenerDTP(set<Producto*> setP){
     set<DTProducto> res;
-    for(Producto * p : setP){
-        res.emplace(p->getDTP());
-    }
+    //for(Producto * p : setP){
+       // res.emplace(p->getDTP());
+    //}
     return res;
 }
 

@@ -7,7 +7,8 @@
 #include "IObserver.h"
 #include "DTNotificacion.h"
 #include "Promocion.h"
-
+class Producto;
+class Promocion;
 class Vendedor : public Usuario {
 private:
     //Atributos
@@ -15,7 +16,7 @@ private:
     //Pseudoatributos
     set<Producto*> productos;
     set<Promocion*> promocion;
-    set<IObserver*> observers;
+    //set<IObserver*> observers;
     void notificarObservadores(DTNotificacion dtn);
 
 public:
@@ -26,8 +27,8 @@ public:
     void asociarProducto(Producto * p);
 
     set<Producto*> getProductos();
-    void agregar(IObserver* o);
-    void eliminar(IObserver* o);
+    //void agregar(IObserver* o);
+    //void eliminar(IObserver* o);
 
     ~Vendedor();
     

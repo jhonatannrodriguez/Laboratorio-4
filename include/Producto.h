@@ -44,7 +44,7 @@ public:
     void setPromo(Promocion * promo);
     void setVendedor(Vendedor * vendedor); ////////
     DTProducto getDTP();
-    DTProductoInfo getDTPI();  //////////
+    DTProductoInfo *getDTPI();  //////////
     
 
     ~Producto();

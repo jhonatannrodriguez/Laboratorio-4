@@ -1,3 +1,3 @@
-#include "../include/IObserver.h"
+/*#include "../include/IObserver.h"
 
-IObserver :: ~IObserver() {}
+IObserver :: ~IObserver() {}*/
