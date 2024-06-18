@@ -16,7 +16,7 @@ private:
     DTFecha fecha_nacimiento;
     string contrasenia; 
     //Pseudoatributos
-    set<Comentario*> comentarios;  
+    map<string, Comentario*> comentarios;  
 
 public:
     Usuario();
@@ -27,8 +27,8 @@ public:
     string getNickname();
     DTFecha getFecha_nacimiento();
     string getContrasenia();
-    set<Comentario*> getComentarios();
-    void agregarComentario(Comentario* com);
+    map<string, Comentario*> getComentarios();
+    void agregarComentario(Comentario* coment);
     
     virtual ~Usuario() = 0;
 

@@ -44,11 +44,11 @@ string Usuario::getContrasenia()
     return this->contrasenia;
 }
 
-void Usuario::agregarComentario(Comentario* com) {
-    this->comentarios.emplace(com);
+void Usuario::agregarComentario(Comentario* coment) {
+    this->comentarios[coment->getId] = coment;
 }
 
-set<Comentario*> Usuario :: getComentarios() {
+map<string, Comentario*> Usuario :: getComentarios() {
     return this->comentarios;
 }
 
