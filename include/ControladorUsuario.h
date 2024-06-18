@@ -38,9 +38,11 @@ public:
     Usuario * getusuarioRecordado();
     Promocion * getPromocionRecordada();
     map<string, Usuario*> getColeccionUsuarios();
+    unsigned int getIDComentario();
 
     // setters
-
+    void setIDComentario(unsigned int newID);
+    
     // Operaciones del Diagrama de Comunicacion
 
     bool NuevoUsuario(DTUsuario* usuario);

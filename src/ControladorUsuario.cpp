@@ -179,6 +179,14 @@ void ControladorUsuario :: darDeAltaPromo(){
 
 }
 
+unsigned int ControladorUsuario :: getIDComentario() {
+    return this->idComentario;
+}
+
+void ControladorUsuario :: setIDComentario(unsigned int newId) {
+    this->idComentario = newId;
+}
+
 void ControladorUsuario :: nuevoComentario(string txt) {
     Usuario * user = getusuarioRecordado();
     Comentario* coment = Comentario(txt, DTFecha(0,0,0), to_string(this->idComentario));
