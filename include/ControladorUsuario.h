@@ -12,6 +12,7 @@
 #include "DTFecha.h"
 #include "ControladorProducto.h"   /////////
 #include "Cliente.h"
+#include "Comentario.h"
 
 class ControladorProducto; /////////////
 
@@ -27,6 +28,7 @@ private:
     map<string, Usuario *> coleccionUsuarios;
     map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
+    unsigned int idComentario;
    
 public:
 

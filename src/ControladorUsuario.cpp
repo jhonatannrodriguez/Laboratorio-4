@@ -180,7 +180,10 @@ void ControladorUsuario :: darDeAltaPromo(){
 }
 
 void ControladorUsuario :: nuevoComentario(string txt) {
-
+    Usuario * user = getusuarioRecordado();
+    Comentario* coment = Comentario(txt, DTFecha(0,0,0), this->idComentario);
+    this->idComentario++;
+    user->agregarComentario(coment);
 }
 
 set<DTComentario*> ControladorUsuario :: listarComentarios() {

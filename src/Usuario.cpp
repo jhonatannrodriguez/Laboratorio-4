@@ -44,6 +44,14 @@ string Usuario::getContrasenia()
     return this->contrasenia;
 }
 
+void Usuario::agregarComentario(Comentario* com) {
+    this->comentarios.emplace(com);
+}
+
+set<Comentario*> Usuario :: getComentarios() {
+    return this->comentarios;
+}
+
 Usuario::~Usuario(){
     
 }

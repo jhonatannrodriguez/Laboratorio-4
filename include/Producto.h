@@ -24,6 +24,7 @@ private:
     // pseudoatributos
     Promocion* promocion;
     Vendedor* vendedor; //////////
+    map<string, Comentario*> comentarios;
 public:
     Producto();
     Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo);
@@ -34,6 +35,7 @@ public:
     Promocion * getPromo();
     TipoProducto getTipo();
     unsigned int getStock();
+    map<string, Comentario*> getComentarios();
     Vendedor * getVendedor(); /////////
     void setCodigo(string codigo);
     void setNombre(string nombre);
@@ -45,7 +47,7 @@ public:
     void setVendedor(Vendedor * vendedor); ////////
     DTProducto* getDTP();
     DTProductoInfo *getDTPI();  //////////
-    
+    void agregarComentario(Comentario* coment);    
 
     ~Producto();
 };
