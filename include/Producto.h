@@ -43,7 +43,7 @@ public:
     void setStock(unsigned int stock);
     void setPromo(Promocion * promo);
     void setVendedor(Vendedor * vendedor); ////////
-    DTProducto getDTP();
+    DTProducto* getDTP();
     DTProductoInfo *getDTPI();  //////////
     
 

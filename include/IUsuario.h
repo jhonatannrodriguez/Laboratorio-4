@@ -24,7 +24,7 @@ public:
     virtual set<DTPromocion> consultarPromocion() = 0;
     //virtual DTVendedorInfo seleccionarPromocion(string nombre_promocion) = 0;  
     virtual set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento) = 0;  
-    virtual set<DTProducto> seleccionarUnVendedor(string nickname) = 0;
+    virtual set<DTProducto*> seleccionarUnVendedor(string nickname) = 0;
     virtual void aniadirProducto(string codigo, unsigned int cantidad) = 0;
     virtual void darDeAltaPromo() = 0;
    

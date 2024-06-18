@@ -82,11 +82,11 @@ void ControladorProducto :: darAltaProducto(string codigo) {
     CU->asociarProducto(p);
 }
 
-set<DTProducto> ControladorProducto :: obtenerDTP(set<Producto*> setP){
-    set<DTProducto> res;
-    //for(Producto * p : setP){
-       // res.emplace(p->getDTP());
-    //}
+set<DTProducto*> ControladorProducto :: obtenerDTP(set<Producto*> setP){
+    set<DTProducto*> res;
+    for(Producto * p : setP){
+        res.emplace(p->getDTP());
+    }
     return res;
 }
 

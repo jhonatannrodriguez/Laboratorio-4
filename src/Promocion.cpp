@@ -54,9 +54,8 @@
     }
 
     Promocion :: ~Promocion() {
-
-        for (Minimo* it: this->productos)
         
-        delete it;
-
+        for (Minimo* min: this->productos)
+            delete min;
+        this->productos.clear();
     }

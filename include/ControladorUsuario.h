@@ -53,7 +53,7 @@ public:
     //DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
-    set<DTProducto> seleccionarUnVendedor(string nickname);
+    set<DTProducto*> seleccionarUnVendedor(string nickname);
     void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
 };

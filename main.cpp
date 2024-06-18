@@ -351,11 +351,11 @@ int main()
                 cout << "Ingrese los datos de la Promocion:" << endl;
                 cout << "Ingrese el Nombre:" << endl;
                 cin >> nombre;
-                cout << "Ingres la Descripcion:" << endl;
+                cout << "Ingrese la Descripcion:" << endl;
                 cin >> descripcion;
-                cout << "Ingres el Descuento:" << endl;
+                cout << "Ingrese el Descuento:" << endl;
                 cin >> descuento;
-                cout << "Ingres la Fecha de Vencimiento:" << endl;
+                cout << "Ingrese la Fecha de Vencimiento:" << endl;
                 cout << "Dia:"<< endl;
                 cin >> dia;
                 cout << "Mes:"<< endl;
@@ -369,10 +369,12 @@ int main()
 
                 cout << "Ingrese el vendedor que desea seleccionar:"<< endl;
                 cin >> vendedor;
-                //set<DTProducto> productos = iUsuario->seleccionarUnVendedor(vendedor);
-               /* for (DTProducto s:productos){
-                    cout << s << endl;
-                }*/
+                set<DTProducto*> productos = iUsuario->seleccionarUnVendedor(vendedor);
+                cout << "Estos son los productos de " << vendedor << ":" << endl;
+                cout << "Codigo, Nombre" << endl;
+                for (DTProducto* s:productos){
+                    cout << s->getCodigo() << ", " << s->getNombre() << endl;
+                }
                 int a;
                 do {
                     cout << "1: Añadir producto"<< endl;
@@ -388,9 +390,11 @@ int main()
                     
 
                 }while(a == 1);
-
+                for (DTProducto* p : productos)
+                    delete p;
                // iUsuario->darDeAltaPromo();
-               cout <<  "Terminado " << endl;
+               cout <<  "Fin de creación de promoción. " << endl;
+               cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
             break;
             }

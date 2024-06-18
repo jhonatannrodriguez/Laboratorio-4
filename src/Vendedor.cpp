@@ -26,12 +26,11 @@ void Vendedor :: asociarProducto(Producto * p) {
 
 Vendedor::~Vendedor()
 {
-    for (Promocion* it: this->promocion)
-        
-        delete it; 
-        
-    
+   /* for (Promocion* promo: this->promocion)
 
+        delete promo;
+    this->promocion.clear(); 
+*/
 }
 
 //setters

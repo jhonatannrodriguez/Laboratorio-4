@@ -65,8 +65,8 @@
         this->stock = stock;
     }
 
-    DTProducto Producto :: getDTP(){
-        return DTProducto(this->codigo, this->nombre);
+    DTProducto* Producto :: getDTP(){
+        return new DTProducto(this->codigo, this->nombre);
     }
     /////////
     DTProductoInfo* Producto :: getDTPI() {

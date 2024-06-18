@@ -28,7 +28,7 @@ class ControladorProducto : public IProducto {
         DTProductoInfo* seleccionarProducto(string codigo); ///////////////
         string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria);
         void darAltaProducto(string codigo);
-        set<DTProducto> obtenerDTP(set<Producto*> setP);  
+        set<DTProducto*> obtenerDTP(set<Producto*> setP);  
         void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
 };
 #endif

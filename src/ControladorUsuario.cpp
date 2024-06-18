@@ -59,10 +59,13 @@ void ControladorUsuario :: asociarProducto(Producto * p) {
 ControladorUsuario::~ControladorUsuario()
 {
     for (map<string, Usuario *>::iterator it = coleccionUsuarios.begin(); it != coleccionUsuarios.end(); ++it)
-        //DTVendedor *dtv = dynamic_cast<DTVendedor *>(this->datosUsuario);
+        delete it->second; 
+    for (map<string, Promocion *>::iterator it = coleccionPromociones.begin(); it != coleccionPromociones.end(); ++it)
         delete it->second; 
         
+    coleccionPromociones.clear();
     coleccionUsuarios.clear();
+
 }
 
 
@@ -145,7 +148,7 @@ set<string> ControladorUsuario::crearPromocion(DTFecha vencimiento, string descr
     return this->listarVendedores();
 }
 
-set<DTProducto> ControladorUsuario :: seleccionarUnVendedor(string nickname){
+set<DTProducto*> ControladorUsuario :: seleccionarUnVendedor(string nickname){
     this->seleccionarVendedor(nickname);
     Vendedor *vendedor = dynamic_cast<Vendedor *>(this->usuarioRecordado); ////////////
     set<Producto*> setProd = vendedor->getProductos(); ////////////////
