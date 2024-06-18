@@ -104,5 +104,13 @@ void ControladorProducto :: elegirProducto(string codigo) {
     this->pRecordado = it->second;
 }
 
-map<string, DTComentario*> ControladorProducto :: listarComentarios() {
-    
+set<DTComentario*> ControladorProducto :: listarComentarios() {
+    //recorrer this->coleccionProducto formando DTComentario y creando un map
+    set<DTComentario*> res;
+    map<string, Comentario*> comentariosPRecordado = getComentarios()
+    map<string, Comentario*> :: iterator c;
+    for (c=comentariosPRecordado.begin();c!=comentariosPRecordado.end(); ++c) { 
+        res.emplace(DTProducto(c->first, c->second->getTexto()));
+    }
+    return res;
+}
