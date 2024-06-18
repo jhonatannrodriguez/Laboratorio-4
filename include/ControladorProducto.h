@@ -31,5 +31,6 @@ class ControladorProducto : public IProducto {
         set<DTProducto*> obtenerDTP(set<Producto*> setP);  
         void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
         void elegirProducto(string codigo);
+        map<string, DTComentario*> listarComentarios();
 };
 #endif

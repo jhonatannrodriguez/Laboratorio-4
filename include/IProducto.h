@@ -15,6 +15,7 @@ public:
     virtual string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria) = 0;
     virtual void darAltaProducto(string codigo) = 0;
     virtual void elegirProducto(string codigo) = 0;
+    virtual map<string, DTComentario*> listarComentarios() = 0;
 
     virtual ~IProducto() {}  
 };

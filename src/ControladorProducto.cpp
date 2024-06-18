@@ -103,3 +103,6 @@ void ControladorProducto :: elegirProducto(string codigo) {
     map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
     this->pRecordado = it->second;
 }
+
+map<string, DTComentario*> ControladorProducto :: listarComentarios() {
+    

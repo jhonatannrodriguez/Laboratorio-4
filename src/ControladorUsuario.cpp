@@ -189,11 +189,6 @@ void ControladorUsuario :: nuevoComentario(string txt) {
     prod->agregarComentario(coment);
 }
 
-set<DTComentario*> ControladorUsuario :: listarComentarios() {
-
-}
-
-
 /*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     
 }*/
