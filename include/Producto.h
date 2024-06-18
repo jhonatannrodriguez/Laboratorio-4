@@ -2,15 +2,18 @@
 #define _PRODUCTO_H
 
 #include "Promocion.h"
-#include "Vendedor.h"  ///////////
+#include "Vendedor.h"  
 #include "EnumTipoProducto.h"
 #include "DTProducto.h"  ////////////
 #include "DTProductoInfo.h" /////////
+#include "Comentario.h"
 using namespace std;
 #include <string>
+#include <map>
 
 class Promocion;
-class Vendedor;  ///////////
+class Comentario;
+class Vendedor;  
 
 class Producto {
 private:

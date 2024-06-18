@@ -4,11 +4,12 @@
 #include "Usuario.h"
 #include "DTVendedor.h"
 #include "Producto.h"
-#include "IObserver.h"
+//#include "IObserver.h"
 #include "DTNotificacion.h"
 #include "Promocion.h"
 class Producto;
 class Promocion;
+
 class Vendedor : public Usuario {
 private:
     //Atributos
@@ -33,6 +34,7 @@ public:
     ~Vendedor();
     
     DTVendedor *getDTVendedor();
-    virtual DTUsuario* getDTUsuario();};
+    virtual DTUsuario* getDTUsuario();
+};
 
 #endif

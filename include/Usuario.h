@@ -4,7 +4,6 @@
 #include "DTFecha.h"
 #include "DTUsuario.h"
 #include "Comentario.h"
-//#include "Comentario.h"
 using namespace std;
 #include <string>
 #include <set>

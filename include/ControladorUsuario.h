@@ -63,7 +63,7 @@ public:
     void darDeAltaPromo();
 
     void nuevoComentario(string txt);
-    set<DTComentario*> listarComentarios();
+    set<DTComentario*> listarComentarios(string nickname);
 };
 
 #endif

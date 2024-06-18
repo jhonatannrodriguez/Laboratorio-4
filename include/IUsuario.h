@@ -31,7 +31,7 @@ public:
     virtual void aniadirProducto(string codigo, unsigned int cantidad) = 0;
     virtual void darDeAltaPromo() = 0;
     virtual void nuevoComentario(string txt) = 0;
-    virtual set<DTComentario*> listarComentarios() = 0;
+    virtual set<DTComentario*> listarComentarios(string nickname) = 0;
    
     virtual ~IUsuario() {}  
 };

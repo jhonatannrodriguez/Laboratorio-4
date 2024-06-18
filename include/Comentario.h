@@ -6,7 +6,7 @@
 #include <string>
 #include <set>
 
-
+class Producto;
 class Comentario {
 private:
     // atributos

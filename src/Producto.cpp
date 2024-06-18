@@ -95,7 +95,7 @@
     }
 
     void Producto :: agregarComentario(Comentario* coment) {
-        this->comentarios[coment->getId] = coment;
+        this->comentarios[coment->getId()] = coment;
     }
 
     Producto :: ~Producto() {}

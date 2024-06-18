@@ -189,12 +189,16 @@ void ControladorUsuario :: setIDComentario(unsigned int newId) {
 
 void ControladorUsuario :: nuevoComentario(string txt) {
     Usuario * user = getusuarioRecordado();
-    Comentario* coment = Comentario(txt, DTFecha(0,0,0), to_string(this->idComentario));
+    Comentario* coment = new Comentario(txt, DTFecha(0,0,0), to_string(this->idComentario));
     this->idComentario++;
     user->agregarComentario(coment);
     ControladorProducto * CP = ControladorProducto::getInstancia();
     Producto * prod = CP->getpRecordado();
     prod->agregarComentario(coment);
+}
+
+set<DTComentario*> ControladorUsuario :: listarComentarios(string nickname) {
+
 }
 
 /*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
