@@ -1,5 +1,6 @@
-obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
- include/ControladorUsuario.h include/IUsuario.h include/DTCliente.h \
+obj/ControladorUsuario.o: src/ControladorUsuario.cpp \
+ /usr/include/stdc-predef.h src/../include/ControladorUsuario.h \
+ src/../include/IUsuario.h src/../include/DTCliente.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -127,13 +128,13 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
- /usr/include/c++/11/bits/basic_string.tcc include/DTUsuario.h \
+ /usr/include/c++/11/bits/basic_string.tcc src/../include/DTUsuario.h \
  /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h include/DTFecha.h \
+ /usr/include/c++/11/bits/erase_if.h src/../include/DTFecha.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -155,16 +156,17 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc include/DTVendedor.h \
- include/DTProducto.h include/DTPromocion.h include/DTNotificacion.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/tuple /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/array \
- /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/istream.tcc src/../include/DTVendedor.h \
+ src/../include/DTProducto.h src/../include/DTPromocion.h \
+ src/../include/DTNotificacion.h /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h \
- /usr/include/c++/11/bits/stl_multimap.h include/Usuario.h \
- include/DTVendedorInfo.h include/Producto.h include/Promocion.h \
- include/Vendedor.h include/IObserver.h include/EnumTipoProducto.h \
- include/DTProductoInfo.h include/ControladorProducto.h \
- include/IProducto.h include/Cliente.h include/Compra.h \
- include/fechaSistema.h
+ /usr/include/c++/11/bits/stl_multimap.h src/../include/Usuario.h \
+ src/../include/DTVendedorInfo.h src/../include/Producto.h \
+ src/../include/Promocion.h src/../include/Vendedor.h \
+ src/../include/IObserver.h src/../include/EnumTipoProducto.h \
+ src/../include/DTProductoInfo.h src/../include/ControladorProducto.h \
+ src/../include/ControladorUsuario.h src/../include/IProducto.h \
+ src/../include/Cliente.h src/../include/Compra.h

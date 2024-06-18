@@ -24,14 +24,7 @@ void Vendedor :: asociarProducto(Producto * p) {
     p->setVendedor(this);  //////////
 }
 
-Vendedor::~Vendedor()
-{
-   /* for (Promocion* promo: this->promocion)
-
-        delete promo;
-    this->promocion.clear(); 
-*/
-}
+Vendedor::~Vendedor() {}
 
 //setters
 void Vendedor::setCodigoRut(string codigo_rut)
@@ -48,7 +41,7 @@ string Vendedor::getCodigoRut()
 
 }
 
-set<Producto*> Vendedor::getProductos(){
+set<Producto*> Vendedor::getProductos() {
     return this->productos;
 }
 
@@ -66,13 +59,16 @@ DTUsuario* Vendedor::getDTUsuario()
     return u;
 }
 
-/*void Vendedor :: notificarObservadores(DTNotificacion dtn) {
+void Vendedor :: notificarObservadores(DTNotificacion* dtn) {
     for (IObserver* it : this->observers)
         it->notificar(dtn);
-}*/
-/*void Vendedor :: agregar(IObserver* o) {
+}
+void Vendedor :: agregar(IObserver* o) {
     observers.emplace(o);
 }
 void Vendedor :: eliminar(IObserver* o) {
     observers.erase(o);
-}*/
+}
+void Vendedor :: notificarlosObservadores(DTNotificacion* dtn) {
+    this->notificarObservadores(dtn);
+}

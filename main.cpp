@@ -9,14 +9,6 @@ void listarString(set<string> setS) {
     }
 }
 
-void OpcionesComentario() {
-    cout << "Elija una opción:" << endl;
-    cout << "1: Redactar nuevo comentario." << endl;
-    cout << "2: Responder comentario." << endl;
-    cout << "3: Ayuda." << endl;
-    cout << "4: Salir." << endl;
-}
-
 int main()
 {
 
@@ -360,6 +352,7 @@ int main()
                 cout << "Ingrese el Nombre:" << endl;
                 cin >> nombre;
                 cout << "Ingrese la Descripcion:" << endl;
+                //getline(cin,descripcion);
                 cin >> descripcion;
                 cout << "Ingrese el Descuento:" << endl;
                 cin >> descuento;
@@ -400,7 +393,7 @@ int main()
                 }while(a == 1);
                 for (DTProducto* p : productos)
                     delete p;
-               // iUsuario->darDeAltaPromo();
+                iUsuario->darDeAltaPromo();
                cout <<  "Fin de creación de promoción. " << endl;
                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
@@ -432,92 +425,11 @@ int main()
             }
             case 8: 
             {
-               /* //Lista todos los Usuarios en Consola
-                set<string> nicknames = iUsuario->consultarUsuarios();
-                listarString(nicknames); 
-                //El Administrador selecciona un Usuario
-                cout << "Seleccione un Usuario: " << endl;
-                string nickname;
-                cin >> nickname;
-                iUsuario->seleccionarUsuario(nickname); //Guarda una referencia del Usuario (lo recuerda) (sV -> sU)
-                    //Se listan todos los Productos presentes
-                    set<DTProducto*> setDTP = iProducto->consultarProducto();
-                    for (DTProducto* dtp : setDTP) 
-                        cout << "Nombre Producto: " << dtp->getNombre() << ", Código Producto: " << dtp->getCodigo() << endl;
-
-                    //Se elije el produco a comentar
-                    cout << "" << endl;
-                    cout << "Seleccione un Producto por código: " << endl;
-                    string codigo;
-                    cin >> codigo;
-                    iProducto->elegirProducto(codigo); //Guarda una referencia del Producto (lo recuerda)
-                    OpcionesComentario();
-                    //Se decide entre escribir un comentario, responder, o salir
-                    int option = 0;
-                    do {
-                        cin >> option;
-                        string txt;
-                        switch (option) {
-                            case 1:
-                                {
-                                    cout << "Ingrese el texto del Coentario: " << endl;
-                                    cin >> txt;
-                                    iUsuario->nuevoComentario(txt);
-                                    break;
-                                }
-                                case 2:
-                                {
-                                    cout << "Comentarios del Producto: " << endl;
-                                    set<DTComentario*> textosComentarios = iProducto->listarComentarios();  //Aqui me faltó listar las respuestas a comentarios
-                                    //for (DTComentario* dtc : textosComentarios) { 
-                                        //Listar dependiendo de la Implementacion
-                                   // }
-                                    cout << "Seleccione un Comentario por ID: " << endl;
-                                    string id;
-                                    cin >> id;
-                                    cout << "Escriba una Respuesta: " <<endl;
-                                    string respuesta;
-                                    cin >> respuesta;
-                                    iProducto->nuevaRespuesta(id, respuesta);
-                                    break;
-                                }
-                                case 3:
-                                {
-                                    OpcionesComentario();
-                                    break;
-                                }
-                                default:
-                                {
-                                    if (option != 4) {
-                                        cout << "Opción no disponible..." << endl;
-                                        OpcionesComentario();
-                                    }
-                                    cout << "Seleccione nuevamente una opcion" << endl;
-                                    break;
-                                }
-                        }
-                    } while (option == 4);*/
             break;
             }
             case 9: 
             {
-              /*  //Lista todos los Usuarios en Consola
-                set<string> nicknames = iUsuario->consultarUsuarios();
-                listarString(nicknames);
-                //Se selecciona un Usuario, se recuerda y se listan sus comentarios
-                cout << "Seleccione un Usuario: " << endl;
-                string nickname;
-                cin >> nickname;
-                set<DTComentario*> setdtc = iUsuario->listarComentarios(nickname);
-                for (const auto& dtc : setdtc) {
-                    //Listar dependiendo de la Implementacion
-                }
-                cout << "Seleccione el Comentario a eliminar por ID: "
-                string id;
-                cin << id;
-                eliminarComentario(id);
-                cout << "Comentarios Eliminados" << endl;*/
-                break;
+            break;
             }
             case 10: 
             {
@@ -529,10 +441,43 @@ int main()
             }
             case 12: 
             {
+                cout << "Ingrese el nombre de cliente para la suscripción:" << endl;
+                string nombreCliente;
+                cin >> nombreCliente;
+                set<string> setNoS = iUsuario->vendedoresNoSuscritos(nombreCliente);
+                cout << "Estos son los vendedores a los que se puede suscribir:" << endl;
+                listarString(setNoS);
+                int a;
+                do {
+                    cout << "1: Suscribirse"<< endl;
+                    cout << "2: Salir"<< endl;
+                    cin >> a;
+                    if(a == 1){
+                        cout << "Ingrese el nickname del vendedor al cual desea suscribirse:"<< endl;
+                        string nick;
+                        cin >> nick;
+                        iUsuario->suscribirse(nick);                        
+                        cout << "Suscrito con éxito!"<< endl;
+
+                    }
+                    
+
+                }while(a == 1);
+                cout << "Fin de suscribirse a vendedores." << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             break;
             }
             case 13: 
             {
+                cout << "Ingrese su nombre de usuario:" << endl;
+                string nickname;
+                cin >> nickname;
+                set<DTNotificacion*> setDTN = iUsuario->consultarNotificaciones(nickname);
+                for (DTNotificacion* nt : setDTN)
+                    cout << nt << endl;
+                iUsuario->eliminarNotificaciones();
+                cout << "Fin de consultar notificaciones." << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             break;
             }
             case 14: 
@@ -567,10 +512,10 @@ int main()
             delete fabrica;
             break;
             }
-        
-    
-    }
-    
+        }
+
+
+
     } while (opcion != 16);
     
     return 0;

@@ -6,7 +6,7 @@
 #include <string>
 #include <set>
 
-class Producto;
+
 class Comentario {
 private:
     // atributos
@@ -27,7 +27,6 @@ public:
     void setTexto(string texto);
     void setFecha(DTFecha fecha);
     void setId(string id);
-    void agregarRespuesta(Comentario *);
 
     ~Comentario();
 };

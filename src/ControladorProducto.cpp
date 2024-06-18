@@ -98,32 +98,15 @@ void ControladorProducto :: aniadirProducto(Promocion* promo, string codigo, uns
         promo->asociarProducto(prod, cantidad); /////////////
     };
 }
-
-void ControladorProducto :: elegirProducto(string codigo) {
-    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
-    this->pRecordado = it->second;
-}
-
-set<DTComentario*> ControladorProducto :: listarComentarios() {
-    //recorrer this->coleccionProducto formando DTComentario y creando un map
-    set<DTComentario*> res;
-    map<string, Comentario*> comentariosPRecordado = getComentarios()
-    map<string, Comentario*> :: iterator c;
-    for (c=comentariosPRecordado.begin();c!=comentariosPRecordado.end(); ++c) { 
-        res.emplace(DTProducto(c->first, c->second->getTexto()));
+DTNotificacion * ControladorProducto :: crearNotificacion(Promocion* promo) {
+    string nombre = promo->getNombre();
+    unsigned int descuento = promo->getDescuento();
+    DTFecha fecha = promo->getVencimiento();
+    set<Producto*> setP = promo->getProductos();
+    set<string> nombresProds;
+    for (Producto* prod : setP) {
+        nombresProds.emplace(prod->getNombre());
     }
-    return res;
-}
-
-void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
-    Producto * prod = this->getpRecordado();
-    ControladorUsuario * CU = ControladorUsuario::getInstancia();
-    Usuario * user = CU->getusuarioRecordado();
-    unsigned int newID = CU->getIDComentario();
-    Comentario* coment = Comentario(respuesta, DTFecha(0,0,0), to_string(newID));
-    newID++;
-    CU->setIDComentario(newID);
-    user->agregarComentario(coment);
-    map<string, Comentario *>::iterator it = prod.find(id);
-    it->second->agregarRespuesta(coment);
+    DTNotificacion* dtn = new DTNotificacion(nombre,nombresProds,descuento,fecha);
+    return dtn;
 }

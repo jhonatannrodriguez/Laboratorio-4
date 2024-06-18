@@ -11,8 +11,8 @@
 #include "Promocion.h"
 #include "DTFecha.h"
 #include "ControladorProducto.h"   /////////
+
 #include "Cliente.h"
-#include "Comentario.h"
 
 class ControladorProducto; /////////////
 
@@ -28,7 +28,6 @@ private:
     map<string, Usuario *> coleccionUsuarios;
     map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
-    unsigned int idComentario;
    
 public:
 
@@ -38,20 +37,16 @@ public:
     Usuario * getusuarioRecordado();
     Promocion * getPromocionRecordada();
     map<string, Usuario*> getColeccionUsuarios();
-    unsigned int getIDComentario();
 
     // setters
-    void setIDComentario(unsigned int newID);
-    
+
     // Operaciones del Diagrama de Comunicacion
 
     bool NuevoUsuario(DTUsuario* usuario);
     void Registrar();
     set< DTUsuario *> ListarUsuarios(); // set 
     set<string> listarVendedores();
-    set<string> consultarUsuarios();
     void seleccionarVendedor(string nickname);
-    void seleccionarUsuario(string nickname);
     void asociarProducto(Producto * p);
 
    set<DTPromocion> consultarPromocion();
@@ -61,9 +56,12 @@ public:
     set<DTProducto*> seleccionarUnVendedor(string nickname);
     void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
-
-    void nuevoComentario(string txt);
-    set<DTComentario*> listarComentarios(string nickname);
+    set<string> vendedoresNoSuscritos(string nombreCliente);
+    void seleccionarCliente(string nickname);
+    void suscribirse(string nickname);
+    set<DTNotificacion*> consultarNotificaciones(string nickname);
+    void eliminarNotificaciones();
 };
+
 
 #endif

@@ -2,18 +2,15 @@
 #define _PRODUCTO_H
 
 #include "Promocion.h"
-#include "Vendedor.h"  
+#include "Vendedor.h"  ///////////
 #include "EnumTipoProducto.h"
 #include "DTProducto.h"  ////////////
 #include "DTProductoInfo.h" /////////
-#include "Comentario.h"
 using namespace std;
 #include <string>
-#include <map>
 
 class Promocion;
-class Comentario;
-class Vendedor;  
+class Vendedor;  ///////////
 
 class Producto {
 private:
@@ -24,10 +21,11 @@ private:
     float precio;
     TipoProducto tipo;
     unsigned int stock;
+    unsigned int minimo;
     // pseudoatributos
     Promocion* promocion;
-    Vendedor* vendedor; //////////
-    map<string, Comentario*> comentarios;
+    Vendedor* vendedor;
+
 public:
     Producto();
     Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo);
@@ -38,7 +36,6 @@ public:
     Promocion * getPromo();
     TipoProducto getTipo();
     unsigned int getStock();
-    map<string, Comentario*> getComentarios();
     Vendedor * getVendedor(); /////////
     void setCodigo(string codigo);
     void setNombre(string nombre);
@@ -48,9 +45,10 @@ public:
     void setStock(unsigned int stock);
     void setPromo(Promocion * promo);
     void setVendedor(Vendedor * vendedor); ////////
+    void setMinimo(unsigned int minimo);
     DTProducto* getDTP();
     DTProductoInfo *getDTPI();  //////////
-    void agregarComentario(Comentario* coment);    
+    
 
     ~Producto();
 };

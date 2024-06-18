@@ -89,13 +89,8 @@
         this->vendedor = vendedor;
     }
     //////////
-
-    map<string, Comentario*> Producto :: getComentarios() {
-        return this->comentarios;
-    }
-
-    void Producto :: agregarComentario(Comentario* coment) {
-        this->comentarios[coment->getId()] = coment;
+    void Producto :: setMinimo(unsigned int minimo) {
+        this->minimo = minimo;
     }
 
     Producto :: ~Producto() {}

@@ -3,7 +3,8 @@
 
 #include "DTFecha.h"
 #include "DTUsuario.h"
-#include "Comentario.h"
+#include "Usuario.h"
+//#include "Comentario.h"
 using namespace std;
 #include <string>
 #include <set>
@@ -15,7 +16,7 @@ private:
     DTFecha fecha_nacimiento;
     string contrasenia; 
     //Pseudoatributos
-    map<string, Comentario*> comentarios;  
+    //set<Comentario*> comentario;  
 
 public:
     Usuario();
@@ -26,8 +27,8 @@ public:
     string getNickname();
     DTFecha getFecha_nacimiento();
     string getContrasenia();
-    map<string, Comentario*> getComentarios();
-    void agregarComentario(Comentario* coment);
+    
+    //set<Comentario*> getComentarios();
     
     virtual ~Usuario() = 0;
 

@@ -5,7 +5,7 @@
 #include "DTUsuario.h"
 #include "DTProducto.h"
 #include "DTPromocion.h"
-#include "DTComentario.h"
+#include "DTNotificacion.h"
 #include <map>
 #include <string>
 #include <set>
@@ -22,16 +22,16 @@ public:
     virtual set<DTUsuario*> ListarUsuarios()=0;
     virtual set<string> listarVendedores() = 0;
     virtual void seleccionarVendedor(string nickname) = 0;
-    virtual void seleccionarUsuario(string nickname) = 0;
-    virtual set<string> consultarUsuarios() = 0;
     virtual set<DTPromocion> consultarPromocion() = 0;
     //virtual DTVendedorInfo seleccionarPromocion(string nombre_promocion) = 0;  
     virtual set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento) = 0;  
     virtual set<DTProducto*> seleccionarUnVendedor(string nickname) = 0;
     virtual void aniadirProducto(string codigo, unsigned int cantidad) = 0;
     virtual void darDeAltaPromo() = 0;
-    virtual void nuevoComentario(string txt) = 0;
-    virtual set<DTComentario*> listarComentarios(string nickname) = 0;
+    virtual set<string> vendedoresNoSuscritos(string nombreCliente) = 0;
+    virtual void suscribirse(string nickname) = 0;
+    virtual set<DTNotificacion*> consultarNotificaciones(string nickname)=0;
+    virtual void eliminarNotificaciones()=0;
    
     virtual ~IUsuario() {}  
 };
