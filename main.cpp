@@ -452,7 +452,7 @@ int main()
                     string codigo;
                     cin >> codigo;
                     iProducto.elegirProducto(string codigo); //Guarda una referencia del Producto (lo recuerda)
-                    if (iProducto.getProducto() != null) {
+                    if (iProducto.getpRecordado() != NULL) {
                         OpcionesComentario();
                         //Se decide entre escribir un comentario, responder, o no hacer nada
                         int option = 0;
@@ -468,8 +468,8 @@ int main()
                                 case 2:
                                 {
                                     cout << "Comentarios del Producto: " << endl;
-                                    map<string, DTComentario> textosComentarios = iProducto.listarComentarios(); 
-                                    for (const auto& dtc : textosComentarios) {
+                                    map<string, DTComentario*> textosComentarios = iProducto.listarComentarios(); 
+                                    for (const auto& dtc : textosComentarios) { 
                                         //Listar dependiendo de la Implementacion
                                     }
                                     cout << "Seleccione un Comentario por ID: " << endl;

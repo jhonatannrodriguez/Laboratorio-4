@@ -5,6 +5,7 @@
 #include "DTUsuario.h"
 #include "DTProducto.h"
 #include "DTPromocion.h"
+#include "DTComentario.h"
 #include <map>
 #include <string>
 #include <set>
@@ -29,6 +30,8 @@ public:
     virtual set<DTProducto*> seleccionarUnVendedor(string nickname) = 0;
     virtual void aniadirProducto(string codigo, unsigned int cantidad) = 0;
     virtual void darDeAltaPromo() = 0;
+    virtual void nuevoComentario(string txt) = 0;
+    virtual set<DTComentario*> listarComentarios() = 0;
    
     virtual ~IUsuario() {}  
 };

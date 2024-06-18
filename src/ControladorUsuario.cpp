@@ -179,6 +179,14 @@ void ControladorUsuario :: darDeAltaPromo(){
 
 }
 
+void ControladorUsuario :: nuevoComentario(string txt) {
+
+}
+
+set<DTComentario*> ControladorUsuario :: listarComentarios() {
+
+}
+
 
 /*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     

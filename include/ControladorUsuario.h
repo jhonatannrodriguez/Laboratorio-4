@@ -11,7 +11,6 @@
 #include "Promocion.h"
 #include "DTFecha.h"
 #include "ControladorProducto.h"   /////////
-
 #include "Cliente.h"
 
 class ControladorProducto; /////////////
@@ -58,6 +57,9 @@ public:
     set<DTProducto*> seleccionarUnVendedor(string nickname);
     void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
+
+    void nuevoComentario(string txt);
+    set<DTComentario*> listarComentarios();
 };
 
 #endif
