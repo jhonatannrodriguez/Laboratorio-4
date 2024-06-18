@@ -3,6 +3,7 @@
 
 #include "DTProducto.h"
 #include "DTProductoInfo.h"
+#include "DTComentario.h"
 using namespace std;
 #include <string>
 #include <set>

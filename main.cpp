@@ -468,7 +468,7 @@ int main()
                                 case 2:
                                 {
                                     cout << "Comentarios del Producto: " << endl;
-                                    set<DTComentario*> textosComentarios = iProducto.listarComentarios(); 
+                                    set<DTComentario*> textosComentarios = iProducto.listarComentarios();  //Aqui me faltó listar las respuestas a comentarios
                                     for (const auto& dtc : textosComentarios) { 
                                         //Listar dependiendo de la Implementacion
                                     }
@@ -478,7 +478,7 @@ int main()
                                     cout << "Escriba una Respuesta: " <<endl;
                                     string respuesta;
                                     cin >> respuesta;
-                                    iProducto.nuevaRespuesta(id, respuesta); //Accede al atributo map<int id, Comentario*> y le asigna un nuevo hijo con el texto "respuesta" 
+                                    iProducto.nuevaRespuesta(id, respuesta);
                                 }
                                 case 3:
                                 {
@@ -507,7 +507,7 @@ int main()
                 cout << "Seleccione un Usuario: " << endl;
                 string nickname;
                 cin >> nickname;
-                map<string, DTComentario> setdtc = iUsuario.listarComentarios(nickname);
+                set<DTComentario*> setdtc = iUsuario.listarComentarios(nickname);
                 for (const auto& dtc : setdtc) {
                     //Listar dependiendo de la Implementacion
                 }
