@@ -32,5 +32,6 @@ class ControladorProducto : public IProducto {
         void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
         void elegirProducto(string codigo);
         set<DTComentario*> listarComentarios();
+        void nuevaRespuesta(string id, string respuesta);
 };
 #endif

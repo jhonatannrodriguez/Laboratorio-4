@@ -16,6 +16,7 @@ public:
     virtual void darAltaProducto(string codigo) = 0;
     virtual void elegirProducto(string codigo) = 0;
     virtual set<DTComentario*> listarComentarios() = 0;
+    virtual void nuevaRespuesta(string id, string respuesta) = 0;
 
     virtual ~IProducto() {}  
 };

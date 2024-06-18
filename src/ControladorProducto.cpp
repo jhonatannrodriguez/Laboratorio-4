@@ -114,3 +114,13 @@ set<DTComentario*> ControladorProducto :: listarComentarios() {
     }
     return res;
 }
+
+void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
+    Producto * prod = this->getpRecordado();
+    ControladorUsuario * CU = ControladorUsuario::getInstancia();
+    Usuario * user = CU->getusuarioRecordado();
+    Comentario* coment = Comentario(respuesta, DTFecha(0,0,0), "0");
+    user->agregarComentario(coment);
+    map<string, Comentario *>::iterator it = prod.find(id);
+    it->second->agregarRespuesta(Comentario*);
+}

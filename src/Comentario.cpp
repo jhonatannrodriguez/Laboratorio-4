@@ -36,4 +36,8 @@
         this->id = id;
     }
 
+    void agregarRespuesta(Comentario *) {
+        this->respuestas.emplace(Comentario *);
+    }
+
     Comentario :: ~Comentario() {}

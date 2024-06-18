@@ -454,7 +454,7 @@ int main()
                     iProducto.elegirProducto(string codigo); //Guarda una referencia del Producto (lo recuerda)
                     if (iProducto.getpRecordado() != NULL) {
                         OpcionesComentario();
-                        //Se decide entre escribir un comentario, responder, o no hacer nada
+                        //Se decide entre escribir un comentario, responder, o salir
                         int option = 0;
                         do {
                             cin >> option;
