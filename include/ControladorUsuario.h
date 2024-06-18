@@ -47,6 +47,7 @@ public:
     set< DTUsuario *> ListarUsuarios(); // set 
     set<string> listarVendedores();
     void seleccionarVendedor(string nickname);
+    void seleccionarUsuario(string nickname);
     void asociarProducto(Producto * p);
 
    set<DTPromocion> consultarPromocion();

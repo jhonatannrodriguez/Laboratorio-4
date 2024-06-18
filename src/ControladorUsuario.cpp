@@ -50,6 +50,11 @@ void ControladorUsuario :: seleccionarVendedor(string nombre) {
     this->usuarioRecordado = it->second;
 }
 
+void ControladorUsuario :: seleccionarUsuario(string nombre) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombre);
+    this->usuarioRecordado = it->second;
+}
+
 void ControladorUsuario :: asociarProducto(Producto * p) {
     Vendedor * v = dynamic_cast<Vendedor *>(getusuarioRecordado());
     v->asociarProducto(p);
