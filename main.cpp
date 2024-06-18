@@ -396,7 +396,7 @@ int main()
             }
             case 6:
             {
-              /*  cout << "Lista de Promociones: " << endl; 
+                cout << "Lista de Promociones: " << endl; 
                 set<DTPromocion> promociones = iUsuario->consultarPromocion();
                 set<DTPromocion>::iterator iter;
                 for (iter = promociones.begin(); iter != promociones.end(); iter++) {
@@ -406,7 +406,7 @@ int main()
                 cout << "Ingrese el nombre de la Promocion (N si no): " << endl; 
                 cin >> nombre_promocion;
 
-                if(nombre_promocion != "N"){
+               /* if(nombre_promocion != "N"){
                     iUsuario.seleccionarPromocion(nombre_promocion);
                 }
                 */

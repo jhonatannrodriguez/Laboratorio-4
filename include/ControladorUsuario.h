@@ -5,9 +5,11 @@
 #include "Usuario.h"
 #include "DTVendedorInfo.h"
 #include "DTProducto.h"
+#include "DTPromocion.h"
 #include "Producto.h"
 #include "Vendedor.h"
 #include "Promocion.h"
+#include "DTFecha.h"
 #include "ControladorProducto.h"   /////////
 
 #include "Cliente.h"
@@ -24,7 +26,7 @@ private:
     Usuario * usuarioRecordado;
     Promocion * promocionRecordada;
     map<string, Usuario *> coleccionUsuarios;
-   // map<string, Promocion *> coleccionPromociones;
+    map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
    
 public:
@@ -47,8 +49,8 @@ public:
     void seleccionarVendedor(string nickname);
     void asociarProducto(Producto * p);
 
-   /**/ set<DTPromocion> consultarPromocion();
-    DTVendedorInfo seleccionarPromocion(string nombre_promocion);
+   set<DTPromocion> consultarPromocion();
+    //DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
     set<DTProducto> seleccionarUnVendedor(string nickname);

@@ -124,21 +124,23 @@ void ControladorUsuario::Registrar()
    return res;
 }
 
-/*set<DTPromocion> ControladorUsuario::consultarPromocion() {
+set<DTPromocion> ControladorUsuario::consultarPromocion() {
     set<DTPromocion> promociones;
-    for (const auto& promocion : this->promocion) {
-        DTPromocion prom(promocion.second.getVencimiento(), 
-                        promocion.second.getDescripcion(), 
-                        promocion.second.getNombre(), 
-                        promocion.second.getDescuento());
-        promociones.insert(prom);
+    for (const auto& promocion : this->coleccionPromociones) {
+       DTPromocion prom = DTPromocion(promocion.second->getVencimiento(), 
+                        promocion.second->getDescripcion(), 
+                        promocion.second->getNombre(), 
+                        promocion.second->getDescuento());
+        promociones.emplace(prom);
     }
     return promociones;
-}*/
+
+}
 
 
-set<string> ControladorUsuario :: crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento){
-    Promocion * promo = new Promocion(nombre, descripcion, vencimiento, descuento);
+set<string> ControladorUsuario::crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento) {
+    Promocion* promo = new Promocion(nombre, descripcion, vencimiento, descuento);
+    this->coleccionPromociones[nombre] = promo;
     this->promocionRecordada = promo;
     return this->listarVendedores();
 }

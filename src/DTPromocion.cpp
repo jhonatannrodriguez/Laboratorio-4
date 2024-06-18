@@ -14,19 +14,19 @@
         this->descuento = descuento;
     }
 
-    DTFecha DTPromocion :: getVencimiento() {
+    DTFecha DTPromocion :: getVencimiento() const {
         return this->vencimiento;
     }
 
-    string DTPromocion :: getDescripcion() {
+    string DTPromocion :: getDescripcion() const {
         return this->descripcion;
     }
 
-    string DTPromocion :: getNombre() {
+    string DTPromocion :: getNombre() const {
         return this->nombre;
     }
 
-    float DTPromocion :: getDescuento() {
+    float DTPromocion :: getDescuento() const {
         return this->descuento;
     }
 
