@@ -8,7 +8,7 @@
 #include "Compra.h"
 #include "IObserver.h"
 
-class Cliente : public Usuario//, public IObserver 
+class Cliente : public Usuario, public IObserver 
 {
 private:
     //Atributos
@@ -16,8 +16,8 @@ private:
     int numero_puerta;
     string ciudad_residencia; 
     //Pseudoatributos
-    set<DTNotificacion> nots; 
-    //set<Vendedor*> vendedor_suscripcion;
+    set<DTNotificacion*> nots; 
+    set<Vendedor*> suscripciones={};
     //set<Compra*> compra;
 
 public:
@@ -31,9 +31,10 @@ public:
     int getNumeroPuerta();
     string getCiudadResidencia();
     
-    void notificar(DTNotificacion dtn);
-    //void suscribirse(Vendedor);
-    //set<Vendedor*> getSuscritos();
+    void notificar(DTNotificacion* dtn);
+    void suscribirse(Vendedor* vendedor);
+    set<Vendedor*> getSuscritos();
+    set<DTNotificacion*> getNotificaciones();
     //void eliminarNotificaciones();
 
     ~Cliente();
@@ -41,6 +42,7 @@ public:
     
     DTCliente *getDTCliente();
     virtual DTUsuario* getDTUsuario();
+
     
 };
 

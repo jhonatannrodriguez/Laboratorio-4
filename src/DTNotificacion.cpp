@@ -2,7 +2,6 @@
 
 DTNotificacion::DTNotificacion() {
     this->nombrePromo = "";
-    this->productos; // Como inicializo un set
     this->descuento = 0;
     this->vencimiento = DTFecha(0,0,0);
 }
@@ -30,4 +29,4 @@ DTFecha DTNotificacion :: getVencimiento() {
     return this->vencimiento;
 }
 
-DTNotificacion :: ~DTNotificacion() {} // Llevan destructor los dt?
+DTNotificacion :: ~DTNotificacion() {}

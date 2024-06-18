@@ -352,6 +352,7 @@ int main()
                 cout << "Ingrese el Nombre:" << endl;
                 cin >> nombre;
                 cout << "Ingrese la Descripcion:" << endl;
+                //getline(cin,descripcion);
                 cin >> descripcion;
                 cout << "Ingrese el Descuento:" << endl;
                 cin >> descuento;
@@ -392,7 +393,7 @@ int main()
                 }while(a == 1);
                 for (DTProducto* p : productos)
                     delete p;
-               // iUsuario->darDeAltaPromo();
+                iUsuario->darDeAltaPromo();
                cout <<  "Fin de creación de promoción. " << endl;
                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
@@ -440,10 +441,43 @@ int main()
             }
             case 12: 
             {
+                cout << "Ingrese el nombre de cliente para la suscripción:" << endl;
+                string nombreCliente;
+                cin >> nombreCliente;
+                set<string> setNoS = iUsuario->vendedoresNoSuscritos(nombreCliente);
+                cout << "Estos son los vendedores a los que se puede suscribir:" << endl;
+                listarString(setNoS);
+                int a;
+                do {
+                    cout << "1: Suscribirse"<< endl;
+                    cout << "2: Salir"<< endl;
+                    cin >> a;
+                    if(a == 1){
+                        cout << "Ingrese el nickname del vendedor al cual desea suscribirse:"<< endl;
+                        string nick;
+                        cin >> nick;
+                        iUsuario->suscribirse(nick);                        
+                        cout << "Suscrito con éxito!"<< endl;
+
+                    }
+                    
+
+                }while(a == 1);
+                cout << "Fin de suscribirse a vendedores." << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             break;
             }
             case 13: 
             {
+                cout << "Ingrese su nombre de usuario:" << endl;
+                string nickname;
+                cin >> nickname;
+                set<DTNotificacion*> setDTN = iUsuario->consultarNotificaciones(nickname);
+                for (DTNotificacion* nt : setDTN)
+                    cout << nt << endl;
+                iUsuario->eliminarNotificaciones();
+                cout << "Fin de consultar notificaciones." << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             break;
             }
             case 14: 

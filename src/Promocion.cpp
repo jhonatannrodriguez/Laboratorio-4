@@ -30,6 +30,10 @@
         return this->descuento = descuento;
     }
 
+    set<Producto*> Promocion :: getProductos() {
+        return this->productos;
+    }
+
     void Promocion :: setNombre(string nombre) {
         this->nombre = nombre;
     }
@@ -47,15 +51,11 @@
     }
 
     void Promocion :: asociarProducto(Producto * prod, unsigned int cantidad){
-        Minimo* min=new Minimo;
-        min->cantidad = cantidad;
-        min->producto = prod;
-        this->productos.emplace(min);
+        prod->setMinimo(cantidad);
+        this->productos.emplace(prod);
     }
 
     Promocion :: ~Promocion() {
         
-        for (Minimo* min: this->productos)
-            delete min;
         this->productos.clear();
     }

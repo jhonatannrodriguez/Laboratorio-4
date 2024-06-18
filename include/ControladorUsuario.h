@@ -56,6 +56,12 @@ public:
     set<DTProducto*> seleccionarUnVendedor(string nickname);
     void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
+    set<string> vendedoresNoSuscritos(string nombreCliente);
+    void seleccionarCliente(string nickname);
+    void suscribirse(string nickname);
+    set<DTNotificacion*> consultarNotificaciones(string nickname);
+    void eliminarNotificaciones();
 };
+
 
 #endif

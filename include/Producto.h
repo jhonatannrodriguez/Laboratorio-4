@@ -21,9 +21,11 @@ private:
     float precio;
     TipoProducto tipo;
     unsigned int stock;
+    unsigned int minimo;
     // pseudoatributos
     Promocion* promocion;
-    Vendedor* vendedor; //////////
+    Vendedor* vendedor;
+
 public:
     Producto();
     Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo);
@@ -43,6 +45,7 @@ public:
     void setStock(unsigned int stock);
     void setPromo(Promocion * promo);
     void setVendedor(Vendedor * vendedor); ////////
+    void setMinimo(unsigned int minimo);
     DTProducto* getDTP();
     DTProductoInfo *getDTPI();  //////////
     

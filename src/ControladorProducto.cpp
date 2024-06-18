@@ -98,3 +98,15 @@ void ControladorProducto :: aniadirProducto(Promocion* promo, string codigo, uns
         promo->asociarProducto(prod, cantidad); /////////////
     };
 }
+DTNotificacion * ControladorProducto :: crearNotificacion(Promocion* promo) {
+    string nombre = promo->getNombre();
+    unsigned int descuento = promo->getDescuento();
+    DTFecha fecha = promo->getVencimiento();
+    set<Producto*> setP = promo->getProductos();
+    set<string> nombresProds;
+    for (Producto* prod : setP) {
+        nombresProds.emplace(prod->getNombre());
+    }
+    DTNotificacion* dtn = new DTNotificacion(nombre,nombresProds,descuento,fecha);
+    return dtn;
+}

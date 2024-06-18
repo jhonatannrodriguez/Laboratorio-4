@@ -89,5 +89,8 @@
         this->vendedor = vendedor;
     }
     //////////
+    void Producto :: setMinimo(unsigned int minimo) {
+        this->minimo = minimo;
+    }
 
     Producto :: ~Producto() {}

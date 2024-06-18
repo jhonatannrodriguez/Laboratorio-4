@@ -23,11 +23,6 @@ Cliente::Cliente(string nickname,DTFecha fecha_nacimiento ,string contrasenia, s
 
 }
 
-Cliente::~Cliente()
-{
-    
-}
-
 //setters
 void Cliente::setCalle(string calle)
 {
@@ -74,10 +69,28 @@ DTUsuario* Cliente::getDTUsuario()
     return res;
 }
 
-void Cliente :: notificar(DTNotificacion dtn) {
-   // this->nots.emplace(dtn);
+void Cliente :: notificar(DTNotificacion* dtn) {
+    this->nots.emplace(dtn);
 }
 
+set<Vendedor*> Cliente :: getSuscritos() {
+    return this->suscripciones;
+}
 
+set<DTNotificacion*> Cliente :: getNotificaciones() {
+    return this->nots;
+}
 
+void Cliente :: suscribirse(Vendedor* vendedor) {
+    this->suscripciones.emplace(vendedor);
+    vendedor->agregar(this);
+}
 
+Cliente::~Cliente()
+{
+    this->suscripciones.clear();
+    for (DTNotificacion* nt : this->nots) {
+        delete nt;
+    }
+    this->nots.clear();
+}

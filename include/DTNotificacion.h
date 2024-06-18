@@ -20,6 +20,7 @@ class DTNotificacion {
         set<string> getProductos();
         float getDescuento();
         DTFecha getVencimiento();
+        ~DTNotificacion();
 } ;
 
 #endif

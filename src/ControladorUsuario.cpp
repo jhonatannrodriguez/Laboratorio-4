@@ -162,9 +162,51 @@ void ControladorUsuario :: aniadirProducto(string codigo, unsigned int cantidad)
 }
 
 void ControladorUsuario :: darDeAltaPromo(){
-
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    DTNotificacion* dtn = CP->crearNotificacion(this->promocionRecordada);
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(this->usuarioRecordado);
+    vendedor->notificarlosObservadores(dtn);
 }
 
+/*void ControladorUsuario :: seleccionarCliente(string nickname) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    this->usuarioRecordado = it->second;
+}*/
+
+set<string> ControladorUsuario :: vendedoresNoSuscritos(string nombreCliente) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombreCliente);
+    this->usuarioRecordado = it->second;
+    Cliente *cliente = dynamic_cast<Cliente *>(it->second);
+    set<Vendedor*> subs = cliente->getSuscritos();
+    set<string> setNoS;
+    for (map<string, Usuario *>::iterator user = coleccionUsuarios.begin(); user != coleccionUsuarios.end(); ++user) {
+        Vendedor *vendedor = dynamic_cast<Vendedor *>(user->second);
+        if (vendedor!= NULL && subs.find(vendedor) == subs.end())
+            setNoS.emplace(vendedor->getNickname());
+    }
+    return setNoS;
+}
+
+void ControladorUsuario :: suscribirse(string nickname) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
+    Cliente *cliente = dynamic_cast<Cliente *>(this->usuarioRecordado);
+    cliente->suscribirse(vendedor);
+}
+
+set<DTNotificacion*> ControladorUsuario :: consultarNotificaciones(string nickname) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    Cliente *cliente = dynamic_cast<Cliente *>(it->second);
+    this->usuarioRecordado = it->second;
+    return cliente->getNotificaciones();
+}
+
+void ControladorUsuario :: eliminarNotificaciones() {
+    Cliente *cliente = dynamic_cast<Cliente *>(this->usuarioRecordado);
+    for (DTNotificacion* nt : cliente->getNotificaciones())
+        delete nt;
+    
+}
 
 /*DTVendedorInfo ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     

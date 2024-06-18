@@ -30,5 +30,6 @@ class ControladorProducto : public IProducto {
         void darAltaProducto(string codigo);
         set<DTProducto*> obtenerDTP(set<Producto*> setP);  
         void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
+        DTNotificacion * crearNotificacion(Promocion* promo);
 };
 #endif
