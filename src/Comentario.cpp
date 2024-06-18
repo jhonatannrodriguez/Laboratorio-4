@@ -36,4 +36,8 @@
         this->id = id;
     }
 
+    void Comentario :: agregarRespuesta(string res, DTfecha fecha) {
+        respuestas.emplace(Comentario(string texto, DTFecha fecha, string id));
+    }
+
     Comentario :: ~Comentario() {}

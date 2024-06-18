@@ -27,6 +27,7 @@ public:
     void setTexto(string texto);
     void setFecha(DTFecha fecha);
     void setId(string id);
+    void agregarRespuesta(string res, DTfecha fecha);
 
     ~Comentario();
 };
