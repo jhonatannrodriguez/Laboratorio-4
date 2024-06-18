@@ -55,6 +55,15 @@ void ControladorUsuario :: seleccionarUsuario(string nombre) {
     this->usuarioRecordado = it->second;
 }
 
+set<string> ControladorUsuario :: consultarUsuarios() {
+    set<string> res;
+    for (map<string, Usuario *>::iterator it= instancia->coleccionUsuarios.begin(); it != instancia->coleccionUsuarios.end(); ++it)
+    {
+        res.emplace(it->second->getNickname());
+    } 
+    return res;
+}
+
 void ControladorUsuario :: asociarProducto(Producto * p) {
     Vendedor * v = dynamic_cast<Vendedor *>(getusuarioRecordado());
     v->asociarProducto(p);

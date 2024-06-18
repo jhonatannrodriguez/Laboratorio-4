@@ -46,6 +46,7 @@ public:
     void Registrar();
     set< DTUsuario *> ListarUsuarios(); // set 
     set<string> listarVendedores();
+    set<string> consultarUsuarios();
     void seleccionarVendedor(string nickname);
     void seleccionarUsuario(string nickname);
     void asociarProducto(Producto * p);
