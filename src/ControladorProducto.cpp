@@ -98,3 +98,8 @@ void ControladorProducto :: aniadirProducto(Promocion* promo, string codigo, uns
         promo->asociarProducto(prod, cantidad); /////////////
     };
 }
+
+void ControladorProducto :: elegirProducto(string codigo) {
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    this->pRecordado = it->second;
+}

@@ -9,6 +9,14 @@ void listarString(set<string> setS) {
     }
 }
 
+void OpcionesComentario() {
+    cout << "Elija una opción:" << endl;
+    cout << "1: Redactar nuevo comentario." << endl;
+    cout << "2: Responder comentario." << endl;
+    cout << "3: Ayuda." << endl;
+    cout << "4: Salir." << endl;
+}
+
 int main()
 {
 
@@ -559,7 +567,7 @@ int main()
             break;
             }
         }
-
+    }
 
 
     } while (opcion != 16);
