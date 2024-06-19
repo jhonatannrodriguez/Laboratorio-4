@@ -182,6 +182,55 @@ int main()
                 codigo = iProducto->ingresarProducto("Reloj de Pared", 150.50, 20, "", TipoProducto::otros);
                 iProducto->darAltaProducto(codigo);
 
+                //Promociones
+
+                set<string> vendedores = iUsuario->crearPromocion(DTFecha(25,10,2024), "Para que puedas ahorrar en la casa nueva", "Casa nueva", 30);
+                set<DTProducto*> productos = iUsuario->seleccionarUnVendedor("ana23");
+                iUsuario->aniadirProducto("2", 1);
+                iUsuario->aniadirProducto("4", 1);
+                iUsuario->aniadirProducto("8", 1);
+                iUsuario->darDeAltaPromo();
+                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
+                {
+                    delete *it;
+                }
+
+
+                // Promoción PM2 - Fiesta
+                vendedores = iUsuario->crearPromocion(DTFecha(26, 10, 2024), "Para que no te quedes sin ropa para las fiestas", "Fiesta", 20);
+                productos = iUsuario->seleccionarUnVendedor("carlos78");
+                iUsuario->aniadirProducto("3", 2);
+                iUsuario->aniadirProducto("6", 3);
+                iUsuario->darDeAltaPromo();
+                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
+                {
+                    delete *it;
+                }
+
+
+                // Promoción PM3 - Domotica
+                vendedores = iUsuario->crearPromocion(DTFecha(26, 10, 2024), "Para modernizar tu casa", "Domotica", 10);
+                productos = iUsuario->seleccionarUnVendedor("diegom");
+                iUsuario->aniadirProducto("5", 2);
+                iUsuario->darDeAltaPromo();
+                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
+                {
+                    delete *it;
+                }
+
+
+                // Promoción PM4 - Liquidacion
+                vendedores = iUsuario->crearPromocion(DTFecha(26, 3, 2024), "Hasta agotar stock","Liquidacion", 10);
+                productos = iUsuario->seleccionarUnVendedor("diegom");
+                iUsuario->aniadirProducto("14", 1);
+                iUsuario->darDeAltaPromo();
+
+                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
+                {
+                    delete *it;
+                }
+                
+
                 cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
             break;
