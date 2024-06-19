@@ -182,7 +182,7 @@ int main()
                 codigo = iProducto->ingresarProducto("Reloj de Pared", 150.50, 20, "", TipoProducto::otros);
                 iProducto->darAltaProducto(codigo);
 
-
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
             break;
             }
@@ -253,10 +253,8 @@ int main()
                 //liberar el dt
             
                 delete dtusuario;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
                 break;
-            
-
-
             }
             case 2: //Listar Usuarios
             {
@@ -268,6 +266,7 @@ int main()
                     cout << **it << endl;
                     delete *it;
                 }
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 3: 
@@ -300,6 +299,7 @@ int main()
             cout << "Codigo:" << codigo << endl;
             iProducto->darAltaProducto(codigo);
             cout << "El producto ha sido registrado" << endl;
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 4: 
@@ -337,7 +337,7 @@ int main()
                 delete DTPI;
 
 
-
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
 
             break;
             }
@@ -422,26 +422,32 @@ int main()
                         cout << p <<endl;
                     }
                 }        
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 7:
             {
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 8: 
             {
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 9: 
             {
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 10: 
             {
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 11: 
             {
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 12: 
@@ -478,8 +484,18 @@ int main()
                 string nickname;
                 cin >> nickname;
                 set<DTNotificacion*> setDTN = iUsuario->consultarNotificaciones(nickname);
-                for (DTNotificacion* nt : setDTN)
-                    cout << nt << endl;
+                if (setDTN.begin() != setDTN.end()) {
+                cout << "Estas son sus notificaciones:" << endl;
+                for (DTNotificacion* nt : setDTN) {
+                    cout << "Nombre Promoción: " << nt->getNombrePromo() << endl;
+                    cout << "Productos: " << endl;
+                    listarString(nt->getProductos());
+                    cout << "Descuento: " << nt->getDescuento() << endl;
+                    cout << "Disponible hasta: " << nt->getVencimiento() << endl;
+                }
+                }
+                else cout << "No tiene ninguna notificación. " << endl;
+
                 iUsuario->eliminarNotificaciones();
                 cout << "Fin de consultar notificaciones." << endl;
                 cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
@@ -487,6 +503,18 @@ int main()
             }
             case 14: 
             {
+                cout << "Ingrese su nickname de cliente:" << endl;
+                string nickname;
+                cin >> nickname;
+                set<string> vendedores = iUsuario->listarVendedoresSuscritos(nickname);
+                cout << "Estos son los vendedores a los cuales esta suscrito:" << endl;
+                listarString(vendedores);
+                cout << "Ingrese el nickname del vendedor al cual se desea desuscribir:" << endl;
+                string nickname_vendedor;
+                cin >> nickname_vendedor;
+                iUsuario->eliminarSuscripcion(nickname_vendedor);
+                cout << "La suscripcion se elimino con éxito." << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             break;
             }
             case 15:

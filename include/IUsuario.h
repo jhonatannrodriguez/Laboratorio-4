@@ -33,6 +33,8 @@ public:
     virtual void suscribirse(string nickname) = 0;
     virtual set<DTNotificacion*> consultarNotificaciones(string nickname)=0;
     virtual void eliminarNotificaciones()=0;
+    virtual set<string> listarVendedoresSuscritos(string nickname)=0;
+    virtual void eliminarSuscripcion(string nickname)=0;
    
     virtual ~IUsuario() {}  
 };

@@ -203,9 +203,7 @@ set<DTNotificacion*> ControladorUsuario :: consultarNotificaciones(string nickna
 
 void ControladorUsuario :: eliminarNotificaciones() {
     Cliente *cliente = dynamic_cast<Cliente *>(this->usuarioRecordado);
-    for (DTNotificacion* nt : cliente->getNotificaciones())
-        delete nt;
-    
+    cliente->eliminarNotificaciones();
 }
 
 DTVendedorInfo  ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
@@ -219,7 +217,25 @@ DTVendedorInfo  ControladorUsuario :: seleccionarPromocion(string nombre_promoci
     return DTVendedorInfo(vendedor->getNickname(), vendedor->getFecha_nacimiento(), vendedor->getCodigoRut(), productos);
 }
 
+set<string> ControladorUsuario :: listarVendedoresSuscritos(string nickname) {
 
+    set<string> nombres;
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    Cliente *cliente = dynamic_cast<Cliente *>(it->second);
+    this->usuarioRecordado = it->second;
+    set<Vendedor*> subs = cliente->getSuscritos();
+    for (Vendedor* v : subs){
+        nombres.emplace(v->getNickname());
+    }
+    return nombres;
+}
+
+void ControladorUsuario :: eliminarSuscripcion(string nickname) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
+    Cliente *cliente = dynamic_cast<Cliente *>(this->usuarioRecordado);
+    vendedor->eliminar(cliente);
+}
 
 
 

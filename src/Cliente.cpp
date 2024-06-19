@@ -94,3 +94,9 @@ Cliente::~Cliente()
     }
     this->nots.clear();
 }
+
+void Cliente :: eliminarNotificaciones() {
+    for (DTNotificacion* nt : this->nots)
+        delete nt;
+    this->nots.clear();
+}

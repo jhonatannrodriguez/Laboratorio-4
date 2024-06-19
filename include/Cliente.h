@@ -35,7 +35,7 @@ public:
     void suscribirse(Vendedor* vendedor);
     set<Vendedor*> getSuscritos();
     set<DTNotificacion*> getNotificaciones();
-    //void eliminarNotificaciones();
+    void eliminarNotificaciones();
 
     ~Cliente();
 

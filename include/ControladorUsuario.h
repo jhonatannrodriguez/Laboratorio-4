@@ -61,6 +61,8 @@ public:
     void suscribirse(string nickname);
     set<DTNotificacion*> consultarNotificaciones(string nickname);
     void eliminarNotificaciones();
+    set<string> listarVendedoresSuscritos(string nickname);
+    void eliminarSuscripcion(string nickname);
 };
 
 
