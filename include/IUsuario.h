@@ -2,6 +2,7 @@
 #define _IUSUARIO_H
 #include "DTCliente.h"
 #include "DTVendedor.h"
+#include "DTVendedorInfo.h"
 #include "DTUsuario.h"
 #include "DTProducto.h"
 #include "DTPromocion.h"
@@ -23,7 +24,7 @@ public:
     virtual set<string> listarVendedores() = 0;
     virtual void seleccionarVendedor(string nickname) = 0;
     virtual set<DTPromocion> consultarPromocion() = 0;
-    //virtual DTVendedorInfo seleccionarPromocion(string nombre_promocion) = 0;  
+    virtual DTVendedorInfo seleccionarPromocion(string nombre_promocion) = 0;  
     virtual set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento) = 0;  
     virtual set<DTProducto*> seleccionarUnVendedor(string nickname) = 0;
     virtual void aniadirProducto(string codigo, unsigned int cantidad) = 0;

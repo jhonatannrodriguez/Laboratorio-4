@@ -4,12 +4,13 @@
 #include "Producto.h"
 #include "DTFecha.h"
 #include "DTPromocion.h"
+
 using namespace std;
 #include <string>
 #include <set>
 
 class Producto;
-
+class Vendedor;
 
 class Promocion {
 private:
@@ -19,13 +20,15 @@ private:
     DTFecha vencimiento;
     float descuento;
     //pseudoatributos
-    set<Producto*> productos;
+    Vendedor * vendedor;
+    set<Producto*> productos = {};
 public:
     Promocion();
     Promocion(string nombre,string descripcion,DTFecha vencimiento,float descuento);
     string getNombre();
     string getDescripcion();
     DTFecha getVencimiento();
+    Vendedor * getVendedor();
     set<Producto*> getProductos();
     void asociarProducto(Producto * prod, unsigned int cantidad);
     float getDescuento();
@@ -33,6 +36,7 @@ public:
     void setDescripcion(string descripcion);
     void setVencimiento(DTFecha vencimiento);
     void setDescuento(float descuento);
+    void setVendedor(Vendedor * vend);
     
 
     ~Promocion();

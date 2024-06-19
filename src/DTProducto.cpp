@@ -17,3 +17,8 @@ string DTProducto::getCodigo(){
 string DTProducto::getNombre(){
     return this->nombre;
 }
+
+ostream& operator<<(ostream& os, DTProducto& prod) {
+    os << "Código: " << prod.getCodigo() << ", Nombre: " << prod.getNombre();
+    return os;
+}

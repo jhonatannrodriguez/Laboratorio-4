@@ -2,6 +2,7 @@
 #define DTPRODUCTO_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -15,8 +16,12 @@ public:
     DTProducto(string codigo, string nombre);
     string getNombre();
     string getCodigo();
+    bool operator<(const DTProducto& otro) const {
+        return nombre < otro.nombre;
+    }
+    
 };
 
-ostream& operator<<(ostream& os, const DTProducto& prod);
+ostream& operator<<(ostream& os, DTProducto& prod);
 
 #endif

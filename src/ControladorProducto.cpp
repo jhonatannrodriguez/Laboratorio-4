@@ -92,10 +92,11 @@ set<DTProducto*> ControladorProducto :: obtenerDTP(set<Producto*> setP){
 
 void ControladorProducto :: aniadirProducto(Promocion* promo, string codigo, unsigned int cantidad){
     map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    promo->setVendedor(it->second->getVendedor());
     Producto * prod = it->second;
     if(prod->getPromo() == NULL){
-        prod->setPromo(promo); ////////////
-        promo->asociarProducto(prod, cantidad); /////////////
+        prod->setPromo(promo);
+        promo->asociarProducto(prod, cantidad);
     };
 }
 DTNotificacion * ControladorProducto :: crearNotificacion(Promocion* promo) {

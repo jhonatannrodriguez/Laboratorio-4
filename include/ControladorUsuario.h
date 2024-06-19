@@ -49,8 +49,8 @@ public:
     void seleccionarVendedor(string nickname);
     void asociarProducto(Producto * p);
 
-   set<DTPromocion> consultarPromocion();
-    //DTVendedorInfo seleccionarPromocion(string nombre_promocion);
+    set<DTPromocion> consultarPromocion();
+    DTVendedorInfo seleccionarPromocion(string nombre_promocion);
 
     set<string> crearPromocion(DTFecha vencimiento, string descripcion, string nombre, float descuento);
     set<DTProducto*> seleccionarUnVendedor(string nickname);

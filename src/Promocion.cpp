@@ -34,6 +34,10 @@
         return this->productos;
     }
 
+    Vendedor * Promocion :: getVendedor(){
+        return this->vendedor;
+    }
+
     void Promocion :: setNombre(string nombre) {
         this->nombre = nombre;
     }
@@ -53,6 +57,11 @@
     void Promocion :: asociarProducto(Producto * prod, unsigned int cantidad){
         prod->setMinimo(cantidad);
         this->productos.emplace(prod);
+    }
+
+
+    void Promocion :: setVendedor(Vendedor * vend){
+        this->vendedor = vend;
     }
 
     Promocion :: ~Promocion() {

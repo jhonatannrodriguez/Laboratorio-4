@@ -411,12 +411,17 @@ int main()
                 cout << "Ingrese el nombre de la Promocion (N si no): " << endl; 
                 cin >> nombre_promocion;
 
-               /* if(nombre_promocion != "N"){
-                    iUsuario.seleccionarPromocion(nombre_promocion);
-                }
-                */
-
-                 
+               if(nombre_promocion != "N"){
+                    DTVendedorInfo info = iUsuario->seleccionarPromocion(nombre_promocion);
+                    cout << "Nombre del Vendedor: "<< info.getNickname() << endl; 
+                    cout << "Fecha de nacimiento: " << info.getNacimiento() << endl;
+                    cout << "Codigo RUT: "<< info.getRUT() << endl;
+                    cout << "Productos: " << endl;
+                    set<DTProducto> in = info.getprodInfo() ;
+                    for(DTProducto p : in){
+                        cout << p <<endl;
+                    }
+                }        
             break;
             }
             case 7:
