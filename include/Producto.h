@@ -7,13 +7,14 @@
 #include "DTProducto.h"  ////////////
 #include "DTProductoInfo.h" /////////
 #include "DTProductoCompleto.h"
-#include "Comentario.h"
+//#include "Comentario.h"
 using namespace std;
 #include <string>
+#include <map>
 
 class Promocion;
 class Vendedor;  ///////////
-class Comentario;
+//class Comentario;
 
 class Producto {
 private:
