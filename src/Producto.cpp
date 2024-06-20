@@ -11,6 +11,7 @@
         this->enPromo = false;
         this->esta = false;
         this->cumplePromo = false;
+        this->promocion = NULL;
     }
 
     Producto :: Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo) {
@@ -23,6 +24,7 @@
         this->enPromo = false;
         this->esta = false;
         this->cumplePromo = false;
+        this->promocion = NULL;
     }
 
     string Producto :: getCodigo() {

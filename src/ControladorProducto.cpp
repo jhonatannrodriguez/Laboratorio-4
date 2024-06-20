@@ -144,16 +144,13 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
         p->setStock(p->getStock() - cantP);
         bool enPromo = p->estaEnPromo();
         p->setEnPromo(enPromo);
-        if (!enPromo)
-            monto += cantP * p->getPrecio();
-        else {
+        if (enPromo) {
             Promocion * promo = p->getPromo();
             promosPosibles.emplace(promo);
         }
     }
     for(Promocion * promoPosible : promosPosibles) {
         set<Producto*> productosEnPromo = promoPosible->getProductos();
-        float desc = (100 - promoPosible->getDescuento())/100;
         bool esta = true;
         bool cumplePromo = true;
         for(Producto * prodEnPromo : productosEnPromo) {
@@ -172,22 +169,25 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
                 break;
             }
         }
-        for(Producto * prodEnPromo : productosEnPromo) {
-            if (prodEnPromo->getEsta() && prodEnPromo->getCumplePromo())
-                monto += c->cantProducto(prodEnPromo) * prodEnPromo->getPrecio() * desc;
-            else
-                monto += c->cantProducto(prodEnPromo) * prodEnPromo->getPrecio();
-        }
     }
-    for(Promocion * promoAEliminar : promosPosibles) {
-        promosPosibles.erase(promoAEliminar);
+    for(Producto * prod : productosCompra) {
+        if (prod->getEsta() && prod->getCumplePromo()) {
+            float desc = (100 - prod->getPromo()->getDescuento())/100;
+            monto += c->cantProducto(prod) * prod->getPrecio() * desc;
+        } else
+            monto += c->cantProducto(prod) * prod->getPrecio();
     }
-    promosPosibles.clear();
+    auto it = promosPosibles.begin();
+    while (it != promosPosibles.end()) {
+        it = promosPosibles.erase(it);  
+    }
     fechaSistema * fS = fechaSistema::getInstancia();
     compraInfo = new DTCompraInfo(monto, fS->getFecha());
+    
     for(cp * cProd : prodCompra) {
         Producto * p = cProd->producto;
         compraInfo->asociarDTPC(p->getDTPC());
     }
+    
     return compraInfo;
 }

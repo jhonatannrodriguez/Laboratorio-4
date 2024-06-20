@@ -19,7 +19,7 @@ private:
     DTFecha fecha;
     float monto; 
     // pseudoatributos
-    set<cp*> productos;
+    set<cp*> productos = {};
 public:
     Compra();
     Compra(DTFecha fecha,float monto);
