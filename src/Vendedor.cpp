@@ -24,7 +24,9 @@ void Vendedor :: asociarProducto(Producto * p) {
     p->setVendedor(this);  //////////
 }
 
-Vendedor::~Vendedor() {}
+Vendedor::~Vendedor() {
+
+}
 
 //setters
 void Vendedor::setCodigoRut(string codigo_rut)
@@ -58,7 +60,11 @@ DTUsuario* Vendedor::getDTUsuario()
     DTUsuario* u = this->getDTVendedor();
     return u;
 }
-
+////////////////
+set<IObserver*> Vendedor :: getObservers() {
+    return this->observers;
+}
+//////////
 void Vendedor :: notificarObservadores(DTNotificacion* dtn) {
     for (IObserver* it : this->observers)
         it->notificar(dtn);
@@ -71,4 +77,8 @@ void Vendedor :: eliminar(IObserver* o) {
 }
 void Vendedor :: notificarlosObservadores(DTNotificacion* dtn) {
     this->notificarObservadores(dtn);
+}
+
+void Vendedor :: agregarPromo(Promocion* promo) {
+    this->promocion.emplace(promo);
 }

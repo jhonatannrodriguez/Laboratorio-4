@@ -25,8 +25,9 @@ public:
     void setCodigoRut(string);
     string getCodigoRut();
     void asociarProducto(Producto * p);
-
+    void agregarPromo(Promocion* promo);
     set<Producto*> getProductos();
+    set<IObserver*> getObservers();  //////////////
     void agregar(IObserver* o);
     void eliminar(IObserver* o);
 
