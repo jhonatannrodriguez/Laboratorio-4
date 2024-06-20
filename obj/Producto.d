@@ -144,4 +144,5 @@ obj/Producto.o: src/Producto.cpp /usr/include/stdc-predef.h \
  src/../include/Usuario.h src/../include/DTUsuario.h \
  src/../include/DTVendedor.h src/../include/IObserver.h \
  src/../include/DTNotificacion.h src/../include/EnumTipoProducto.h \
- src/../include/DTProducto.h src/../include/DTProductoInfo.h
+ src/../include/DTProducto.h src/../include/DTProductoInfo.h \
+ src/../include/DTProductoCompleto.h

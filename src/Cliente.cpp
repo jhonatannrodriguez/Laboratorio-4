@@ -93,10 +93,25 @@ Cliente::~Cliente()
         delete nt;
     }
     this->nots.clear();
+    for (Compra* comp : this->compras) {
+        delete comp;
+    }
+    this->compras.clear();
+    
 }
 
 void Cliente :: eliminarNotificaciones() {
     for (DTNotificacion* nt : this->nots)
         delete nt;
     this->nots.clear();
+}
+
+set<Compra *> Cliente :: getCompras() {
+    return this->compras;
+}
+
+Compra * Cliente :: crearCompra() {
+    Compra * comp = new Compra();
+    this->compras.emplace(comp);
+    return comp;
 }

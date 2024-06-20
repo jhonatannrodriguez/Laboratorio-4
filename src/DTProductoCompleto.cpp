@@ -41,5 +41,17 @@
     unsigned int DTProductoCompleto :: getStock() {
         return this->stock;
     }
+
+    string DTProductoCompleto :: getTipoString() {
+        string tipo;
+        TipoProducto t = this->tipo;
+        if (t == static_cast<TipoProducto>(1)) 
+            tipo = "ropa";
+        else if (t == static_cast<TipoProducto>(2))
+            tipo = "electrodomésticos";
+        else 
+            tipo = "otros";
+        return tipo;
+    }
     
     DTProductoCompleto :: ~DTProductoCompleto() {} // Llevan destructor??

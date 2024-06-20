@@ -186,11 +186,6 @@ void ControladorUsuario :: darDeAltaPromo(){
     }
 }
 
-/*void ControladorUsuario :: seleccionarCliente(string nickname) {
-    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
-    this->usuarioRecordado = it->second;
-}*/
-
 set<string> ControladorUsuario :: vendedoresNoSuscritos(string nombreCliente) {
     map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombreCliente);
     this->usuarioRecordado = it->second;
@@ -255,5 +250,28 @@ void ControladorUsuario :: eliminarSuscripcion(string nickname) {
     vendedor->eliminar(cliente);
 }
 
+Compra * ControladorUsuario :: getCompraRecordada() {
+    return this->compraRecordada;
+}
+
+set<string> ControladorUsuario :: consultarClientes() {
+    set<string> res;
+    for (map<string, Usuario *>::iterator it= instancia->coleccionUsuarios.begin(); it != instancia->coleccionUsuarios.end(); ++it)
+    {
+        Cliente *c = dynamic_cast<Cliente *>(it->second);
+        if (c != NULL) {
+            res.emplace(c->getNickname());
+        }       
+    } 
+    return res;
+}
+
+void ControladorUsuario :: seleccionarCliente(string nickname) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
+    Cliente *c = dynamic_cast<Cliente *>(it->second);
+    if (c != NULL) {
+        this->compraRecordada = c->crearCompra();
+    }
+}
 
 

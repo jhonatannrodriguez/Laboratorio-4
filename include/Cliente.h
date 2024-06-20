@@ -18,7 +18,7 @@ private:
     //Pseudoatributos
     set<DTNotificacion*> nots; 
     set<Vendedor*> suscripciones={};
-    //set<Compra*> compra;
+    set<Compra*> compras;
 
 public:
     Cliente();
@@ -36,6 +36,9 @@ public:
     set<Vendedor*> getSuscritos();
     set<DTNotificacion*> getNotificaciones();
     void eliminarNotificaciones();
+
+    set<Compra*> getCompras();
+    Compra * crearCompra();
 
     ~Cliente();
 

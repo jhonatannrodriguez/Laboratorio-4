@@ -154,6 +154,7 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  src/../include/Usuario.h src/../include/Producto.h \
  src/../include/Promocion.h src/../include/Vendedor.h \
  src/../include/IObserver.h src/../include/EnumTipoProducto.h \
- src/../include/DTProductoInfo.h src/../include/ControladorProducto.h \
- src/../include/IProducto.h src/../include/Cliente.h \
- src/../include/Compra.h src/../include/fechaSistema.h
+ src/../include/DTProductoInfo.h src/../include/DTProductoCompleto.h \
+ src/../include/ControladorProducto.h src/../include/fechaSistema.h \
+ src/../include/IProducto.h src/../include/DTCompraInfo.h \
+ src/../include/Cliente.h src/../include/Compra.h

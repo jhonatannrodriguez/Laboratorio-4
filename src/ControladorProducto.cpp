@@ -25,10 +25,6 @@ Producto * ControladorProducto :: getpRecordado() {
 }
 
 
-
-
-
-
 //destructor
 ControladorProducto::~ControladorProducto()
 {
@@ -110,4 +106,88 @@ DTNotificacion * ControladorProducto :: crearNotificacion(Promocion* promo) {
     }
     DTNotificacion* dtn = new DTNotificacion(nombre,nombresProds,descuento,fecha);
     return dtn;
+}
+
+set<DTProductoCompleto*> ControladorProducto :: listarProductos() {
+    set<DTProductoCompleto*> setDTPC;
+    DTProductoCompleto* DTPC;
+    map <string, Producto*> :: iterator p;
+    for (p=coleccionProducto.begin();p!=coleccionProducto.end(); ++p) {
+        DTPC = p->second->getDTPC();
+        setDTPC.emplace(DTPC);
+    }
+    return setDTPC;
+}
+
+void ControladorProducto :: agregarProducto(string codigo, unsigned int cantidad) {
+    ControladorUsuario * CU = ControladorUsuario::getInstancia();
+    Compra * c = CU->getCompraRecordada();
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    Producto * prod = it->second;
+    unsigned int stock = prod->getStock();
+    if (stock >= cantidad)
+        c->asignarCantidad(prod, cantidad);
+}
+
+DTCompraInfo* ControladorProducto :: finalizarCompra() {
+    DTCompraInfo* compraInfo;
+    set<Promocion*> promosPosibles;
+    ControladorUsuario * CU = ControladorUsuario::getInstancia();
+    Compra * c = CU->getCompraRecordada();
+    set<cp*> prodCompra = c->getProductos();
+    set<Producto*> productosCompra;
+    float monto = 0;
+    for(cp * cProd : prodCompra) {
+        Producto * p = cProd->producto;
+        productosCompra.emplace(p);
+        unsigned int cantP =c->cantProducto(p);
+        p->setStock(p->getStock() - cantP);
+        bool enPromo = p->estaEnPromo();
+        p->setEnPromo(enPromo);
+        if (!enPromo)
+            monto += cantP * p->getPrecio();
+        else {
+            Promocion * promo = p->getPromo();
+            promosPosibles.emplace(promo);
+        }
+    }
+    for(Promocion * promoPosible : promosPosibles) {
+        set<Producto*> productosEnPromo = promoPosible->getProductos();
+        float desc = (100 - promoPosible->getDescuento())/100;
+        bool esta = true;
+        bool cumplePromo = true;
+        for(Producto * prodEnPromo : productosEnPromo) {
+            if (esta && cumplePromo) {
+                esta = productosCompra.find(prodEnPromo) != productosCompra.end();
+                prodEnPromo->setEsta(esta);
+                if (esta) {
+                    cumplePromo = prodEnPromo->verificaCantPromo(c->cantProducto(prodEnPromo));
+                    prodEnPromo->setCumplePromo(cumplePromo);
+                }
+            } else {
+                for(Producto * pEP : productosEnPromo) {
+                    pEP->setEsta(false);
+                    pEP->setCumplePromo(false);
+                }
+                break;
+            }
+        }
+        for(Producto * prodEnPromo : productosEnPromo) {
+            if (prodEnPromo->getEsta() && prodEnPromo->getCumplePromo())
+                monto += c->cantProducto(prodEnPromo) * prodEnPromo->getPrecio() * desc;
+            else
+                monto += c->cantProducto(prodEnPromo) * prodEnPromo->getPrecio();
+        }
+    }
+    for(Promocion * promoAEliminar : promosPosibles) {
+        promosPosibles.erase(promoAEliminar);
+    }
+    promosPosibles.clear();
+    fechaSistema * fS = fechaSistema::getInstancia();
+    compraInfo = new DTCompraInfo(monto, fS->getFecha());
+    for(cp * cProd : prodCompra) {
+        Producto * p = cProd->producto;
+        compraInfo->asociarDTPC(p->getDTPC());
+    }
+    return compraInfo;
 }

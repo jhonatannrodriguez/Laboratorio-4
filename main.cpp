@@ -476,8 +476,56 @@ int main()
             }
             case 7:
             {
-            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
-            break;
+                set<string> setS = iUsuario->consultarClientes();
+                listarString(setS);
+                cout << "Seleccione un cliente para realizar la compra" << endl;
+                string cliente;
+                cin >> cliente;
+                iUsuario->seleccionarCliente(cliente);
+                set<DTProductoCompleto*> setDTPC = iProducto->listarProductos();
+                for(DTProductoCompleto * dtpc : setDTPC) {
+                    cout << "Codigo: " << dtpc->getCodigo() << endl;
+                    cout << "Nombre: " << dtpc->getNombre() << endl; 
+                    cout << "Descripcion:" << dtpc->getDescripcion() << endl;
+                    cout << "Precio: " << dtpc->getPrecio() << endl;
+                    cout << "Tipo: " << dtpc->getTipoString() << endl;
+                    cout << "Stock: " << dtpc->getStock() << endl;
+                    cout << endl;
+                    delete dtpc;
+                }
+                int a;
+                do {
+                    cout << "1: Añadir producto a la compra"<< endl;
+                    cout << "2: Salir"<< endl;
+                    cin >> a;
+                    if(a == 1){
+                        cout << "Ingrese el Codigo del producto:"<< endl;
+                        string cod;
+                        cin >> cod;
+                        cout << "Ingrese la Cantidad:"<< endl;
+                        unsigned int cantidad;
+                        cin >> cantidad;
+                        iProducto->agregarProducto(cod, cantidad);
+                    }
+                }while(a == 1);
+                DTCompraInfo* DTCI = iProducto->finalizarCompra();
+                cout << "Fecha: " << DTCI->getFecha();
+                cout << "Monto: " << DTCI->getMonto() << endl;
+                cout << "Productos: " << endl;
+                set<DTProductoCompleto*> DTPC = DTCI->getSetDTPC();
+                for(DTProductoCompleto * dtpc : DTPC) {
+                    cout << "Codigo: " << dtpc->getCodigo() << endl;
+                    cout << "Nombre: " << dtpc->getNombre() << endl; 
+                    cout << "Descripcion:" << dtpc->getDescripcion() << endl;
+                    cout << "Precio: " << dtpc->getPrecio() << endl;
+                    cout << "Tipo: " << dtpc->getTipoString() << endl;
+                    cout << "Stock: " << dtpc->getStock() << endl;
+                    cout << endl;
+                    delete dtpc;
+                }
+                delete DTCI;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
+                break;
             }
             case 8: 
             {

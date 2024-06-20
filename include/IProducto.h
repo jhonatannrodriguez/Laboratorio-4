@@ -1,6 +1,8 @@
 #ifndef _IPRODUCTO_H
 #define _IPRODUCTO_H
 
+#include "DTProductoCompleto.h"
+#include "DTCompraInfo.h"
 #include "DTProducto.h"
 #include "DTProductoInfo.h"
 using namespace std;
@@ -14,6 +16,9 @@ public:
     virtual DTProductoInfo* seleccionarProducto(string codigo)=0;  ////////////
     virtual string ingresarProducto(string nombre, float precio, unsigned int stock, string descripcion, TipoProducto categoria) = 0;
     virtual void darAltaProducto(string codigo) = 0;
+    virtual set<DTProductoCompleto*> listarProductos() = 0;
+    virtual void agregarProducto(string codigo, unsigned int cantidad) = 0;
+    virtual DTCompraInfo* finalizarCompra() = 0;
 
     virtual ~IProducto() {}  
 };

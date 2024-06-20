@@ -7,6 +7,10 @@
         this->precio = 0;
         this->tipo = TipoProducto::otros;
         this->stock = 0;
+        this->minimo = 0;
+        this->enPromo = false;
+        this->esta = false;
+        this->cumplePromo = false;
     }
 
     Producto :: Producto(string nombre, float precio, unsigned int stock, string descripcion,TipoProducto tipo) {
@@ -15,6 +19,10 @@
         this->precio = precio;
         this->tipo = tipo;
         this->stock = stock;
+        this->minimo = 0;
+        this->enPromo = false;
+        this->esta = false;
+        this->cumplePromo = false;
     }
 
     string Producto :: getCodigo() {
@@ -91,6 +99,42 @@
     //////////
     void Producto :: setMinimo(unsigned int minimo) {
         this->minimo = minimo;
+    }
+
+    DTProductoCompleto* Producto :: getDTPC() {
+        return new DTProductoCompleto(this->codigo, this->nombre, this->descripcion, this->precio, this->tipo, this->stock);
+    }
+
+    bool Producto :: estaEnPromo() {
+        return (this->promocion != NULL);
+    }
+
+    bool Producto :: verificaCantPromo(unsigned int cant) {
+        return (cant >= this->minimo);
+    }
+
+    bool Producto :: getEnPromo() {
+        return this->enPromo;
+    }
+
+    bool Producto :: getEsta() {
+        return this->esta;
+    }
+
+    bool Producto :: getCumplePromo() {
+        return this->cumplePromo;
+    }
+
+    void Producto :: setEnPromo(bool b) {
+        this->enPromo = b;
+    }
+
+    void Producto :: setEsta(bool b) {
+        this->esta = b;
+    }
+
+    void Producto :: setCumplePromo(bool b) {
+        this->cumplePromo = b;
     }
 
     Producto :: ~Producto() {}

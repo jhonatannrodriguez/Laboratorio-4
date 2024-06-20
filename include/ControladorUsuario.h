@@ -28,7 +28,7 @@ private:
     map<string, Usuario *> coleccionUsuarios;
     map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
-   
+    Compra * compraRecordada;
 public:
 
     static ControladorUsuario *getInstancia();
@@ -57,13 +57,15 @@ public:
     void aniadirProducto(string codigo, unsigned int cantidad);
     void darDeAltaPromo();
     set<string> vendedoresNoSuscritos(string nombreCliente);
-    void seleccionarCliente(string nickname);
     void suscribirse(string nickname);
     set<DTNotificacion*> consultarNotificaciones(string nickname);
     void eliminarNotificaciones();
     set<string> listarVendedoresSuscritos(string nickname);
     void eliminarSuscripcion(string nickname);
     set<string> ConsultarUsuarios();
+    Compra * getCompraRecordada();
+    set<string> consultarClientes();
+    void seleccionarCliente(string nickname);
 };
 
 

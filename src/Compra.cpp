@@ -26,4 +26,31 @@
         this->fecha = fecha;
     }
 
-    Compra :: ~Compra() {}
+    void Compra :: asignarCantidad(Producto * p, unsigned int cantidad) {
+        cp * cProd = new cp;
+        cProd->cantidad = cantidad;
+        cProd->producto = p;
+        this->productos.emplace(cProd);
+    }
+
+    set<cp*> Compra :: getProductos() {
+        return this->productos; 
+    }
+
+    unsigned int Compra :: cantProducto(Producto * p) {
+        unsigned int res;
+        for(cp * cP : this->productos) {
+            if (cP->producto == p) {
+                res = cP->cantidad;
+                break;
+            }
+        }
+        return res;
+    }
+
+    Compra :: ~Compra() {
+        for(cp * cP : this->productos) {
+            delete cP;
+        }
+        this->productos.clear();
+    }

@@ -15,6 +15,9 @@ Fabrica::~Fabrica()
 
     IProducto *iProducto=instancia->getIProducto();
     delete iProducto;
+
+    fechaSistema *fSis=instancia->getfechaSistema();
+    delete fSis;
     
 }
 
@@ -33,5 +36,10 @@ IUsuario* Fabrica::getIUsuario()
 IProducto* Fabrica::getIProducto() 
 {
     return ControladorProducto::getInstancia();
+}
+
+fechaSistema* Fabrica::getfechaSistema() 
+{
+    return fechaSistema::getInstancia();
 }
 

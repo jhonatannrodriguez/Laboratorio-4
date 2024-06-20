@@ -17,4 +17,15 @@
     DTFecha DTCompraInfo :: getFecha() {
         return this->fecha_compra;
     }
-    DTCompraInfo :: ~DTCompraInfo() {}
+
+    void DTCompraInfo :: asociarDTPC(DTProductoCompleto* DTPC) {
+        this->setDTPC.emplace(DTPC);
+    }
+
+    set<DTProductoCompleto*> DTCompraInfo :: getSetDTPC() {
+        return this->setDTPC;
+    }
+
+    DTCompraInfo :: ~DTCompraInfo() {
+        this->setDTPC.clear();
+    }

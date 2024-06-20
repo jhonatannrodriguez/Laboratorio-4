@@ -1,6 +1,7 @@
 #ifndef _CONTROLADORPRODUCTO_H
 #define _CONTROLADORPRODUCTO_H
 #include "DTFecha.h"
+#include "fechaSistema.h"
 #include "ControladorUsuario.h"
 #include "DTProductoInfo.h"
 #include "Producto.h"
@@ -31,5 +32,8 @@ class ControladorProducto : public IProducto {
         set<DTProducto*> obtenerDTP(set<Producto*> setP);  
         void aniadirProducto(Promocion * promo, string codigo, unsigned int cantidad);   //////
         DTNotificacion * crearNotificacion(Promocion* promo);
+        set<DTProductoCompleto*> listarProductos();
+        void agregarProducto(string codigo, unsigned int cantidad);
+        DTCompraInfo* finalizarCompra();
 };
 #endif

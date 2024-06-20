@@ -19,7 +19,7 @@ private:
     DTFecha fecha;
     float monto; 
     // pseudoatributos
-    set<cp> productos;
+    set<cp*> productos;
 public:
     Compra();
     Compra(DTFecha fecha,float monto);
@@ -27,6 +27,9 @@ public:
     DTFecha getFecha();
     void setMonto(float monto);
     void setFecha(DTFecha fecha);
+    void asignarCantidad(Producto * p, unsigned int cantidad);
+    set<cp*> getProductos();
+    unsigned int cantProducto(Producto * p);
     ~Compra();
 };
 

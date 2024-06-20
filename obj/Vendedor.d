@@ -143,5 +143,6 @@ obj/Vendedor.o: src/Vendedor.cpp /usr/include/stdc-predef.h \
  src/../include/Producto.h src/../include/Promocion.h \
  src/../include/DTPromocion.h src/../include/Vendedor.h \
  src/../include/EnumTipoProducto.h src/../include/DTProducto.h \
- src/../include/DTProductoInfo.h src/../include/IObserver.h \
- src/../include/DTNotificacion.h /usr/include/c++/9/stdlib.h
+ src/../include/DTProductoInfo.h src/../include/DTProductoCompleto.h \
+ src/../include/IObserver.h src/../include/DTNotificacion.h \
+ /usr/include/c++/9/stdlib.h

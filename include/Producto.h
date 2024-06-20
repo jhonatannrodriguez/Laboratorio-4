@@ -6,6 +6,7 @@
 #include "EnumTipoProducto.h"
 #include "DTProducto.h"  ////////////
 #include "DTProductoInfo.h" /////////
+#include "DTProductoCompleto.h"
 using namespace std;
 #include <string>
 
@@ -22,6 +23,7 @@ private:
     TipoProducto tipo;
     unsigned int stock;
     unsigned int minimo;
+    bool enPromo, esta, cumplePromo;
     // pseudoatributos
     Promocion* promocion;
     Vendedor* vendedor;
@@ -48,6 +50,16 @@ public:
     void setMinimo(unsigned int minimo);
     DTProducto* getDTP();
     DTProductoInfo *getDTPI();  //////////
+
+    DTProductoCompleto * getDTPC();
+    bool estaEnPromo();
+    bool verificaCantPromo(unsigned int cant);
+    bool getEnPromo();
+    bool getEsta();
+    bool getCumplePromo();
+    void setEnPromo(bool b);
+    void setEsta(bool b);
+    void setCumplePromo(bool b);
     
 
     ~Producto();
