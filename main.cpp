@@ -313,6 +313,7 @@ int main()
             case 3: 
             {
             set<string> vendedores = iUsuario->listarVendedores();
+
             cout << "Lista de vendedores: " << endl;
             listarString(vendedores);
             vendedores.clear();
@@ -323,11 +324,14 @@ int main()
             TipoProducto tipo;
             cout << "seleccione un vendedor:" << endl;
             cin >> v;
+            cin.ignore();
             iUsuario->seleccionarVendedor(v);
             cout << "elija el nombre del producto:" << endl;
-            cin >> nombre;
+            getline(cin,nombre);
+            //cin >> nombre;
             cout << "elija la descripcion del producto:" << endl;
-            cin >> descripcion;
+            getline(cin,descripcion);
+            //cin >> descripcion;
             cout << "elija el precio del producto:" << endl;
             cin >> precio;
             cout << "elija el stock del producto:" << endl;
@@ -391,10 +395,12 @@ int main()
                 DTFecha vencimiento = DTFecha(0,0,0);
                 cout << "Ingrese los datos de la Promocion:" << endl;
                 cout << "Ingrese el Nombre:" << endl;
-                cin >> nombre;
+                cin.ignore();
+                getline(cin,nombre);
+                //cin >> nombre;
                 cout << "Ingrese la Descripcion:" << endl;
-                //getline(cin,descripcion);
-                cin >> descripcion;
+                getline(cin,descripcion);
+                //cin >> descripcion;
                 cout << "Ingrese el Descuento:" << endl;
                 cin >> descuento;
                 cout << "Ingrese la Fecha de Vencimiento:" << endl;
@@ -449,8 +455,10 @@ int main()
                     cout << *iter<< endl;
                 }
                 string nombre_promocion;
-                cout << "Ingrese el nombre de la Promocion (N si no): " << endl; 
-                cin >> nombre_promocion;
+                cout << "Ingrese el nombre de la Promocion (N si no): " << endl;
+                cin.ignore();
+                getline(cin,nombre_promocion); 
+                //cin >> nombre_promocion;
 
                if(nombre_promocion != "N"){
                     DTVendedorInfo info = iUsuario->seleccionarPromocion(nombre_promocion);
