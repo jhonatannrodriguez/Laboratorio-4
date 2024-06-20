@@ -6,6 +6,7 @@
 #include "DTProductoInfo.h"
 #include "Producto.h"
 #include "IProducto.h"
+#include "Comentario.h"
 #include <map>
 
 class ControladorUsuario; /////////////
@@ -35,5 +36,10 @@ class ControladorProducto : public IProducto {
         set<DTProductoCompleto*> listarProductos();
         void agregarProducto(string codigo, unsigned int cantidad);
         DTCompraInfo* finalizarCompra();
+        map<string, Producto*> getcoleccionProducto();
+        void elegirProducto(string codigo);
+        set<DTComentario*> listarComentarios();
+        set<DTComentario*> comentariosRecursivo(set<DTComentario*> s);
+        void nuevaRespuesta(string id, string respuesta);
 };
 #endif

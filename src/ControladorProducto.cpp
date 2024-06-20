@@ -191,3 +191,52 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
     
     return compraInfo;
 }
+
+map<string, Producto*> ControladorProducto :: getcoleccionProducto() {
+    return this->coleccionProducto;
+}
+
+void ControladorProducto :: elegirProducto(string codigo) {
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    this->pRecordado = it->second;
+}
+
+set<DTComentario*> ControladorProducto :: comentariosRecursivo(set<Comentario*> s) {
+    set<DTComentario*> sDTP;
+    for (set<DTComentario*> :: iterator it= s.begin(); it != s.end(); ++it) {
+        sDTP.emplace(new DTComentario(it->getTexto()), it->getFecha());
+        set<Comentario*> resComent = it->second->getRespuestas();
+        if (resComent.empty()) { 
+        } else {  
+            sDTP.emplace(this->comentariosRecursivo(resComent));
+        }
+    }
+    return sDTP
+}
+
+set<DTComentario*> ControladorProducto :: listarComentarios() {
+    set<DTComentario*> sDTP;
+    map<string, Comentario*> comentariosPRecordado = pRecordado->getComentarios();
+    for (map<string, Comentario*> :: iterator it= CP->comentariosPRecordado.begin(); it != comentariosPRecordado.end(); ++it) {
+        sDTP.emplace(new DTComentario(it->first, it->second->getTexto()));
+        set<Comentario*> resComent = it->second->getRespuestas();
+        if (resComent.empty()) { 
+        } else {  
+            sDTP.emplace(this->comentariosRecursivo(resComent));
+        }
+    }
+    return sDTP;
+}
+
+void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
+    Producto * prod = this->getpRecordado();
+    ControladorUsuario * CU = ControladorUsuario::getInstancia();
+    Usuario * user = CU->getusuarioRecordado();
+    int newID = CU->getIDComentario();
+    Comentario* coment = Comentario(respuesta, DTFecha(0,0,0), to_string(newID));
+    newID++;
+    CU->setIDComentario(newID);
+    user->agregarComentario(coment);
+    map<string, Comentario *>::iterator it = prod.find(id);
+    it->second->agregarRespuesta(coment);
+}

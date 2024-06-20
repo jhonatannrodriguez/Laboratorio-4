@@ -529,7 +529,78 @@ int main()
             }
             case 8: 
             {
-            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
+                //Lista todos los Usuarios en Consola
+                set<string> nicknames = iUsuario->ConsultarUsuarios();
+                listarString(nicknames); 
+                //El Administrador selecciona un Usuario y se listan todos los productos del Sistema
+                cout << "Seleccione un Usuario: " << endl;
+                string nickname;
+                cin >> nickname;
+                set<DTProducto*> setDTP = iUsuario->seleccionarUsuario(nickname); //Guarda una referencia del Usuario (lo recuerda)
+                for (DTProducto* dtp : setDTP) 
+                    cout << "Nombre Producto: " << dtp->getNombre() << ", Código Producto: " << dtp->getCodigo() << endl;
+                //Se elije el produco a comentar
+                cout << "" << endl;
+                cout << "Seleccione un Producto por código: " << endl;
+                string codigo;
+                cin >> codigo;
+                iProducto->elegirProducto(codigo); //Guarda una referencia del Producto (lo recuerda)
+                cout << "Elija una opción:" << endl;
+                cout << "1: Redactar nuevo comentario." << endl;
+                cout << "2: Responder comentario." << endl;
+                cout << "3: Ayuda." << endl;
+                cout << "4: Salir." << endl;
+                //Se decide entre escribir un comentario, responder, o salir
+                int opcionComent = 0;
+                do {
+                    cin >> opcionComent;
+                    string textoComent;
+                    switch (opcionComent) {
+                        case 1:
+                        {
+                            cout << "Ingrese el texto del Coentario: " << endl;
+                            cin >> textoComent;
+                            iUsuario->nuevoComentario(textoComent);
+                            break;
+                        }
+                        case 2:
+                        {
+                            cout << "Comentarios del Producto: " << endl;
+                            set<DTComentario*> textosComentarios = iProducto->listarComentarios();
+                            for (DTComentario* setdtc : textosComentarios)
+                                cout << "Fecha: " << setdtc->getFecha() << ", Texto: " << setdtc->getComentario() << endl;
+                            cout << "Seleccione un Comentario por ID: " << endl;
+                            string idComent;
+                            cin >> idComent;
+                            cout << "Escriba una Respuesta: " <<endl;
+                            cin >> textoComent;
+                            iProducto->nuevaRespuesta(idComent, textoComent);
+                            break;
+                        }
+                        case 3:
+                        {
+                            cout << "Elija una opción:" << endl;
+                            cout << "1: Redactar nuevo comentario." << endl;
+                            cout << "2: Responder comentario." << endl;
+                            cout << "3: Ayuda." << endl;
+                            cout << "4: Salir." << endl;
+                            break;
+                        }
+                        default:
+                        {
+                            if (opcionComent != 4) {
+                                cout << "Opción no disponible..." << endl;
+                                cout << "Recuerde, las opciones son:" << endl;
+                                cout << "1: Redactar nuevo comentario." << endl;
+                                cout << "2: Responder comentario." << endl;
+                                cout << "3: Ayuda." << endl;
+                                cout << "4: Salir." << endl;
+                            }
+                            cout << "Seleccione nuevamente una opcion" << endl;
+                            break;
+                        }
+                    }
+                } while (opcionComent == 4);
             break;
             }
             case 9: 

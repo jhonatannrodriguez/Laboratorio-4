@@ -139,4 +139,12 @@
         this->cumplePromo = b;
     }
 
+    void Producto :: agregarComentario(Comentario* coment) {
+        this->comentarios[coment->getId()] = coment; 
+    }
+
+    map<string, Comentario*> Producto :: getComentarios() {
+        return this->comentarios; 
+    }
+
     Producto :: ~Producto() {}

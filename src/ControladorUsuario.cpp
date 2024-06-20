@@ -274,4 +274,31 @@ void ControladorUsuario :: seleccionarCliente(string nickname) {
     }
 }
 
+set<DTProducto*> ControladorUsuario :: seleccionarUsuario(string nombre) {
+    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombre);
+    this->usuarioRecordado = it->second;
+    set<Producto*> setProd; 
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    for (map<string, Producto *>::iterator it= CP->getcoleccionProducto().begin(); it != CP->getcoleccionProducto().end(); ++it)
+        setProd.emplace(it->second);
+    return CP->obtenerDTP(setProd);
+}
+
+void ControladorUsuario :: nuevoComentario(string txt) { 
+    Usuario * user = getusuarioRecordado();
+    Comentario* coment = new Comentario(txt, DTFecha(0,0,0), to_string(this->idComentario));
+    this->idComentario++;
+    user->agregarComentario(coment);
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    Producto * prod = CP->getpRecordado();
+    prod->agregarComentario(coment);
+}
+
+int ControladorUsuario :: getIDComentario() {
+    return this->idComentario;
+}
+
+void ControladorUsuario :: setIDComentario(int newID) {
+    this->idComentario = newID;
+}
 

@@ -38,6 +38,8 @@ public:
     virtual set<string> ConsultarUsuarios()=0;
     virtual set<string> consultarClientes() = 0;
     virtual void seleccionarCliente(string nickname) = 0;
+    virtual set<DTProducto*> seleccionarUsuario(string nickname) = 0;
+    virtual void nuevoComentario(string texto) = 0;
    
     virtual ~IUsuario() {}  
 };

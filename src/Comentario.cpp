@@ -36,4 +36,12 @@
         this->id = id;
     }
 
+    set<Comentario*> Comentario :: getRespuestas() {
+        return this->respuestas;
+    }
+
+    void Comentario :: agregarRespuesta(Comentario * res) {
+        this->respuestas.emplace(Comentario * res);
+    }
+
     Comentario :: ~Comentario() {}

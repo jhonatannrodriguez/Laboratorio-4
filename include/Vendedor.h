@@ -9,6 +9,7 @@
 #include "Promocion.h"
 class Producto;
 class Promocion;
+
 class Vendedor : public Usuario {
 private:
     //Atributos

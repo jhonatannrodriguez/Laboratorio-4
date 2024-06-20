@@ -7,11 +7,13 @@
 #include "DTProducto.h"  ////////////
 #include "DTProductoInfo.h" /////////
 #include "DTProductoCompleto.h"
+#include "Comentario.h"
 using namespace std;
 #include <string>
 
 class Promocion;
 class Vendedor;  ///////////
+class Comentario;
 
 class Producto {
 private:
@@ -27,6 +29,7 @@ private:
     // pseudoatributos
     Promocion* promocion;
     Vendedor* vendedor;
+    map<string, Comentario*> comentarios;
 
 public:
     Producto();
@@ -60,6 +63,9 @@ public:
     void setEnPromo(bool b);
     void setEsta(bool b);
     void setCumplePromo(bool b);
+
+    void agregarComentario(Comentario* coment);
+    map<string, Comentario*> getComentarios();
     
 
     ~Producto();

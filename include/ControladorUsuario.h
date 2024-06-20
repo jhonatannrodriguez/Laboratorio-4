@@ -29,6 +29,7 @@ private:
     map<string, Promocion *> coleccionPromociones;
     DTUsuario *datosUsuario;
     Compra * compraRecordada;
+    int idComentario;
 public:
 
     static ControladorUsuario *getInstancia();
@@ -66,6 +67,10 @@ public:
     Compra * getCompraRecordada();
     set<string> consultarClientes();
     void seleccionarCliente(string nickname);
+    set<DTProducto*> seleccionarUsuario(string nickname);
+    void nuevoComentario(string txt);
+    int getIDComentario();
+    void setIDComentario(int newID);
 };
 
 
