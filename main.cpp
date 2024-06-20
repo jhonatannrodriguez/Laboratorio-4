@@ -496,6 +496,12 @@ int main()
             }
             case 11: 
             {
+                cout<<"Lista de Usuarios:"<<endl;
+                set<string> s=iUsuario->ConsultarUsuarios();
+                listarString(s);
+                //u=iUsuario->Seleccionar un Usuario()
+                //Imprimir informacion de u
+
             cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }

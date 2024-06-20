@@ -127,6 +127,21 @@ void ControladorUsuario::Registrar()
    return res;
 }
 
+set<string> ControladorUsuario::ConsultarUsuarios()
+{  
+
+    set<string> res;
+    for (map<string, Usuario *>::iterator it= instancia->coleccionUsuarios.begin(); it != instancia->coleccionUsuarios.end(); ++it)
+    {
+        string u = it->second->getNickname();
+        res.emplace(u);
+                
+    }
+    
+   return res;
+}
+
+
 set<DTPromocion> ControladorUsuario::consultarPromocion() {
     set<DTPromocion> promociones;
     for (const auto& promocion : this->coleccionPromociones) {

@@ -63,6 +63,7 @@ public:
     void eliminarNotificaciones();
     set<string> listarVendedoresSuscritos(string nickname);
     void eliminarSuscripcion(string nickname);
+    set<string> ConsultarUsuarios();
 };
 
 
