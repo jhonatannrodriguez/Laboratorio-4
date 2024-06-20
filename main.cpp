@@ -190,10 +190,8 @@ int main()
                 iUsuario->aniadirProducto("4", 1);
                 iUsuario->aniadirProducto("8", 1);
                 iUsuario->darDeAltaPromo();
-                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
-                {
-                    delete *it;
-                }
+                for (DTProducto* p : productos)
+                    delete p;
 
 
                 // Promoción PM2 - Fiesta
@@ -202,10 +200,8 @@ int main()
                 iUsuario->aniadirProducto("3", 2);
                 iUsuario->aniadirProducto("6", 3);
                 iUsuario->darDeAltaPromo();
-                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
-                {
-                    delete *it;
-                }
+                for (DTProducto* p : productos)
+                    delete p;
 
 
                 // Promoción PM3 - Domotica
@@ -213,10 +209,8 @@ int main()
                 productos = iUsuario->seleccionarUnVendedor("diegom");
                 iUsuario->aniadirProducto("5", 2);
                 iUsuario->darDeAltaPromo();
-                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
-                {
-                    delete *it;
-                }
+                for (DTProducto* p : productos)
+                    delete p;
 
 
                 // Promoción PM4 - Liquidacion
@@ -225,10 +219,8 @@ int main()
                 iUsuario->aniadirProducto("14", 1);
                 iUsuario->darDeAltaPromo();
 
-                for (set<DTProducto *>::iterator it = productos.begin(); it != productos.end(); ++it) // liberar la memoria
-                {
-                    delete *it;
-                }
+                for (DTProducto* p : productos)
+                    delete p;
                 
 
                 cout << "Seleccione otra opción: (15 para ayuda)" << endl;
