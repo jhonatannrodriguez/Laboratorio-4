@@ -211,8 +211,8 @@ void ControladorUsuario :: eliminarNotificaciones() {
 
 DTVendedorInfo  ControladorUsuario :: seleccionarPromocion(string nombre_promocion){
     set<DTProducto> productos;
-    Vendedor *vendedor =  coleccionPromociones[nombre_promocion]->getVendedor();    
-    map<string, Promocion *>::iterator it = coleccionPromociones.find(nombre_promocion);
+    map<string, Promocion *>::iterator it = this->coleccionPromociones.find(nombre_promocion);
+    Vendedor *vendedor =  it->second->getVendedor(); 
     for(Producto * p : it->second->getProductos()){
         DTProducto pd = DTProducto(p->getCodigo(), p->getNombre());
         productos.emplace(pd);
