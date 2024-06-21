@@ -4,6 +4,7 @@
 #include "Producto.h"
 #include "DTFecha.h"
 #include "DTPromocion.h"
+#include "Vendedor.h"
 
 using namespace std;
 #include <string>

@@ -202,29 +202,12 @@ void ControladorProducto :: elegirProducto(string codigo) {
     this->pRecordado = it->second;
 }
 
-set<DTComentario*> ControladorProducto :: comentariosRecursivo(set<Comentario*> s) {
-    set<DTComentario*> sDTP;
-    for (set<DTComentario*> :: iterator it= s.begin(); it != s.end(); ++it) {
-        sDTP.emplace(new DTComentario(it->getTexto()), it->getFecha());
-        set<Comentario*> resComent = it->second->getRespuestas();
-        if (resComent.empty()) { 
-        } else {  
-            sDTP.emplace(this->comentariosRecursivo(resComent));
-        }
-    }
-    return sDTP
-}
-
 set<DTComentario*> ControladorProducto :: listarComentarios() {
     set<DTComentario*> sDTP;
     map<string, Comentario*> comentariosPRecordado = pRecordado->getComentarios();
-    for (map<string, Comentario*> :: iterator it= CP->comentariosPRecordado.begin(); it != comentariosPRecordado.end(); ++it) {
-        sDTP.emplace(new DTComentario(it->first, it->second->getTexto()));
-        set<Comentario*> resComent = it->second->getRespuestas();
-        if (resComent.empty()) { 
-        } else {  
-            sDTP.emplace(this->comentariosRecursivo(resComent));
-        }
+    for (map<string, Comentario*> :: iterator it= comentariosPRecordado.begin(); it != comentariosPRecordado.end(); ++it) {
+        DTComentario * dtc = new DTComentario(it->second->getTexto(), it->second->getFecha(), it->second->getId());
+        sDTP.emplace(dtc);
     }
     return sDTP;
 }
@@ -234,10 +217,11 @@ void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
     ControladorUsuario * CU = ControladorUsuario::getInstancia();
     Usuario * user = CU->getusuarioRecordado();
     int newID = CU->getIDComentario();
-    Comentario* coment = Comentario(respuesta, DTFecha(0,0,0), to_string(newID));
-    newID++;
-    CU->setIDComentario(newID);
+    fechaSistema * FS = fechaSistema::getInstancia();
+    Comentario* coment = new Comentario(respuesta, FS->getFecha(), to_string(newID));
+    CU->setIDComentario(newID+1);
     user->agregarComentario(coment);
-    map<string, Comentario *>::iterator it = prod.find(id);
+    prod->agregarComentario(coment);
+    map<string, Comentario *>::iterator it = prod->getComentarios().find(id);
     it->second->agregarRespuesta(coment);
 }

@@ -39,7 +39,7 @@ class ControladorProducto : public IProducto {
         map<string, Producto*> getcoleccionProducto();
         void elegirProducto(string codigo);
         set<DTComentario*> listarComentarios();
-        set<DTComentario*> comentariosRecursivo(set<DTComentario*> s);
+        //set<DTComentario*> comentariosRecursivo(set<DTComentario*> s);
         void nuevaRespuesta(string id, string respuesta);
 };
 #endif

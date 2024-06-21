@@ -275,18 +275,22 @@ void ControladorUsuario :: seleccionarCliente(string nickname) {
 }
 
 set<DTProducto*> ControladorUsuario :: seleccionarUsuario(string nombre) {
-    map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombre);
-    this->usuarioRecordado = it->second;
-    set<Producto*> setProd; 
+    map<string, Usuario *>::iterator u = this->coleccionUsuarios.find(nombre);
+    this->usuarioRecordado = u->second;
+    set<DTProducto*> setdtp; 
     ControladorProducto * CP = ControladorProducto::getInstancia();
-    for (map<string, Producto *>::iterator it= CP->getcoleccionProducto().begin(); it != CP->getcoleccionProducto().end(); ++it)
-        setProd.emplace(it->second);
-    return CP->obtenerDTP(setProd);
+    map<string, Producto*> sp = CP->getcoleccionProducto();
+    for (map<string, Producto *>::iterator it= sp.begin(); it != sp.end(); ++it) {
+        DTProducto * dtp = it->second->getDTP();
+        setdtp.emplace(dtp);
+    }
+    return setdtp;
 }
 
 void ControladorUsuario :: nuevoComentario(string txt) { 
+    fechaSistema * FS = fechaSistema::getInstancia();
     Usuario * user = getusuarioRecordado();
-    Comentario* coment = new Comentario(txt, DTFecha(0,0,0), to_string(this->idComentario));
+    Comentario* coment = new Comentario(txt, FS->getFecha(), to_string(this->idComentario));
     this->idComentario++;
     user->agregarComentario(coment);
     ControladorProducto * CP = ControladorProducto::getInstancia();

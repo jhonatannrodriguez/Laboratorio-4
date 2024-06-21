@@ -41,7 +41,7 @@
     }
 
     void Comentario :: agregarRespuesta(Comentario * res) {
-        this->respuestas.emplace(Comentario * res);
+        this->respuestas.emplace(res);
     }
 
     Comentario :: ~Comentario() {}

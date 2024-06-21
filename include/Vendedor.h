@@ -7,6 +7,7 @@
 #include "IObserver.h"
 #include "DTNotificacion.h"
 #include "Promocion.h"
+#include "Usuario.h"
 
 class Producto;
 class Promocion;

@@ -638,8 +638,7 @@ int main()
                 cout << "Elija una opción:" << endl;
                 cout << "1: Redactar nuevo comentario." << endl;
                 cout << "2: Responder comentario." << endl;
-                cout << "3: Ayuda." << endl;
-                cout << "4: Salir." << endl;
+                cout << "3: Salir." << endl;
                 //Se decide entre escribir un comentario, responder, o salir
                 int opcionComent = 0;
                 do {
@@ -648,49 +647,35 @@ int main()
                     switch (opcionComent) {
                         case 1:
                         {
-                            cout << "Ingrese el texto del Coentario: " << endl;
-                            cin >> textoComent;
+                            cout << "Ingrese el texto del Comentario: " << endl;
+                            cin.ignore();
+                            getline(cin, textoComent);
                             iUsuario->nuevoComentario(textoComent);
+                            cout << "Comentario realizado!" << endl;
                             break;
                         }
                         case 2:
                         {
                             cout << "Comentarios del Producto: " << endl;
                             set<DTComentario*> textosComentarios = iProducto->listarComentarios();
-                            for (DTComentario* setdtc : textosComentarios)
-                                cout << "Fecha: " << setdtc->getFecha() << ", Texto: " << setdtc->getComentario() << endl;
+                            for (DTComentario* dtc : textosComentarios)
+                                cout << "Id: " << dtc->getID() << " Fecha: " << dtc->getFecha() << "Texto: " << dtc->getComentario() << endl;
                             cout << "Seleccione un Comentario por ID: " << endl;
                             string idComent;
                             cin >> idComent;
                             cout << "Escriba una Respuesta: " <<endl;
-                            cin >> textoComent;
+                            cin.ignore();
+                            getline(cin, textoComent);
                             iProducto->nuevaRespuesta(idComent, textoComent);
-                            break;
-                        }
-                        case 3:
-                        {
-                            cout << "Elija una opción:" << endl;
-                            cout << "1: Redactar nuevo comentario." << endl;
-                            cout << "2: Responder comentario." << endl;
-                            cout << "3: Ayuda." << endl;
-                            cout << "4: Salir." << endl;
+                            cout << "Respuesta enviada!" << endl;
                             break;
                         }
                         default:
-                        {
-                            if (opcionComent != 4) {
-                                cout << "Opción no disponible..." << endl;
-                                cout << "Recuerde, las opciones son:" << endl;
-                                cout << "1: Redactar nuevo comentario." << endl;
-                                cout << "2: Responder comentario." << endl;
-                                cout << "3: Ayuda." << endl;
-                                cout << "4: Salir." << endl;
-                            }
-                            cout << "Seleccione nuevamente una opcion" << endl;
+                        { 
                             break;
                         }
                     }
-                } while (opcionComent == 4);
+                } while (opcionComent == 3);
             break;
             }
             case 9: 

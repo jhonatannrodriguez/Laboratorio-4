@@ -10,11 +10,13 @@ class DTComentario {
     private:
         string texto;
         DTFecha fecha;
+        string id;
     public:
         DTComentario();
-        DTComentario(string texto, DTFecha fecha);
+        DTComentario(string texto, DTFecha fecha, string nuevoid);
         DTFecha getFecha();
         string getComentario();
+        string getID();
         ~DTComentario();
 } ;
 
