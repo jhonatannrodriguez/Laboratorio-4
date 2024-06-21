@@ -183,7 +183,8 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
     }
     fechaSistema * fS = fechaSistema::getInstancia();
     compraInfo = new DTCompraInfo(monto, fS->getFecha());
-    
+    c->setMonto(monto);
+    c->setFecha(fS->getFecha());
     for(cp * cProd : prodCompra) {
         Producto * p = cProd->producto;
         compraInfo->asociarDTPC(p->getDTPC());

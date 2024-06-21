@@ -149,9 +149,9 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- include/Usuario.h include/Producto.h include/Promocion.h \
- include/Vendedor.h include/IObserver.h include/EnumTipoProducto.h \
- include/DTProductoInfo.h include/DTProductoCompleto.h \
- include/ControladorProducto.h include/fechaSistema.h include/IProducto.h \
- include/DTCompraInfo.h include/DTComentario.h include/Comentario.h \
- include/Cliente.h include/Compra.h
+ include/Usuario.h include/Comentario.h include/Producto.h \
+ include/Promocion.h include/Vendedor.h include/IObserver.h \
+ include/EnumTipoProducto.h include/DTProductoInfo.h \
+ include/DTProductoCompleto.h include/ControladorProducto.h \
+ include/fechaSistema.h include/IProducto.h include/DTCompraInfo.h \
+ include/DTComentario.h include/Cliente.h include/Compra.h

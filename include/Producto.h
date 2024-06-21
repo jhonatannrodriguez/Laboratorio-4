@@ -14,7 +14,7 @@ using namespace std;
 
 class Promocion;
 class Vendedor;  ///////////
-//class Comentario;
+class Comentario;
 
 class Producto {
 private:

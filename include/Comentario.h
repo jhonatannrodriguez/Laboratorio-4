@@ -5,7 +5,9 @@
 #include "Producto.h"
 #include <string>
 #include <set>
-class Producto;
+
+//class Producto;
+
 class Comentario {
 private:
     // atributos

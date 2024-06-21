@@ -44,9 +44,11 @@ string Usuario::getContrasenia()
     return this->contrasenia;
 }
 
+
 void Usuario::agregarComentario(Comentario* coment) {
     this->comentarios[coment->getId()] = coment;
 } 
+
 
 Usuario::~Usuario(){
     

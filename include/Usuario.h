@@ -3,14 +3,13 @@
 
 #include "DTFecha.h"
 #include "DTUsuario.h"
-//#include "Usuario.h"
-//#include "Comentario.h"
+#include "Comentario.h"
 using namespace std;
 #include <string>
 #include <set>
 #include <map>
 
-class Comentario;
+//class Comentario;
 
 class Usuario {
 private:
@@ -32,14 +31,12 @@ public:
     string getContrasenia();
     void agregarComentario(Comentario* coment);
     
-    //set<Comentario*> getComentarios();
+    set<Comentario*> getComentarios();
     
     virtual ~Usuario() = 0;
 
     virtual DTUsuario* getDTUsuario() = 0;
 
 };
-
-
 
 #endif
