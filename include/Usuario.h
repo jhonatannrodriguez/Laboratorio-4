@@ -9,7 +9,7 @@ using namespace std;
 #include <set>
 #include <map>
 
-//class Comentario;
+class Comentario;
 
 class Usuario {
 private:
