@@ -287,6 +287,16 @@ set<DTProducto*> ControladorUsuario :: seleccionarUsuario(string nombre) {
     return setdtp;
 }
 
+set<DTComentario*> ControladorUsuario :: listarComentarios(string nickname) { 
+    map<string, Usuario *>::iterator user = coleccionUsuarios.find(nickname);
+    this->usuarioRecordado = user->second;
+    map<string, Comentario*> comentariosUser = this->usuarioRecordado->getComentarios();
+    set<DTComentario*> setDTC;
+    for (map<string, Comentario*>::iterator it= comentariosUser.begin(); it != comentariosUser.end(); ++it)
+        setDTC.emplace(new DTComentario(it->second->getTexto(), it->second->getFecha(), it->second->getId()));
+    return setDTC;
+}
+
 void ControladorUsuario :: nuevoComentario(string txt) { 
     fechaSistema * FS = fechaSistema::getInstancia();
     Usuario * user = getusuarioRecordado();
@@ -298,6 +308,12 @@ void ControladorUsuario :: nuevoComentario(string txt) {
     prod->agregarComentario(coment);
 }
 
+void ControladorUsuario :: eliminarComentario(string id) { 
+    map<string, Comentario*> comentariosUser = this->usuarioRecordado->getComentarios();
+    map<string, Comentario*>::iterator c = comentariosUser.find(id);
+    delete c->second; //Recursion en Destructora
+}
+
 int ControladorUsuario :: getIDComentario() {
     return this->idComentario;
 }
@@ -305,7 +321,6 @@ int ControladorUsuario :: getIDComentario() {
 void ControladorUsuario :: setIDComentario(int newID) {
     this->idComentario = newID;
 }
-
 
 
 

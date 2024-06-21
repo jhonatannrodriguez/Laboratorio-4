@@ -680,7 +680,22 @@ int main()
             }
             case 9: 
             {
-            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
+                //Lista todos los Usuarios en Consola
+                set<string> nicknames = iUsuario->ConsultarUsuarios();
+                listarString(nicknames);
+                //Se selecciona un Usuario, se recuerda y se listan sus comentarios
+                cout << "Seleccione un Usuario: " << endl;
+                string nickname;
+                cin >> nickname;
+                set<DTComentario*> textosComentarios = iUsuario->listarComentarios(nickname);
+                for (DTComentario* dtc : textosComentarios)
+                    cout << "Id: " << dtc->getID() << " Fecha: " << dtc->getFecha() << "Texto: " << dtc->getComentario() << endl;
+                cout << "Seleccione el Comentario a eliminar por ID: " << endl;
+                string id;
+                cin >> id;
+                iUsuario->eliminarComentario(id);
+                cout << "Comentarios Eliminados" << endl;
+                cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 10: 

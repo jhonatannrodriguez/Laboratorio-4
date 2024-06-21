@@ -143,11 +143,11 @@ obj/ControladorProducto.o: src/ControladorProducto.cpp \
  /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
  /usr/include/c++/9/bits/erase_if.h src/../include/DTVendedor.h \
  src/../include/DTVendedorInfo.h src/../include/DTProducto.h \
- src/../include/DTPromocion.h src/../include/DTNotificacion.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_map.h \
- /usr/include/c++/9/tuple /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
- /usr/include/c++/9/bits/uses_allocator.h \
+ src/../include/DTComentario.h src/../include/DTPromocion.h \
+ src/../include/DTNotificacion.h /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
  src/../include/Usuario.h src/../include/Comentario.h \
  src/../include/Producto.h src/../include/Promocion.h \
@@ -155,5 +155,4 @@ obj/ControladorProducto.o: src/ControladorProducto.cpp \
  src/../include/EnumTipoProducto.h src/../include/DTProductoInfo.h \
  src/../include/DTProductoCompleto.h src/../include/ControladorProducto.h \
  src/../include/Cliente.h src/../include/Compra.h \
- src/../include/IProducto.h src/../include/DTCompraInfo.h \
- src/../include/DTComentario.h
+ src/../include/IProducto.h src/../include/DTCompraInfo.h

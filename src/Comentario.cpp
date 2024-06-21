@@ -1,4 +1,5 @@
 #include "../include/Comentario.h"
+#include "../include/Producto.h"
 
     Comentario :: Comentario() {
         this->texto = "";
@@ -44,4 +45,10 @@
         this->respuestas.emplace(res);
     }
 
-    Comentario :: ~Comentario() {}
+    Comentario :: ~Comentario() {
+        if (!this->respuestas.empty()) {
+            for (Comentario * resp : this->respuestas)
+                delete resp;
+        }
+        this->producto->eliminarComentario(this->id);
+    }

@@ -67,7 +67,7 @@ public:
 
     void agregarComentario(Comentario* coment);
     map<string, Comentario*> getComentarios();
-    
+    void eliminarComentario(string id);
 
     ~Producto();
 };

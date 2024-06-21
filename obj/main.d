@@ -143,8 +143,8 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc include/DTVendedor.h \
- include/DTVendedorInfo.h include/DTProducto.h include/DTPromocion.h \
- include/DTNotificacion.h /usr/include/c++/9/map \
+ include/DTVendedorInfo.h include/DTProducto.h include/DTComentario.h \
+ include/DTPromocion.h include/DTNotificacion.h /usr/include/c++/9/map \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
  /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
@@ -154,4 +154,4 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  include/EnumTipoProducto.h include/DTProductoInfo.h \
  include/DTProductoCompleto.h include/ControladorProducto.h \
  include/fechaSistema.h include/IProducto.h include/DTCompraInfo.h \
- include/DTComentario.h include/Cliente.h include/Compra.h
+ include/Cliente.h include/Compra.h

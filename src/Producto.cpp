@@ -147,4 +147,8 @@
         return this->comentarios; 
     }
 
+    void Producto :: eliminarComentario(string id) {
+        this->comentarios.erase(id);
+    }
+
     Producto :: ~Producto() {}

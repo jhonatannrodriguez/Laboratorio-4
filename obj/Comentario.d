@@ -139,4 +139,16 @@ obj/Comentario.o: src/Comentario.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/ext/aligned_buffer.h \
  /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
- /usr/include/c++/9/bits/erase_if.h
+ /usr/include/c++/9/bits/erase_if.h src/../include/Producto.h \
+ src/../include/Promocion.h src/../include/Producto.h \
+ src/../include/DTPromocion.h src/../include/Vendedor.h \
+ src/../include/Usuario.h src/../include/DTUsuario.h \
+ src/../include/Comentario.h /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
+ src/../include/DTVendedor.h src/../include/IObserver.h \
+ src/../include/DTNotificacion.h src/../include/EnumTipoProducto.h \
+ src/../include/DTProducto.h src/../include/DTProductoInfo.h \
+ src/../include/DTProductoCompleto.h

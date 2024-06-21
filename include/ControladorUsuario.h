@@ -71,7 +71,8 @@ public:
     void nuevoComentario(string txt);
     int getIDComentario();
     void setIDComentario(int newID);
-
+    set<DTComentario*> listarComentarios(string nickname);
+    void eliminarComentario(string id);
     DTUsuario* ElegirUsuario(string nombre);
     set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre);
 };

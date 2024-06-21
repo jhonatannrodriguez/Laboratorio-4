@@ -30,7 +30,7 @@ public:
     string getContrasenia();
     void agregarComentario(Comentario* coment);
     
-    set<Comentario*> getComentarios();
+    map<string, Comentario*> getComentarios();
     
     virtual ~Usuario() = 0;
 

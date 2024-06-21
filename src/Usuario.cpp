@@ -47,7 +47,11 @@ string Usuario::getContrasenia()
 
 void Usuario::agregarComentario(Comentario* coment) {
     this->comentarios[coment->getId()] = coment;
-} 
+}
+
+map<string, Comentario*> Usuario::getComentarios() {
+    return this->comentarios;
+}
 
 
 Usuario::~Usuario(){
