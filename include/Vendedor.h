@@ -28,6 +28,7 @@ public:
     void asociarProducto(Producto * p);
     void agregarPromo(Promocion* promo);
     set<Producto*> getProductos();
+    set<Promocion*> getPromocion();
     set<IObserver*> getObservers();  //////////////
     void agregar(IObserver* o);
     void eliminar(IObserver* o);

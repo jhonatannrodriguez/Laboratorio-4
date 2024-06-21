@@ -221,6 +221,96 @@ int main()
 
                 for (DTProducto* p : productos)
                     delete p;
+
+
+                //Compras  
+
+                /*iUsuario->seleccionarCliente(cliente);
+                iProducto->agregarProducto(cod, cantidad);
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI*/ //falta enviar producto 
+
+                
+                fechaSistema *Fecha = fabrica->getfechaSistema();
+                
+
+                DTFecha fechaSis = DTFecha(1, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("juan87");
+                iProducto->agregarProducto("2", 2);  // Televisor LED
+                iProducto->agregarProducto("4", 1);  // Microondas Digital
+                iProducto->agregarProducto("8", 1);  // Refrigerado
+                DTCompraInfo* DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+
+
+                fechaSis = DTFecha(1, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("juan87");
+                iProducto->agregarProducto("5", 1);  // Luz LED
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+
+
+                fechaSis = DTFecha(15, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("laura");
+                iProducto->agregarProducto("14", 10); // Tablet
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+                
+                fechaSis = DTFecha(25, 4, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("natalia");
+                iProducto->agregarProducto("11", 1);  // Mochila
+                iProducto->agregarProducto("12", 1);  // Plancha de Ropa
+                iProducto->agregarProducto("13", 1);  // Gorra
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+
+                fechaSis = DTFecha(20, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("juan87");
+                iProducto->agregarProducto("3", 2);  // Chaqueta de Cuero //ACTUALIZAR FECHA
+                iProducto->agregarProducto("6", 3);  // Pantalones Vaqueros
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+                
+                fechaSis = DTFecha(12, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("laura");
+                iProducto->agregarProducto("1", 2);  // Camiseta Azul
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+                
+                fechaSis = DTFecha(13, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("natalia");
+                iProducto->agregarProducto("1", 3);  // Camiseta Azul
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+
+                fechaSis = DTFecha(14, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("pablo10");
+                iProducto->agregarProducto("1", 4);  // Camiseta Azul
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+                
+                fechaSis = DTFecha(15, 5, 2024);
+                Fecha->setFecha(fechaSis);
+                iUsuario->seleccionarCliente("roberto");
+                iProducto->agregarProducto("1", 5);
+                DTCI = iProducto->finalizarCompra();
+                delete DTCI;
+
+
+
+
+
+
+
+
                 
 
                 cout << "Seleccione otra opción: (15 para ayuda)" << endl;
@@ -618,8 +708,45 @@ int main()
                 cout<<"Lista de Usuarios:"<<endl;
                 set<string> s=iUsuario->ConsultarUsuarios();
                 listarString(s);
-                //u=iUsuario->Seleccionar un Usuario()
-                //Imprimir informacion de u
+                cout<<"Elige el Usuario:"<<endl;
+                string usuario;
+                cin >> usuario;
+                DTUsuario* u=iUsuario->ElegirUsuario(usuario);
+                DTCliente *dtcliente = dynamic_cast<DTCliente *>(u); //Chequeo si es un cliente o vendedor
+                if (dtcliente != NULL) 
+                {
+                    cout << *u <<endl; //imprimo datos normales
+                                    //IMprimir compras con producots infomracions
+                                    //crear funcion 
+                }
+                else 
+                {  
+                  set<DTProducto*> setprod=iUsuario->seleccionarUnVendedor(u->getNickname());
+                  
+                  for (set<DTProducto*>::iterator it= setprod.begin(); it != setprod.end(); ++it)//listo productos
+                    {
+                        cout << **it << endl;
+                        delete* it;     
+                    } 
+                    
+                  fechaSistema *Fecha = fabrica->getfechaSistema();
+                  DTFecha fechaActual=Fecha->getFecha();  //crear funcion que retorne dtpromocion
+                  set<DTPromocion*> setpromocion=iUsuario->seleccionarUnVendedorPromocion(u->getNickname()); // lo mismo y comparar fecha sistema con fecha de vencimiento
+                  for (set<DTPromocion*>::iterator it= setpromocion.begin(); it != setpromocion.end(); ++it)
+                    {
+                        DTPromocion* punt=*it;
+                        if(punt->getVencimiento()<fechaActual){
+                        cout << **it << endl; //sobrecargar dtpromocion    
+                        }
+                        delete*it; 
+
+                    }   
+                 
+
+
+                }
+
+                
 
             cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
@@ -710,6 +837,7 @@ int main()
             cout << "14: Eliminar suscripciones. " << endl;
             cout << "15: Ayuda. " << endl;
             cout << "16: Salir. " << endl;
+            cout << "17: Actualizar fecha del sistema. " << endl;
             break;
             }
 
@@ -719,6 +847,27 @@ int main()
             delete fabrica;
             break;
             }
+
+            case 17: 
+            {
+            DTFecha fechaSis;
+            int num;
+            cout << "Ingresa el dia: ";
+            cin >> num;
+            fechaSis.setDia(num);
+            cout << "Ingresar el mes: ";
+            cin >> num;
+            fechaSis.setMes(num);
+            cout << "Ingresar el año: ";
+            cin >> num;
+            fechaSis.setAnio(num);
+            fechaSistema *Fecha = fabrica->getfechaSistema();
+            Fecha->setFecha(fechaSis);
+            cout << "Fecha del sistema actualizada." << endl;
+            }
+
+
+
         }
 
 

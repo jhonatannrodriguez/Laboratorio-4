@@ -22,6 +22,8 @@ class DTFecha {
         int getanio();
         
         ~DTFecha();
+
+        bool operator<(const DTFecha &);
 } ;
 
 ostream &operator<<(ostream &o, DTFecha f);

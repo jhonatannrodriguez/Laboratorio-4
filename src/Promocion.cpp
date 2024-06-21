@@ -64,6 +64,13 @@
         this->vendedor = vend;
     }
 
+
+    DTPromocion* Promocion :: getDTPromocion(){
+        DTPromocion *dt = new DTPromocion( getVencimiento(), getDescripcion(), getNombre(),getDescuento());
+        return dt;
+
+    }
+
     Promocion :: ~Promocion() {
         
         this->productos.clear();

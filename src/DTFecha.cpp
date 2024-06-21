@@ -56,7 +56,16 @@ DTFecha::~DTFecha()
 
 }
 
-
+bool DTFecha::operator<(const DTFecha &f) //const & ??
+{
+    if (this->anio != f.anio)
+        return this->anio < f.anio;
+    else if (this->mes != f.mes)
+        return this->mes < f.mes;
+    else if (this->dia != f.dia)
+        return this->dia < f.dia;
+    else return false;
+}
 
 ostream &operator<<(ostream &os, DTFecha f) //DTFecha &f puede que sea asi??
 {   

@@ -40,6 +40,8 @@ public:
     virtual void seleccionarCliente(string nickname) = 0;
     virtual set<DTProducto*> seleccionarUsuario(string nickname) = 0;
     virtual void nuevoComentario(string texto) = 0;
+    virtual DTUsuario* ElegirUsuario(string nombre) = 0;
+    virtual set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre)=0;
    
     virtual ~IUsuario() {}  
 };

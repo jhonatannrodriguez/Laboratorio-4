@@ -47,6 +47,10 @@ set<Producto*> Vendedor::getProductos() {
     return this->productos;
 }
 
+set<Promocion*> Vendedor::getPromocion() {
+    return this->promocion;
+}
+
 
 
 DTVendedor *Vendedor::getDTVendedor()

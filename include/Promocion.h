@@ -37,6 +37,9 @@ public:
     void setVencimiento(DTFecha vencimiento);
     void setDescuento(float descuento);
     void setVendedor(Vendedor * vend);
+    DTPromocion* getDTPromocion();
+        
+    
     
 
     ~Promocion();
