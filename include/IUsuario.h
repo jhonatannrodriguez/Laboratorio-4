@@ -1,6 +1,7 @@
 #ifndef _IUSUARIO_H
 #define _IUSUARIO_H
 #include "DTCliente.h"
+#include "DTCompra.h"
 #include "DTVendedor.h"
 #include "DTVendedorInfo.h"
 #include "DTComentario.h"
@@ -43,9 +44,11 @@ public:
     virtual void nuevoComentario(string texto) = 0;
     virtual set<DTComentario*> listarComentarios(string nickname) = 0;
     virtual void eliminarComentario(string id) = 0;
+
     virtual DTUsuario* ElegirUsuario(string nombre) = 0;
     virtual set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre) = 0;
-   
+    virtual set<DTCompra*> seleccionarUnCliente(string nombre)=0;
+
     virtual ~IUsuario() {}  
 };
 

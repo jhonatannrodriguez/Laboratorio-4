@@ -26,6 +26,12 @@
         this->fecha = fecha;
     }
 
+    DTCompra* Compra :: getDTCompra(){
+        DTCompra *dt = new DTCompra( getMonto(), getFecha());
+        return dt;
+
+    }
+
     void Compra :: asignarCantidad(Producto * p, unsigned int cantidad) {
         cp * cProd = new cp;
         cProd->cantidad = cantidad;

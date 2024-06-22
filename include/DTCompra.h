@@ -10,15 +10,16 @@ using namespace std;
 class DTCompra
 {
 private:
-    string nicknameCliente;
+    float monto;
     DTFecha fecha; 
 public:
     DTCompra();
-    DTCompra(string nicknameCliente,DTFecha fecha);
-    string getNicknameCliente();
+    DTCompra(float monto,DTFecha fecha);
+    float getMonto();
     DTFecha getFecha();
     ~DTCompra();
   
 };
+ostream& operator<<(ostream& os,  DTCompra& prod);
 
 #endif

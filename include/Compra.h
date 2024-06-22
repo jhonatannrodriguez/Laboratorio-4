@@ -4,6 +4,8 @@
 using namespace std;
 #include "Producto.h"
 #include "DTFecha.h"
+#include "DTCompra.h"
+//#include "DTCompraInfo.h"
 #include <set>
 
 struct cp {
@@ -30,6 +32,7 @@ public:
     void asignarCantidad(Producto * p, unsigned int cantidad);
     set<cp*> getProductos();
     unsigned int cantProducto(Producto * p);
+    DTCompra*  getDTCompra();
     ~Compra();
 };
 

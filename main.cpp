@@ -875,6 +875,11 @@ int main()
             }
             case 10: 
             {
+            cout << "Lista de vendedores:" << endl;
+            set<string> s=iUsuario->listarVendedores();
+            listarString(s);
+
+
             cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
@@ -890,9 +895,19 @@ int main()
                 DTCliente *dtcliente = dynamic_cast<DTCliente *>(u); //Chequeo si es un cliente o vendedor
                 if (dtcliente != NULL) 
                 {
-                    cout << *u <<endl;  //imprimo datos normales
-                    //set<DTCompraInfo*> setCompras=iUsuario->seleccionarUnVendedorPromocion(u->getNickname());                   //IMprimir compras con producots infomracions
-                                        //crear funcion 
+                    cout << *u <<endl;
+                    set<DTCompra*> setcompra=iUsuario->seleccionarUnCliente(u->getNickname());
+                     for (set<DTCompra*>::iterator it= setcompra.begin(); it != setcompra.end(); ++it)//listo productos
+                     {
+                        cout << **it << endl;
+                        /*set<DTProductoCompleto*> setproductoscompletos=iUsuario->seleccionarUnClienteCompra(u->getNickname());
+                        for (set<DTProductoCompleto*>::iterator it= setproductoscompletos.begin(); it != setproductoscompletos.end(); ++it)//listo productos
+                        {
+                        cout << **it << endl;    
+                        } */
+                             
+                     }  
+
                 }
                 else 
                 {  

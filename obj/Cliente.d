@@ -151,4 +151,5 @@ obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h \
  src/../include/DTPromocion.h src/../include/EnumTipoProducto.h \
  src/../include/DTProducto.h src/../include/DTProductoInfo.h \
  src/../include/DTProductoCompleto.h src/../include/IObserver.h \
- src/../include/Compra.h /usr/include/c++/9/stdlib.h
+ src/../include/Compra.h src/../include/DTCompra.h \
+ /usr/include/c++/9/stdlib.h

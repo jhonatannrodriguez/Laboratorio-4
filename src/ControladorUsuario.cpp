@@ -327,6 +327,11 @@ void ControladorUsuario :: setIDComentario(int newID) {
 
 
 
+
+
+
+
+
 DTUsuario * ControladorUsuario :: ElegirUsuario(string nombre) {
 
     map<string, Usuario *>::iterator it = coleccionUsuarios.find(nombre);
@@ -347,10 +352,21 @@ set<DTPromocion*> ControladorUsuario :: seleccionarUnVendedorPromocion(string no
 
     return setDT;
 
+}
 
+set<DTCompra*> ControladorUsuario :: seleccionarUnCliente(string nombre){
+   map<string, Usuario *>::iterator it = this->coleccionUsuarios.find(nombre);
+   set<DTCompra*> setDT;
+   Cliente *vendedor = dynamic_cast<Cliente *>(it->second);
+   set<Compra*> setpromo=vendedor->getCompras();
+   for (set<Compra*>::iterator it= setpromo.begin(); it != setpromo.end(); ++it)
+    {
+        Compra* p = *it;
+        DTCompra*dtp=p->getDTCompra(); //construir funcion
+        setDT.emplace(dtp);
+    }
 
+    return setDT;
 
-
-    
 }
 

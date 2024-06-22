@@ -1,6 +1,5 @@
-obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
- include/ControladorUsuario.h include/IUsuario.h include/DTCliente.h \
- /usr/include/c++/9/string \
+obj/DTCompra.o: src/DTCompra.cpp /usr/include/stdc-predef.h \
+ src/../include/DTCompra.h /usr/include/c++/9/string \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -120,11 +119,7 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/functional_hash.h \
- /usr/include/c++/9/bits/basic_string.tcc include/DTUsuario.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
- /usr/include/c++/9/bits/erase_if.h include/DTFecha.h \
+ /usr/include/c++/9/bits/basic_string.tcc src/../include/DTFecha.h \
  /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/bits/ios_base.h \
  /usr/include/c++/9/bits/locale_classes.h \
@@ -142,17 +137,4 @@ obj/main.o: main.cpp /usr/include/stdc-predef.h include/Fabrica.h \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc include/DTCompra.h \
- include/DTVendedor.h include/DTVendedorInfo.h include/DTProducto.h \
- include/DTComentario.h include/DTPromocion.h include/DTNotificacion.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_map.h \
- /usr/include/c++/9/tuple /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
- /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- include/Usuario.h include/Comentario.h include/Producto.h \
- include/Promocion.h include/Vendedor.h include/IObserver.h \
- include/EnumTipoProducto.h include/DTProductoInfo.h \
- include/DTProductoCompleto.h include/ControladorProducto.h \
- include/fechaSistema.h include/IProducto.h include/DTCompraInfo.h \
- include/Cliente.h include/Compra.h
+ /usr/include/c++/9/bits/istream.tcc

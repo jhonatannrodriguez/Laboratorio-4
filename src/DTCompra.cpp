@@ -1,20 +1,28 @@
 #include "../include/DTCompra.h"
 
     DTCompra :: DTCompra() {
-        this->nicknameCliente = "";
+        this->monto = 0;
         this->fecha = DTFecha(0,0,0);
     }
-
-    DTCompra :: DTCompra(string nicknameCliente,DTFecha fecha) {
-        this->nicknameCliente = nicknameCliente;
+    
+    
+    DTCompra :: DTCompra(float monto,DTFecha fecha) {
+        this->monto = monto;
         this->fecha = fecha;
     }
 
-    string DTCompra :: getNicknameCliente() {
-        return this->nicknameCliente;
+    float DTCompra :: getMonto() {
+        return this->monto;
     }
 
     DTFecha DTCompra :: getFecha() {
         return this->fecha;
     }
+
+
+   ostream& operator<<(ostream& os, DTCompra& prod) {
+    os << "Fecha de la compra: "<< prod.getFecha() << "Monto: " << prod.getMonto();
+    return os;
+} 
+
     DTCompra :: ~DTCompra() {} //Llevan destructor?

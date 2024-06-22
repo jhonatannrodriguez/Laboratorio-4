@@ -143,13 +143,14 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc src/../include/DTVendedor.h \
- src/../include/DTVendedorInfo.h src/../include/DTProducto.h \
- src/../include/DTComentario.h src/../include/DTPromocion.h \
- src/../include/DTNotificacion.h /usr/include/c++/9/map \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
- /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
- /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/istream.tcc src/../include/DTCompra.h \
+ src/../include/DTVendedor.h src/../include/DTVendedorInfo.h \
+ src/../include/DTProducto.h src/../include/DTComentario.h \
+ src/../include/DTPromocion.h src/../include/DTNotificacion.h \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_map.h \
+ /usr/include/c++/9/tuple /usr/include/c++/9/utility \
+ /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
+ /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
  src/../include/Usuario.h src/../include/Comentario.h \
  src/../include/Producto.h src/../include/Promocion.h \

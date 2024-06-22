@@ -75,6 +75,7 @@ public:
     void eliminarComentario(string id);
     DTUsuario* ElegirUsuario(string nombre);
     set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre);
+    set<DTCompra*> seleccionarUnCliente(string nombre);
 };
 
 
