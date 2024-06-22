@@ -37,6 +37,8 @@ int main()
     cout << "14: Eliminar suscripciones. " << endl;
     cout << "15: Ayuda. " << endl;
     cout << "16: Salir. " << endl;
+    cout << "17: Actualizar fecha del sistema. " << endl;
+
     do
     {
         cin >> opcion;
@@ -46,27 +48,27 @@ int main()
             {
                 //Clientes
                 
-                DTUsuario *U= new DTCliente("juan87", DTFecha(20,10,1992), "1qaz2wsx ", "Av. 18 de Julio ",456,"Melo ");
+                DTUsuario *U= new DTCliente("juan87", DTFecha(20,10,1992), "1qaz2wsx", "Av. 18 de Julio",456,"Melo ");
                 bool nickenuso1 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso1)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTCliente("laura", DTFecha(22,9,1979), "3edc4rfv ", "Rondeau ",1617,"Montevideo");
+                U= new DTCliente("laura", DTFecha(22,9,1979), "3edc4rfv", "Rondeau",1617,"Montevideo");
                 bool nickenuso2 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso2)
                 iUsuario->Registrar();
                 delete U;
 
-                U= new DTCliente("natalia", DTFecha(14,4,1982), "poiuyt ", "Paysandú  ",2021,"Salto");
+                U= new DTCliente("natalia", DTFecha(14,4,1982), "poiuyt", "Paysandú",2021,"Salto");
                 bool nickenuso3 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso3)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTCliente("pablo10", DTFecha(30,11,1995), "lkjhgv ", "Av. Rivera",1819 ,"Mercedes");
+                U= new DTCliente("pablo10", DTFecha(30,11,1995), "lkjhgv", "Av. Rivera",1819 ,"Mercedes");
                 bool nickenuso4 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso4)
                 iUsuario->Registrar();
@@ -83,35 +85,35 @@ int main()
                 //Vendedores
                 
 
-                U= new DTVendedor("ana23", DTFecha(15,5,1988), "qwer1234  ", "212345678001");
+                U= new DTVendedor("ana23", DTFecha(15,5,1988), "qwer1234", "212345678001");
                 bool nickenuso6 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso6)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("carlos78", DTFecha(18,6,1986), "asdfghj   ", "356789012345");
+                U= new DTVendedor("carlos78", DTFecha(18,6,1986), "asdfghj", "356789012345");
                 bool nickenuso7 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso7)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("diegom", DTFecha(28,7,1993), "zxcvbn   ", "190123456789 ");
+                U= new DTVendedor("diegom", DTFecha(28,7,1993), "zxcvbn", "190123456789 ");
                 bool nickenuso8 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso8)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("maria01", DTFecha(25,3,1985), "5tgb6yhn   ", "321098765432");
+                U= new DTVendedor("maria01", DTFecha(25,3,1985), "5tgb6yhn", "321098765432");
                 bool nickenuso9 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso9)
                 iUsuario->Registrar();
                 
                 delete U;
 
-                U= new DTVendedor("sofia25", DTFecha(7,12,1983), "1234asdf   ", "445678901234");
+                U= new DTVendedor("sofia25", DTFecha(7,12,1983), "1234asdf", "445678901234");
                 bool nickenuso10 = iUsuario->NuevoUsuario(U);
                 if (!nickenuso10)
                 iUsuario->Registrar();
@@ -121,12 +123,12 @@ int main()
               
                 //Productos
                 iUsuario->seleccionarVendedor("carlos78" );
-                string codigo = iProducto->ingresarProducto( "Camiseta Azul ", 1400, 50 , "Camiseta de poliester, color azul", TipoProducto::ropa);
+                string codigo = iProducto->ingresarProducto( "Camiseta Azul", 1400, 50 , "Camiseta de poliester, color azul", TipoProducto::ropa);
                 //cout << "Codigo:" << codigo << endl;
                 iProducto->darAltaProducto(codigo);
 
                 iUsuario->seleccionarVendedor("ana23" );
-                codigo = iProducto->ingresarProducto( "Televisor LED  ", 40500, 30  , "Televisor LED 55 pulgadas", TipoProducto::electrodomesticos);
+                codigo = iProducto->ingresarProducto( "Televisor LED", 40500, 30  , "Televisor LED 55 pulgadas", TipoProducto::electrodomesticos);
                 //cout << "Codigo:" << codigo << endl;
                 iProducto->darAltaProducto(codigo);
 
@@ -304,7 +306,180 @@ int main()
                 DTCI = iProducto->finalizarCompra();
                 delete DTCI;
 
+                //Comentarios
+                /*set<DTProducto*> setDTP = iUsuario->seleccionarUsuario(nickname);
+                iProducto->elegirProducto(codigo); 
+                iUsuario->nuevoComentario(textoComent);   o si es una respuesta iProducto->nuevaRespuesta(idComent, textoComent);*/
 
+
+                //CM1 
+                set<DTProducto*> setDTP = iUsuario->seleccionarUsuario("juan87");
+                iProducto->elegirProducto("1");
+                iUsuario->nuevoComentario("¿La camiseta azul esta disponible en talla M?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM2
+                /*setDTP = iUsuario->seleccionarUsuario("carlos78");
+                iProducto->elegirProducto("1");
+                set<DTComentario*> textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("1", "Si, tenemos la camiseta azul en talla M.");
+                for (DTProducto* p : setDTP)
+                    delete p;*/
+                //CM3
+                /*setDTP = iUsuario->seleccionarUsuario("laura");
+                iProducto->elegirProducto("1");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("2", "¿Es de buen material? Me preocupa la durabilidad.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM4 
+                setDTP = iUsuario->seleccionarUsuario("juan87");
+                iProducto->elegirProducto("1");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("3", "He comprado antes y la calidad es buena.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM5
+                setDTP = iUsuario->seleccionarUsuario("natalia");
+                iProducto->elegirProducto("1");
+                iUsuario->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM6
+                setDTP = iUsuario->seleccionarUsuario("laura");
+                iProducto->elegirProducto("2");
+                iUsuario->nuevoComentario("¿Cual es la resolucion del Televisor LED?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM7
+                setDTP = iUsuario->seleccionarUsuario("ana23");
+                iProducto->elegirProducto("2");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("6", "El televisor LED tiene una resolucion de 4K UHD.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM8
+                setDTP = iUsuario->seleccionarUsuario("pablo10");
+                iProducto->elegirProducto("2");
+                iUsuario->nuevoComentario("¿Tiene soporte para HDR10?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM9
+                setDTP = iUsuario->seleccionarUsuario("ana23");
+                iProducto->elegirProducto("2");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("8", "Si, soporta HDR10.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM10
+                setDTP = iUsuario->seleccionarUsuario("natalia");
+                iProducto->elegirProducto("3");
+                iUsuario->nuevoComentario("¿La chaqueta de cuero es resistente al agua?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM11
+                setDTP = iUsuario->seleccionarUsuario("carlos78");
+                iProducto->elegirProducto("3");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("10", "No, la chaqueta de cuero no es resistente al agua.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM12
+                setDTP = iUsuario->seleccionarUsuario("laura");
+                iProducto->elegirProducto("3");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("10", "¿Viene en otros colores?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM13
+                setDTP = iUsuario->seleccionarUsuario("carlos78");
+                iProducto->elegirProducto("3");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("12", "Si, tambien esta disponible en marron.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM14
+                setDTP = iUsuario->seleccionarUsuario("roberto");
+                iProducto->elegirProducto("3");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("10", "¿Es adecuada para climas frios?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM15
+                setDTP = iUsuario->seleccionarUsuario("pablo10");
+                iProducto->elegirProducto("4");
+                iUsuario->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM16
+                setDTP = iUsuario->seleccionarUsuario("ana23");
+                iProducto->elegirProducto("4");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("15", "Si, el microondas digital incluye una funcion de descongelacion rapida.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM17
+                setDTP = iUsuario->seleccionarUsuario("natalia");
+                iProducto->elegirProducto("4");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("15", "¿Cuantos niveles de potencia tiene?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM18
+                setDTP = iUsuario->seleccionarUsuario("ana23");
+                iProducto->elegirProducto("4");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("17", "Tiene 10 niveles de potencia.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM19
+                setDTP = iUsuario->seleccionarUsuario("roberto");
+                iProducto->elegirProducto("4");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("15", "¿Es facil de limpiar?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM20
+                setDTP = iUsuario->seleccionarUsuario("roberto");
+                iProducto->elegirProducto("5");
+                iUsuario->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM21
+                setDTP = iUsuario->seleccionarUsuario("diegom");
+                iProducto->elegirProducto("5");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("20", "Si, la luz LED se puede controlar a traves de una aplicacion movil.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM22
+                setDTP = iUsuario->seleccionarUsuario("pablo10");
+                iProducto->elegirProducto("5");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("20", "¿Es compatible con Alexa o Google Home?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM23
+                setDTP = iUsuario->seleccionarUsuario("diegom");
+                iProducto->elegirProducto("5");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("22", "Si, es compatible con ambos.");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM24
+                setDTP = iUsuario->seleccionarUsuario("natalia");
+                iProducto->elegirProducto("5");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("20", "¿Cuanto dura la bateria?");
+                for (DTProducto* p : setDTP)
+                    delete p;
+                //CM25
+                setDTP = iUsuario->seleccionarUsuario("pablo10");
+                iProducto->elegirProducto("5");
+                textosComentarios = iProducto->listarComentarios();
+                iProducto->nuevaRespuesta("20", "¿La aplicacion movil es facil de usar?");
+                for (DTProducto* p : setDTP)
+                    delete p;*/
 
 
 
@@ -715,13 +890,14 @@ int main()
                 DTCliente *dtcliente = dynamic_cast<DTCliente *>(u); //Chequeo si es un cliente o vendedor
                 if (dtcliente != NULL) 
                 {
-                    cout << *u <<endl; //imprimo datos normales
-                                    //IMprimir compras con producots infomracions
-                                    //crear funcion 
+                    cout << *u <<endl;  //imprimo datos normales
+                    //set<DTCompraInfo*> setCompras=iUsuario->seleccionarUnVendedorPromocion(u->getNickname());                   //IMprimir compras con producots infomracions
+                                        //crear funcion 
                 }
                 else 
                 {  
                   set<DTProducto*> setprod=iUsuario->seleccionarUnVendedor(u->getNickname());
+                  cout << *u <<endl;
                   
                   for (set<DTProducto*>::iterator it= setprod.begin(); it != setprod.end(); ++it)//listo productos
                     {
@@ -741,6 +917,9 @@ int main()
                         delete*it; 
 
                     }   
+
+
+                delete u;    
                  
 
 

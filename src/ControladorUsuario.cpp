@@ -5,6 +5,7 @@ ControladorUsuario *ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario()
 {
+this->idComentario=1;    
 }
 
 //getters
