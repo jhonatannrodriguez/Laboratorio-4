@@ -366,11 +366,29 @@ set<DTCompra*> ControladorUsuario :: seleccionarUnCliente(string nombre){
    for (set<Compra*>::iterator it= setpromo.begin(); it != setpromo.end(); ++it)
     {
         Compra* p = *it;
-        DTCompra*dtp=p->getDTCompra(); //construir funcion
+        DTCompra*dtp=p->getDTCompra();
+        this->compraRecordada=p;
         setDT.emplace(dtp);
     }
 
     return setDT;
 
+}
+
+
+
+set<DTProductoCompleto*> ControladorUsuario:: seleccionarUnClienteCompra() {
+    
+    set<cp*> p= this->compraRecordada->getProductos();
+    set<DTProductoCompleto*> setprod;
+    for (cp* item : p) {
+    Producto* producto = item->producto;
+    DTProductoCompleto* prodcompleto=producto->getDTPC();
+    setprod.emplace(prodcompleto);
+    
+}
+
+    
+    return setprod;
 }
 

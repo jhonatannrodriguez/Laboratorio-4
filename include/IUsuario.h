@@ -9,6 +9,7 @@
 #include "DTProducto.h"
 #include "DTPromocion.h"
 #include "DTNotificacion.h"
+#include "DTProductoCompleto.h"
 #include <map>
 #include <string>
 #include <set>
@@ -48,6 +49,7 @@ public:
     virtual DTUsuario* ElegirUsuario(string nombre) = 0;
     virtual set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre) = 0;
     virtual set<DTCompra*> seleccionarUnCliente(string nombre)=0;
+    virtual set<DTProductoCompleto*> seleccionarUnClienteCompra()=0;
 
     virtual ~IUsuario() {}  
 };

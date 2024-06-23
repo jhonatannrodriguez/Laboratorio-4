@@ -147,6 +147,7 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  src/../include/DTVendedor.h src/../include/DTVendedorInfo.h \
  src/../include/DTProducto.h src/../include/DTComentario.h \
  src/../include/DTPromocion.h src/../include/DTNotificacion.h \
+ src/../include/DTProductoCompleto.h src/../include/EnumTipoProducto.h \
  /usr/include/c++/9/map /usr/include/c++/9/bits/stl_map.h \
  /usr/include/c++/9/tuple /usr/include/c++/9/utility \
  /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
@@ -155,8 +156,7 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h \
  src/../include/Usuario.h src/../include/Comentario.h \
  src/../include/Producto.h src/../include/Promocion.h \
  src/../include/Vendedor.h src/../include/IObserver.h \
- src/../include/EnumTipoProducto.h src/../include/DTProductoInfo.h \
- src/../include/DTProductoCompleto.h src/../include/ControladorProducto.h \
+ src/../include/DTProductoInfo.h src/../include/ControladorProducto.h \
  src/../include/fechaSistema.h src/../include/IProducto.h \
  src/../include/DTCompraInfo.h src/../include/Cliente.h \
  src/../include/Compra.h

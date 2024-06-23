@@ -897,16 +897,22 @@ int main()
                 {
                     cout << *u <<endl;
                     set<DTCompra*> setcompra=iUsuario->seleccionarUnCliente(u->getNickname());
-                     for (set<DTCompra*>::iterator it= setcompra.begin(); it != setcompra.end(); ++it)//listo productos
-                     {
+                    for (set<DTCompra*>::iterator it= setcompra.begin(); it != setcompra.end(); ++it)//listo productos
+                    {
                         cout << **it << endl;
-                        /*set<DTProductoCompleto*> setproductoscompletos=iUsuario->seleccionarUnClienteCompra(u->getNickname());
-                        for (set<DTProductoCompleto*>::iterator it= setproductoscompletos.begin(); it != setproductoscompletos.end(); ++it)//listo productos
-                        {
-                        cout << **it << endl;    
-                        } */
+                        set<DTProductoCompleto*> setproductoscompletos=iUsuario->seleccionarUnClienteCompra();
+                        for(DTProductoCompleto * dtpc : setproductoscompletos) {
+                        cout << "Codigo: " << dtpc->getCodigo() << endl;
+                        cout << "Nombre: " << dtpc->getNombre() << endl; 
+                        cout << "Descripcion:" << dtpc->getDescripcion() << endl;
+                        cout << "Precio: " << dtpc->getPrecio() << endl;
+                        cout << "Tipo: " << dtpc->getTipoString() << endl;
+                        cout << "Stock: " << dtpc->getStock() << endl;
+                        cout << endl;
+                        delete dtpc;
+                        }
                              
-                     }  
+                    }  
 
                 }
                 else 

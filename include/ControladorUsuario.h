@@ -76,6 +76,8 @@ public:
     DTUsuario* ElegirUsuario(string nombre);
     set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre);
     set<DTCompra*> seleccionarUnCliente(string nombre);
+    set<DTProductoCompleto*> seleccionarUnClienteCompra();
+
 };
 
 
