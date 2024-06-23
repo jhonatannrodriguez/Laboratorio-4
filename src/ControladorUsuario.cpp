@@ -301,11 +301,11 @@ set<DTComentario*> ControladorUsuario :: listarComentarios(string nickname) {
 void ControladorUsuario :: nuevoComentario(string txt) { 
     fechaSistema * FS = fechaSistema::getInstancia();
     Usuario * user = getusuarioRecordado();
-    Comentario* coment = new Comentario(txt, FS->getFecha(), to_string(this->idComentario));
+    ControladorProducto * CP = ControladorProducto::getInstancia();
+    Producto * prod = CP->getpRecordado(); 
+    Comentario* coment = new Comentario(txt, FS->getFecha(), to_string(this->idComentario), prod);
     this->idComentario++;
     user->agregarComentario(coment);
-    ControladorProducto * CP = ControladorProducto::getInstancia();
-    Producto * prod = CP->getpRecordado();
     prod->agregarComentario(coment);
 }
 

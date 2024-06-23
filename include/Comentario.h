@@ -20,7 +20,7 @@ private:
 
 public:
     Comentario();
-    Comentario(string texto, DTFecha fecha, string id);
+    Comentario(string texto, DTFecha fecha, string id, Producto * prod);
     string getTexto();
     DTFecha getFecha();
     string getId();
