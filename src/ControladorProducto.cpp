@@ -5,6 +5,7 @@ ControladorProducto *ControladorProducto::instancia = NULL;
 ControladorProducto::ControladorProducto()
 {
     this->codigo = 0;
+    this->idcompra=0;
 }
 
 //getters
