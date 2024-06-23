@@ -28,8 +28,9 @@ public:
     string getNickname();
     DTFecha getFecha_nacimiento();
     string getContrasenia();
-    void agregarComentario(Comentario* coment);
     
+    void agregarComentario(Comentario* coment);
+    void eliminarComentario(string id);
     map<string, Comentario*> getComentarios();
     
     virtual ~Usuario() = 0;

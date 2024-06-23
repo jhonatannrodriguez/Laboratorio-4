@@ -218,7 +218,7 @@ void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
     Usuario * user = CU->getusuarioRecordado();
     int newID = CU->getIDComentario();
     fechaSistema * FS = fechaSistema::getInstancia();
-    Comentario* coment = new Comentario(respuesta, FS->getFecha(), to_string(newID), this->pRecordado);
+    Comentario* coment = new Comentario(respuesta, FS->getFecha(), to_string(newID), this->pRecordado, user);
     CU->setIDComentario(newID+1);
     user->agregarComentario(coment);
     prod->agregarComentario(coment);

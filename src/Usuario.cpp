@@ -53,6 +53,14 @@ map<string, Comentario*> Usuario::getComentarios() {
     return this->comentarios;
 }
 
+void Usuario :: eliminarComentario(string id) {
+    //Se le pasa una id válida
+    map<string, Comentario*>::iterator c = this->comentarios.find(id);
+    if (c != this->comentarios.end()) {
+        this->comentarios.erase(id);
+    }
+}
+
 
 Usuario::~Usuario(){
     

@@ -151,4 +151,4 @@ obj/Comentario.o: src/Comentario.cpp /usr/include/stdc-predef.h \
  src/../include/DTVendedor.h src/../include/IObserver.h \
  src/../include/DTNotificacion.h src/../include/EnumTipoProducto.h \
  src/../include/DTProducto.h src/../include/DTProductoInfo.h \
- src/../include/DTProductoCompleto.h
+ src/../include/DTProductoCompleto.h src/../include/Usuario.h

@@ -6,6 +6,7 @@
 #include <set>
 
 class Producto;
+class Usuario;
 
 class Comentario {
 private:
@@ -15,12 +16,12 @@ private:
     string id;
     // pseudoatributos
     set<Comentario*> respuestas;
-    Comentario* padre;
+    Usuario* usuario;
     Producto* producto;
 
 public:
     Comentario();
-    Comentario(string texto, DTFecha fecha, string id, Producto * prod);
+    Comentario(string texto, DTFecha fecha, string id, Producto * prod, Usuario * user);
     string getTexto();
     DTFecha getFecha();
     string getId();

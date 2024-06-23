@@ -303,7 +303,7 @@ void ControladorUsuario :: nuevoComentario(string txt) {
     Usuario * user = getusuarioRecordado();
     ControladorProducto * CP = ControladorProducto::getInstancia();
     Producto * prod = CP->getpRecordado(); 
-    Comentario* coment = new Comentario(txt, FS->getFecha(), to_string(this->idComentario), prod);
+    Comentario* coment = new Comentario(txt, FS->getFecha(), to_string(this->idComentario), prod, usuarioRecordado);
     this->idComentario++;
     user->agregarComentario(coment);
     prod->agregarComentario(coment);
