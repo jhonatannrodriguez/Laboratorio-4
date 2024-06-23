@@ -46,9 +46,10 @@
     }
 
     Comentario :: ~Comentario() {
+        this->producto->eliminarComentario(this->id);
+        this->producto = NULL;
         if (!this->respuestas.empty()) {
             for (Comentario * resp : this->respuestas)
                 delete resp;
         }
-        this->producto->eliminarComentario(this->id);
     }

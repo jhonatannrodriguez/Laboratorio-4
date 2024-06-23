@@ -148,7 +148,11 @@
     }
 
     void Producto :: eliminarComentario(string id) {
-        this->comentarios.erase(id);
+        //Se le pasa una id válida
+        map<string, Comentario*>::iterator c = this->comentarios.find(id);
+        if (c != this->comentarios.end()) {
+            this->comentarios.erase(id);
+        }
     }
 
     Producto :: ~Producto() {}

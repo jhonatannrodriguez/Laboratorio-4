@@ -312,7 +312,11 @@ void ControladorUsuario :: nuevoComentario(string txt) {
 void ControladorUsuario :: eliminarComentario(string id) { 
     map<string, Comentario*> comentariosUser = this->usuarioRecordado->getComentarios();
     map<string, Comentario*>::iterator c = comentariosUser.find(id);
-    delete c->second; //Recursion en Destructora
+    if (c != comentariosUser.end()) {
+        Comentario * auxC = c->second;
+        comentariosUser.erase(id);
+        delete auxC; //Recursion en Destructora
+    }
 }
 
 int ControladorUsuario :: getIDComentario() {
