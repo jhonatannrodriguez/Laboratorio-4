@@ -18,6 +18,14 @@
         return this->fecha;
     }
 
+    string Compra :: getNombreCliente() {
+        return this->cliente;
+    }
+
+    string Compra :: getID() {
+        return this->id;
+    }
+
     void Compra :: setMonto(float monto) {
         this->monto = monto;
     }
@@ -26,10 +34,21 @@
         this->fecha = fecha;
     }
 
-    DTCompra* Compra :: getDTCompra(){
-        DTCompra *dt = new DTCompra( getMonto(), getFecha());
-        return dt;
+    void Compra :: setNombreCliente(string cliente) {
+        this->cliente = cliente;
+    }
 
+    void Compra :: setID(string id) {
+        this->id = id;
+    }
+
+    DTCompraInfo* Compra :: getDTICompra(){
+        DTCompraInfo* dt = new DTCompraInfo(this->getMonto(), this->getFecha());
+        set<cp*> setProd = this->getProductos();
+        for (cp* cProd : setProd) {
+            dt->asociarDTPC(cProd->producto->getDTPC());
+        }
+        return dt;
     }
 
     void Compra :: asignarCantidad(Producto * p, unsigned int cantidad) {

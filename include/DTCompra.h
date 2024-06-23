@@ -10,13 +10,16 @@ using namespace std;
 class DTCompra
 {
 private:
-    float monto;
     DTFecha fecha; 
+    string nombre;
+    string ID;
+
 public:
     DTCompra();
-    DTCompra(float monto,DTFecha fecha);
-    float getMonto();
+    DTCompra(DTFecha fecha, string nombre, string ID);
+    string getNombre();
     DTFecha getFecha();
+    string getID();
     ~DTCompra();
   
 };

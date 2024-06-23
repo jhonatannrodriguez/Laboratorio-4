@@ -2,6 +2,7 @@
 #define _IUSUARIO_H
 #include "DTCliente.h"
 #include "DTCompra.h"
+#include "DTCompraInfo.h"
 #include "DTVendedor.h"
 #include "DTVendedorInfo.h"
 #include "DTComentario.h"
@@ -48,8 +49,8 @@ public:
 
     virtual DTUsuario* ElegirUsuario(string nombre) = 0;
     virtual set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre) = 0;
-    virtual set<DTCompra*> seleccionarUnCliente(string nombre)=0;
-    virtual set<DTProductoCompleto*> seleccionarUnClienteCompra()=0;
+    virtual set<DTCompraInfo*> seleccionarUnCliente(string nombre) = 0;
+    virtual set<DTProducto*> seleccionarVendedorEnvio (string nombre) = 0;
 
     virtual ~IUsuario() {}  
 };

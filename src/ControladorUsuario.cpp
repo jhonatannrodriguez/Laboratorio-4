@@ -272,6 +272,7 @@ void ControladorUsuario :: seleccionarCliente(string nickname) {
     Cliente *c = dynamic_cast<Cliente *>(it->second);
     if (c != NULL) {
         this->compraRecordada = c->crearCompra();
+        this->compraRecordada->setNombreCliente(nickname);
     }
 }
 
@@ -358,16 +359,13 @@ set<DTPromocion*> ControladorUsuario :: seleccionarUnVendedorPromocion(string no
 
 }
 
-set<DTCompra*> ControladorUsuario :: seleccionarUnCliente(string nombre){
+set<DTCompraInfo*> ControladorUsuario :: seleccionarUnCliente(string nombre){
    map<string, Usuario *>::iterator it = this->coleccionUsuarios.find(nombre);
-   set<DTCompra*> setDT;
-   Cliente *vendedor = dynamic_cast<Cliente *>(it->second);
-   set<Compra*> setpromo=vendedor->getCompras();
-   for (set<Compra*>::iterator it= setpromo.begin(); it != setpromo.end(); ++it)
-    {
-        Compra* p = *it;
-        DTCompra*dtp=p->getDTCompra();
-        this->compraRecordada=p;
+   set<DTCompraInfo*> setDT;
+   Cliente *cliente = dynamic_cast<Cliente *>(it->second);
+   set<Compra*> setcompras=cliente->getCompras();
+   for (Compra* p : setcompras) {
+        DTCompraInfo* dtp=p->getDTICompra();
         setDT.emplace(dtp);
     }
 
@@ -375,20 +373,22 @@ set<DTCompra*> ControladorUsuario :: seleccionarUnCliente(string nombre){
 
 }
 
-
-
-set<DTProductoCompleto*> ControladorUsuario:: seleccionarUnClienteCompra() {
-    
-    set<cp*> p= this->compraRecordada->getProductos();
-    set<DTProductoCompleto*> setprod;
-    for (cp* item : p) {
-    Producto* producto = item->producto;
-    DTProductoCompleto* prodcompleto=producto->getDTPC();
-    setprod.emplace(prodcompleto);
-    
+set<DTProducto*> ControladorUsuario :: seleccionarVendedorEnvio (string nombre) {
+    map<string, Usuario *>::iterator it = this->coleccionUsuarios.find(nombre);
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
+    set<Producto*> setProd = vendedor->getProductos();
+    set<DTProducto*> setDTP;
+    for (Producto* p : setProd) {
+        set<Compra*> setC = p->getCompras();
+        for (Compra* c : setC) {
+            set<cp*> setP = c->getProductos();
+            for (cp* CP : setP) {
+                if (CP->producto == p && !CP->enviado) {
+                    setDTP.emplace(p->getDTP());
+                    break;
+                }
+            }
+        }
+    }
+    return setDTP;
 }
-
-    
-    return setprod;
-}
-

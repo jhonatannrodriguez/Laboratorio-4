@@ -15,14 +15,15 @@ class ControladorProducto : public IProducto {
     private:
         static ControladorProducto * instancia;
         ControladorProducto();
-        int codigo;
+        int codigo, idcompra;
         Producto * pRecordado;
         map <string, Producto *> coleccionProducto;
     public:
         static ControladorProducto * getInstancia();
         Producto * getpRecordado();
         int getCodigo();
-         ~ControladorProducto();
+        int getIDcompra();
+        ~ControladorProducto();
 
 
 
@@ -41,5 +42,7 @@ class ControladorProducto : public IProducto {
         set<DTComentario*> listarComentarios();
         //set<DTComentario*> comentariosRecursivo(set<DTComentario*> s);
         void nuevaRespuesta(string id, string respuesta);
+        set<DTCompra*> seleccionarProductoEnvio(string codigo);
+        void seleccionarCompra(string id);
 };
 #endif

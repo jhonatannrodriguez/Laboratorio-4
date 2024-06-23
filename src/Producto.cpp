@@ -78,11 +78,11 @@
     DTProducto* Producto :: getDTP(){
         return new DTProducto(this->codigo, this->nombre);
     }
-    /////////
+
     DTProductoInfo* Producto :: getDTPI() {
         return new DTProductoInfo(this->descripcion,this->precio,this->tipo,this->stock,this->getVendedor()->getNickname());
     }
-    /////////
+
     Promocion * Producto :: getPromo(){
         return this->promocion;
     }
@@ -90,7 +90,7 @@
     void Producto :: setPromo(Promocion * promo){
         this->promocion = promo;
     }
-    ////////
+
     Vendedor * Producto :: getVendedor() {
         return this->vendedor;
     }
@@ -98,7 +98,7 @@
     void Producto :: setVendedor(Vendedor * vendedor) {
         this->vendedor = vendedor;
     }
-    //////////
+
     void Producto :: setMinimo(unsigned int minimo) {
         this->minimo = minimo;
     }
@@ -153,6 +153,14 @@
         if (c != this->comentarios.end()) {
             this->comentarios.erase(id);
         }
+    }
+
+    set<Compra*> Producto :: getCompras() {
+        return this->setCompras;
+    }
+
+    void Producto :: agregarCompra(Compra* compra) {
+        this->setCompras.emplace(compra);
     }
 
     Producto :: ~Producto() {}

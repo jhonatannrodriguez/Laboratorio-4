@@ -319,14 +319,14 @@ int main()
                 for (DTProducto* p : setDTP)
                     delete p;
                 //CM2
-                /*setDTP = iUsuario->seleccionarUsuario("carlos78");
+                setDTP = iUsuario->seleccionarUsuario("carlos78");
                 iProducto->elegirProducto("1");
                 set<DTComentario*> textosComentarios = iProducto->listarComentarios();
                 iProducto->nuevaRespuesta("1", "Si, tenemos la camiseta azul en talla M.");
                 for (DTProducto* p : setDTP)
-                    delete p;*/
+                    delete p;
                 //CM3
-                /*setDTP = iUsuario->seleccionarUsuario("laura");
+                setDTP = iUsuario->seleccionarUsuario("laura");
                 iProducto->elegirProducto("1");
                 textosComentarios = iProducto->listarComentarios();
                 iProducto->nuevaRespuesta("2", "¿Es de buen material? Me preocupa la durabilidad.");
@@ -479,7 +479,7 @@ int main()
                 textosComentarios = iProducto->listarComentarios();
                 iProducto->nuevaRespuesta("20", "¿La aplicacion movil es facil de usar?");
                 for (DTProducto* p : setDTP)
-                    delete p;*/
+                    delete p;
 
 
 
@@ -851,6 +851,7 @@ int main()
                         }
                     }
                 } while (opcionComent == 3);
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
             case 9: 
@@ -876,10 +877,27 @@ int main()
             case 10: 
             {
             cout << "Lista de vendedores:" << endl;
-            set<string> s=iUsuario->listarVendedores();
+            set<string> s=iUsuario->listarVendedores(); // aka registrarEnvio()
             listarString(s);
-
-
+            cout << "Seleccione un vendedor:" << endl;
+            string nombre;
+            cin >> nombre;
+            set<DTProducto*> setDTP = iUsuario->seleccionarVendedorEnvio(nombre);
+            cout << "Lista de productos:" << endl;
+            for (DTProducto* dtp : setDTP)
+                cout << *dtp << endl;
+            cout << "Seleccione un producto:" << endl;
+            string codigo;
+            cin >> codigo;
+            set<DTCompra*> setDTC = iProducto->seleccionarProductoEnvio(codigo);
+            cout << "Lista de compras:" << endl;
+            for (DTCompra* dtc : setDTC) 
+                cout << *dtc << endl;
+            cout << "Seleccione una compra:" << endl;
+            string id;
+            cin >> id;
+            iProducto->seleccionarCompra(id);
+            cout << "Producto enviado con éxito." << endl;
             cout << "Seleccione otra opción: (15 para ayuda)" << endl;
             break;
             }
@@ -896,20 +914,23 @@ int main()
                 if (dtcliente != NULL) 
                 {
                     cout << *u <<endl;
-                    set<DTCompra*> setcompra=iUsuario->seleccionarUnCliente(u->getNickname());
-                    for (set<DTCompra*>::iterator it= setcompra.begin(); it != setcompra.end(); ++it)//listo productos
+                    set<DTCompraInfo*> setcompra=iUsuario->seleccionarUnCliente(u->getNickname());
+                    for (DTCompraInfo* dti : setcompra)//listo productos
                     {
-                        cout << **it << endl;
-                        set<DTProductoCompleto*> setproductoscompletos=iUsuario->seleccionarUnClienteCompra();
+                        cout << "Fecha: " << dti->getFecha() << endl;
+                        cout << "Monto: " << dti->getMonto() << endl; 
+
+                        set<DTProductoCompleto*> setproductoscompletos= dti->getSetDTPC();
+
                         for(DTProductoCompleto * dtpc : setproductoscompletos) {
-                        cout << "Codigo: " << dtpc->getCodigo() << endl;
-                        cout << "Nombre: " << dtpc->getNombre() << endl; 
-                        cout << "Descripcion:" << dtpc->getDescripcion() << endl;
-                        cout << "Precio: " << dtpc->getPrecio() << endl;
-                        cout << "Tipo: " << dtpc->getTipoString() << endl;
-                        cout << "Stock: " << dtpc->getStock() << endl;
-                        cout << endl;
-                        delete dtpc;
+                            cout << "Codigo: " << dtpc->getCodigo() << endl;
+                            cout << "Nombre: " << dtpc->getNombre() << endl; 
+                            cout << "Descripcion:" << dtpc->getDescripcion() << endl;
+                            cout << "Precio: " << dtpc->getPrecio() << endl;
+                            cout << "Tipo: " << dtpc->getTipoString() << endl;
+                            cout << endl;
+
+                            delete dtpc;
                         }
                              
                     }  

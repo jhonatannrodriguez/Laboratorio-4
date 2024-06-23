@@ -2,18 +2,20 @@
 #define _PRODUCTO_H
 
 #include "Promocion.h"
-#include "EnumTipoProducto.h"
-#include "DTProducto.h"  ////////////
-#include "DTProductoInfo.h" /////////
-#include "DTProductoCompleto.h"
 #include "Comentario.h"
+#include "Compra.h"
+#include "EnumTipoProducto.h"
+#include "DTProducto.h"  
+#include "DTProductoInfo.h" 
+#include "DTProductoCompleto.h"
 using namespace std;
 #include <string>
 #include <map>
 #include <set>
 
+class Compra;
 class Promocion;
-class Vendedor;  ///////////
+class Vendedor;  
 class Comentario;
 
 class Producto {
@@ -31,6 +33,7 @@ private:
     Promocion* promocion;
     Vendedor* vendedor;
     map<string, Comentario*> comentarios;
+    set<Compra*> setCompras = {};
 
 public:
     Producto();
@@ -42,7 +45,9 @@ public:
     Promocion * getPromo();
     TipoProducto getTipo();
     unsigned int getStock();
-    Vendedor * getVendedor(); /////////
+    Vendedor * getVendedor();
+    set<Compra*> getCompras();
+    void agregarCompra(Compra* compra);
     void setCodigo(string codigo);
     void setNombre(string nombre);
     void setDescripcion(string descripcion);
@@ -50,10 +55,10 @@ public:
     void setTipo(TipoProducto tipo);
     void setStock(unsigned int stock);
     void setPromo(Promocion * promo);
-    void setVendedor(Vendedor * vendedor); ////////
+    void setVendedor(Vendedor * vendedor);
     void setMinimo(unsigned int minimo);
     DTProducto* getDTP();
-    DTProductoInfo *getDTPI();  //////////
+    DTProductoInfo *getDTPI();
 
     DTProductoCompleto * getDTPC();
     bool estaEnPromo();

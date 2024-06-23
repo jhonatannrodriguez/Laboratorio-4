@@ -25,6 +25,7 @@ public:
     TipoProducto getTipo();
     unsigned int getStock();
     string getTipoString();
+
     ~DTProductoCompleto();
 };
 

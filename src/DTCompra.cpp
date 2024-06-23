@@ -1,27 +1,33 @@
 #include "../include/DTCompra.h"
 
     DTCompra :: DTCompra() {
-        this->monto = 0;
+        this->nombre = "";
         this->fecha = DTFecha(0,0,0);
+        this->ID = "";
     }
     
     
-    DTCompra :: DTCompra(float monto,DTFecha fecha) {
-        this->monto = monto;
+    DTCompra :: DTCompra(DTFecha fecha, string nombre, string ID) {
+        this->nombre = nombre;
         this->fecha = fecha;
+        this->ID = ID;
     }
 
-    float DTCompra :: getMonto() {
-        return this->monto;
+    string DTCompra :: getNombre() {
+        return this->nombre;
     }
 
     DTFecha DTCompra :: getFecha() {
         return this->fecha;
     }
 
+    string DTCompra :: getID() {
+        return this->ID;
+    }
+
 
    ostream& operator<<(ostream& os, DTCompra& prod) {
-    os << "Fecha de la compra: "<< prod.getFecha() << "Monto: " << prod.getMonto();
+    os << "ID: " << prod.getID() << " Fecha de la compra: "<< prod.getFecha() << "Nombre cliente: " << prod.getNombre();
     return os;
 } 
 

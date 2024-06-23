@@ -20,6 +20,10 @@ int ControladorProducto :: getCodigo() {
     return this->codigo;
 }
 
+int ControladorProducto :: getIDcompra() {
+    return this->idcompra;
+}
+
 Producto * ControladorProducto :: getpRecordado() {
     return this->pRecordado;
 }
@@ -124,12 +128,15 @@ void ControladorProducto :: agregarProducto(string codigo, unsigned int cantidad
     Compra * c = CU->getCompraRecordada();
     map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
     Producto * prod = it->second;
+    prod->agregarCompra(c);
     unsigned int stock = prod->getStock();
     if (stock >= cantidad)
         c->asignarCantidad(prod, cantidad);
 }
 
 DTCompraInfo* ControladorProducto :: finalizarCompra() {
+    fechaSistema * fS = fechaSistema::getInstancia();
+    DTFecha fecha = fS->getFecha();
     DTCompraInfo* compraInfo;
     set<Promocion*> promosPosibles;
     ControladorUsuario * CU = ControladorUsuario::getInstancia();
@@ -146,7 +153,8 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
         p->setEnPromo(enPromo);
         if (enPromo) {
             Promocion * promo = p->getPromo();
-            promosPosibles.emplace(promo);
+            if(fecha < promo->getVencimiento())
+                promosPosibles.emplace(promo);
         }
     }
     for(Promocion * promoPosible : promosPosibles) {
@@ -181,10 +189,12 @@ DTCompraInfo* ControladorProducto :: finalizarCompra() {
     while (it != promosPosibles.end()) {
         it = promosPosibles.erase(it);  
     }
-    fechaSistema * fS = fechaSistema::getInstancia();
-    compraInfo = new DTCompraInfo(monto, fS->getFecha());
+    compraInfo = new DTCompraInfo(monto, fecha);
     c->setMonto(monto);
-    c->setFecha(fS->getFecha());
+    c->setFecha(fecha);
+    this->idcompra++;
+    c->setID(to_string(this->idcompra));
+
     for(cp * cProd : prodCompra) {
         Producto * p = cProd->producto;
         compraInfo->asociarDTPC(p->getDTPC());
@@ -224,4 +234,34 @@ void ControladorProducto :: nuevaRespuesta(string id, string respuesta) {
     prod->agregarComentario(coment);
     map<string, Comentario *>::iterator it = prod->getComentarios().find(id);
     it->second->agregarRespuesta(coment);
+}
+
+set<DTCompra*> ControladorProducto :: seleccionarProductoEnvio(string codigo) {
+    map<string, Producto *>::iterator it = coleccionProducto.find(codigo);
+    Producto * prod = it->second;
+    this->pRecordado = prod;
+    set<Compra*> setC = prod->getCompras();
+    set<DTCompra*> setDTC;
+    for (Compra* c : setC) {
+        DTCompra* dtc = new DTCompra(c->getFecha(), c->getNombreCliente(), c->getID());
+        setDTC.emplace(dtc);
+    }
+    return setDTC;
+}
+
+void ControladorProducto :: seleccionarCompra(string id) {
+    Producto* prod = this->pRecordado;
+    set<Compra*> setC = prod->getCompras();
+    for (Compra* c : setC) {
+        if (c->getID() == id) {
+            set<cp*> prods = c->getProductos();
+            for (cp* p : prods)
+                if (p->producto == prod) {
+                    p->enviado = true;
+                    break;
+                }  
+            break;   
+        }
+            
+    }
 }

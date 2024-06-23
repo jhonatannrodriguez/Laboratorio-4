@@ -7,6 +7,7 @@
         this->precio = 0;
         this->tipo = TipoProducto::otros; 
         this->stock = 0;
+
     }
 
     DTProductoCompleto :: DTProductoCompleto(string codigo, string nombre, string descripcion, float precio, TipoProducto tipo, unsigned int stock) {

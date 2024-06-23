@@ -23,6 +23,8 @@ public:
     virtual set<DTComentario*> listarComentarios() = 0;
     virtual void nuevaRespuesta(string id, string respuesta) = 0;
     virtual void elegirProducto(string codigo) = 0;
+    virtual set<DTCompra*> seleccionarProductoEnvio(string codigo) = 0;
+    virtual void seleccionarCompra(string id) = 0;
 
     virtual ~IProducto() {}  
 };
