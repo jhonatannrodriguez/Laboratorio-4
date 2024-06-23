@@ -149,11 +149,8 @@
 
     void Producto :: eliminarComentario(string id) {
         //Se le pasa una id válida
-        cout << "Encontrar ID" << endl;
         map<string, Comentario*>::iterator c = this->comentarios.find(id);
-        cout << "EntrarAlIf->" << endl;
         if (c != this->comentarios.end()) {
-            cout << "Erase->" << endl;
             this->comentarios.erase(id);
         }
     }
