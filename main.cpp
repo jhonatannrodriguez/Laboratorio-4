@@ -481,19 +481,11 @@ int main()
                 for (DTProducto* p : setDTP)
                     delete p;
 
-
-                /*set<DTProducto> setDTP = iUsuario->seleccionarVendedorEnvio(nombre);
-                set<DTCompra*> setDTC = iProducto->seleccionarProductoEnvio(codigo);
-                iProducto->seleccionarCompra(id); */   
                 
                 set<DTProducto> setDTP3 = iUsuario->seleccionarVendedorEnvio("ana23");
                 set<DTCompra*> setDTC3 = iProducto->seleccionarProductoEnvio("2");
                 iProducto->seleccionarCompra("1");
 
-                // Para el vendedor Carlos78 (US2)
-                 setDTP3 = iUsuario->seleccionarVendedorEnvio("carlos78");
-                 setDTC3 = iProducto->seleccionarProductoEnvio("1");
-                iProducto->seleccionarCompra("6");
 
                 // Para el vendedor Diegom (US3)
                  setDTP3 = iUsuario->seleccionarVendedorEnvio("diegom");
@@ -505,10 +497,28 @@ int main()
                  setDTC3 = iProducto->seleccionarProductoEnvio("12");
                 iProducto->seleccionarCompra("4");
 
-                // Para el vendedor Sofia25 (US10)
-                 setDTP3 = iUsuario->seleccionarVendedorEnvio("sofia25");
+                 setDTP3 = iUsuario->seleccionarVendedorEnvio("diegom");
+                 setDTC3 = iProducto->seleccionarProductoEnvio("14");
+                iProducto->seleccionarCompra("3");
+
+                 setDTP3 = iUsuario->seleccionarVendedorEnvio("carlos78");
+                 setDTC3 = iProducto->seleccionarProductoEnvio("11");
+                iProducto->seleccionarCompra("4");
+
+                setDTP3 = iUsuario->seleccionarVendedorEnvio("sofia25");
                  setDTC3 = iProducto->seleccionarProductoEnvio("13");
-                iProducto->seleccionarCompra("8");
+                iProducto->seleccionarCompra("4");
+
+                setDTP3 = iUsuario->seleccionarVendedorEnvio("carlos78");
+                 setDTC3 = iProducto->seleccionarProductoEnvio("6");
+                iProducto->seleccionarCompra("5");
+
+                setDTP3 = iUsuario->seleccionarVendedorEnvio("carlos78");
+                 setDTC3 = iProducto->seleccionarProductoEnvio("1");
+                iProducto->seleccionarCompra("7");
+                
+
+
 
 
 
