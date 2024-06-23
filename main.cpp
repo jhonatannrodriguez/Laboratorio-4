@@ -519,7 +519,6 @@ int main()
                 cout << "Año:"<< endl;
                 cin >> anio;
                 fecha =DTFecha(dia,mes,anio);
-                //cin >> fecha;
                 cout << "Ingrese contraseña: ";
                 cin >> contrasenia;
 
@@ -615,15 +614,14 @@ int main()
             case 4: 
             {
                 cout << "Estos son los productos disponibles:" << endl;
-                set<DTProducto*> setDTP = iProducto->consultarProducto();//liberar
-                cout << "Codigo, Nombre" << endl;
+                set<DTProducto*> setDTP = iProducto->consultarProducto();
                 for (DTProducto *DTP_for : setDTP) {
-                cout << DTP_for->getCodigo() << ", " << DTP_for->getNombre() << endl;
+                cout << "Codigo: " << DTP_for->getCodigo() << " Nombre: " << DTP_for->getNombre() << endl;
                 }
                 cout << "Ingrese el código del producto del cual desea información." << endl;
                 string codigo;
                 cin >> codigo;
-                DTProductoInfo *DTPI = iProducto->seleccionarProducto(codigo);//liberar
+                DTProductoInfo *DTPI = iProducto->seleccionarProducto(codigo);
                 cout << "Precio: " << DTPI->getPrecio() << endl
                      << "Stock: " << DTPI->getStock() << endl
                      << "Descripción: " << DTPI->getDescripcion() << endl;
@@ -662,12 +660,15 @@ int main()
                 cout << "Ingrese el Nombre:" << endl;
                 cin.ignore();
                 getline(cin,nombre);
-                //cin >> nombre;
                 cout << "Ingrese la Descripcion:" << endl;
                 getline(cin,descripcion);
-                //cin >> descripcion;
                 cout << "Ingrese el Descuento:" << endl;
                 cin >> descuento;
+                while (descuento >= 100 || descuento <= 0) {
+                    cout << "El descuento debe estar entre 0 y 100." << endl;
+                    cout << "Ingrese el Descuento:" << endl;
+                    cin >> descuento;
+                }
                 cout << "Ingrese la Fecha de Vencimiento:" << endl;
                 cout << "Dia:"<< endl;
                 cin >> dia;
@@ -684,9 +685,8 @@ int main()
                 cin >> vendedor;
                 set<DTProducto*> productos = iUsuario->seleccionarUnVendedor(vendedor);
                 cout << "Estos son los productos de " << vendedor << ":" << endl;
-                cout << "Codigo, Nombre" << endl;
                 for (DTProducto* s:productos){
-                    cout << s->getCodigo() << ", " << s->getNombre() << endl;
+                    cout << "Codigo: " << s->getCodigo() << " Nombre: " << s->getNombre() << endl;
                 }
                 int a;
                 do {
@@ -720,12 +720,11 @@ int main()
                     cout << *iter<< endl;
                 }
                 string nombre_promocion;
-                cout << "Ingrese el nombre de la Promocion (N si no): " << endl;
+                cout << "Ingrese el nombre de la Promocion (1 si no): " << endl;
                 cin.ignore();
                 getline(cin,nombre_promocion); 
-                //cin >> nombre_promocion;
 
-               if(nombre_promocion != "N"){
+                if(nombre_promocion != "1"){
                     DTVendedorInfo info = iUsuario->seleccionarPromocion(nombre_promocion);
                     cout << "Nombre del Vendedor: "<< info.getNickname() << endl; 
                     cout << "Fecha de nacimiento: " << info.getNacimiento() << endl;
@@ -767,7 +766,7 @@ int main()
                         cout << "Ingrese el Codigo del producto:"<< endl;
                         string cod;
                         cin >> cod;
-                        cout << "Ingrese la Cantidad:"<< endl;
+                        cout << "Ingrese la Cantidad (en caso de querer mas del stock actual, no se comprara ninguna unidad):"<< endl;
                         unsigned int cantidad;
                         cin >> cantidad;
                         iProducto->agregarProducto(cod, cantidad);
@@ -794,27 +793,23 @@ int main()
             }
             case 8: 
             {
-                //Lista todos los Usuarios en Consola
                 set<string> nicknames = iUsuario->ConsultarUsuarios();
                 listarString(nicknames); 
-                //El Administrador selecciona un Usuario y se listan todos los productos del Sistema
                 cout << "Seleccione un Usuario: " << endl;
                 string nickname;
                 cin >> nickname;
-                set<DTProducto*> setDTP = iUsuario->seleccionarUsuario(nickname); //Guarda una referencia del Usuario (lo recuerda)
+                set<DTProducto*> setDTP = iUsuario->seleccionarUsuario(nickname); 
                 for (DTProducto* dtp : setDTP) 
                     cout << "Nombre Producto: " << dtp->getNombre() << ", Código Producto: " << dtp->getCodigo() << endl;
-                //Se elije el produco a comentar
                 cout << "" << endl;
                 cout << "Seleccione un Producto por código: " << endl;
                 string codigo;
                 cin >> codigo;
-                iProducto->elegirProducto(codigo); //Guarda una referencia del Producto (lo recuerda)
+                iProducto->elegirProducto(codigo); 
                 cout << "Elija una opción:" << endl;
                 cout << "1: Redactar nuevo comentario." << endl;
                 cout << "2: Responder comentario." << endl;
                 cout << "3: Salir." << endl;
-                //Se decide entre escribir un comentario, responder, o salir
                 int opcionComent = 0;
                 do {
                     cin >> opcionComent;
@@ -856,10 +851,8 @@ int main()
             }
             case 9: 
             {
-                //Lista todos los Usuarios en Consola
                 set<string> nicknames = iUsuario->ConsultarUsuarios();
                 listarString(nicknames);
-                //Se selecciona un Usuario, se recuerda y se listan sus comentarios
                 cout << "Seleccione un Usuario: " << endl;
                 string nickname;
                 cin >> nickname;
@@ -877,15 +870,15 @@ int main()
             case 10: 
             {
             cout << "Lista de vendedores:" << endl;
-            set<string> s=iUsuario->listarVendedores(); // aka registrarEnvio()
+            set<string> s=iUsuario->listarVendedores();
             listarString(s);
             cout << "Seleccione un vendedor:" << endl;
             string nombre;
             cin >> nombre;
-            set<DTProducto*> setDTP = iUsuario->seleccionarVendedorEnvio(nombre);
+            set<DTProducto> setDTP = iUsuario->seleccionarVendedorEnvio(nombre);
             cout << "Lista de productos:" << endl;
-            for (DTProducto* dtp : setDTP)
-                cout << *dtp << endl;
+            for (DTProducto dtp : setDTP)
+                cout << dtp << endl;
             cout << "Seleccione un producto:" << endl;
             string codigo;
             cin >> codigo;
@@ -910,12 +903,12 @@ int main()
                 string usuario;
                 cin >> usuario;
                 DTUsuario* u=iUsuario->ElegirUsuario(usuario);
-                DTCliente *dtcliente = dynamic_cast<DTCliente *>(u); //Chequeo si es un cliente o vendedor
+                DTCliente *dtcliente = dynamic_cast<DTCliente *>(u); 
                 if (dtcliente != NULL) 
                 {
                     cout << *u <<endl;
                     set<DTCompraInfo*> setcompra=iUsuario->seleccionarUnCliente(u->getNickname());
-                    for (DTCompraInfo* dti : setcompra)//listo productos
+                    for (DTCompraInfo* dti : setcompra)
                     {
                         cout << "Fecha: " << dti->getFecha() << endl;
                         cout << "Monto: " << dti->getMonto() << endl; 
@@ -953,7 +946,7 @@ int main()
                   for (set<DTPromocion*>::iterator it= setpromocion.begin(); it != setpromocion.end(); ++it)
                     {
                         DTPromocion* punt=*it;
-                        if(punt->getVencimiento()<fechaActual){
+                        if(fechaActual < punt->getVencimiento()){
                         cout << **it << endl; //sobrecargar dtpromocion    
                         }
                         delete*it; 
@@ -1085,6 +1078,7 @@ int main()
             fechaSistema *Fecha = fabrica->getfechaSistema();
             Fecha->setFecha(fechaSis);
             cout << "Fecha del sistema actualizada." << endl;
+            cout << "Seleccione otra opción: (15 para ayuda)" << endl; 
             }
 
 

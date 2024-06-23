@@ -106,6 +106,10 @@ void Cliente :: eliminarNotificaciones() {
     this->nots.clear();
 }
 
+void Cliente :: cancelarSub(Vendedor * v) {
+    this->suscripciones.erase(v);
+}
+
 set<Compra *> Cliente :: getCompras() {
     return this->compras;
 }

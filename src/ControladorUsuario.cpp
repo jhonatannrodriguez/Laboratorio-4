@@ -166,16 +166,21 @@ set<string> ControladorUsuario::crearPromocion(DTFecha vencimiento, string descr
 
 set<DTProducto*> ControladorUsuario :: seleccionarUnVendedor(string nickname){
     this->seleccionarVendedor(nickname);
-    Vendedor *vendedor = dynamic_cast<Vendedor *>(this->usuarioRecordado); ////////////
+    Vendedor *vendedor = dynamic_cast<Vendedor *>(this->usuarioRecordado); 
     vendedor->agregarPromo(this->promocionRecordada);
-    set<Producto*> setProd = vendedor->getProductos(); ////////////////
+    set<Producto*> setProd = vendedor->getProductos();
+    set<Producto*> setPEnPromo;
+    for (Producto* p : setProd) {
+        if (p->getPromo() == NULL)
+            setPEnPromo.emplace(p);
+    }
     ControladorProducto * CP = ControladorProducto::getInstancia();
-    return CP->obtenerDTP(setProd);
+    return CP->obtenerDTP(setPEnPromo);
 }
 
 void ControladorUsuario :: aniadirProducto(string codigo, unsigned int cantidad){
     ControladorProducto * CP = ControladorProducto::getInstancia();
-    CP->aniadirProducto(this->promocionRecordada, codigo, cantidad); //////
+    CP->aniadirProducto(this->promocionRecordada, codigo, cantidad); 
 }
 
 void ControladorUsuario :: darDeAltaPromo(){
@@ -232,7 +237,6 @@ DTVendedorInfo  ControladorUsuario :: seleccionarPromocion(string nombre_promoci
 }
 
 set<string> ControladorUsuario :: listarVendedoresSuscritos(string nickname) {
-
     set<string> nombres;
     map<string, Usuario *>::iterator it = coleccionUsuarios.find(nickname);
     Cliente *cliente = dynamic_cast<Cliente *>(it->second);
@@ -249,6 +253,7 @@ void ControladorUsuario :: eliminarSuscripcion(string nickname) {
     Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
     Cliente *cliente = dynamic_cast<Cliente *>(this->usuarioRecordado);
     vendedor->eliminar(cliente);
+    cliente->cancelarSub(vendedor);
 }
 
 Compra * ControladorUsuario :: getCompraRecordada() {
@@ -373,18 +378,18 @@ set<DTCompraInfo*> ControladorUsuario :: seleccionarUnCliente(string nombre){
 
 }
 
-set<DTProducto*> ControladorUsuario :: seleccionarVendedorEnvio (string nombre) {
+set<DTProducto> ControladorUsuario :: seleccionarVendedorEnvio (string nombre) {
     map<string, Usuario *>::iterator it = this->coleccionUsuarios.find(nombre);
     Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
     set<Producto*> setProd = vendedor->getProductos();
-    set<DTProducto*> setDTP;
+    set<DTProducto> setDTP;
     for (Producto* p : setProd) {
         set<Compra*> setC = p->getCompras();
         for (Compra* c : setC) {
             set<cp*> setP = c->getProductos();
             for (cp* CP : setP) {
                 if (CP->producto == p && !CP->enviado) {
-                    setDTP.emplace(p->getDTP());
+                    setDTP.emplace(*p->getDTP());
                     break;
                 }
             }

@@ -56,7 +56,7 @@ DTFecha::~DTFecha()
 
 }
 
-bool DTFecha::operator<(const DTFecha &f) //const & ??
+bool DTFecha::operator<(DTFecha f) 
 {
     if (this->anio != f.anio)
         return this->anio <= f.anio;

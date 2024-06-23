@@ -36,6 +36,7 @@ public:
     set<Vendedor*> getSuscritos();
     set<DTNotificacion*> getNotificaciones();
     void eliminarNotificaciones();
+    void cancelarSub(Vendedor * v);
 
     set<Compra*> getCompras();
     Compra * crearCompra();

@@ -243,8 +243,14 @@ set<DTCompra*> ControladorProducto :: seleccionarProductoEnvio(string codigo) {
     set<Compra*> setC = prod->getCompras();
     set<DTCompra*> setDTC;
     for (Compra* c : setC) {
-        DTCompra* dtc = new DTCompra(c->getFecha(), c->getNombreCliente(), c->getID());
-        setDTC.emplace(dtc);
+        set<cp*> setP = c->getProductos();
+        for (cp* cP : setP) {
+            if ((cP->producto == prod) && !cP->enviado) {
+                DTCompra* dtc = new DTCompra(c->getFecha(), c->getNombreCliente(), c->getID());
+                setDTC.emplace(dtc);
+                break;
+            }
+        }
     }
     return setDTC;
 }

@@ -23,7 +23,7 @@ class DTFecha {
         
         ~DTFecha();
 
-        bool operator<(const DTFecha &);
+        bool operator<(DTFecha);
 } ;
 
 ostream &operator<<(ostream &o, DTFecha f);

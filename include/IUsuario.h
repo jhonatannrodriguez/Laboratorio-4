@@ -50,7 +50,7 @@ public:
     virtual DTUsuario* ElegirUsuario(string nombre) = 0;
     virtual set<DTPromocion*> seleccionarUnVendedorPromocion(string nombre) = 0;
     virtual set<DTCompraInfo*> seleccionarUnCliente(string nombre) = 0;
-    virtual set<DTProducto*> seleccionarVendedorEnvio (string nombre) = 0;
+    virtual set<DTProducto> seleccionarVendedorEnvio (string nombre) = 0;
 
     virtual ~IUsuario() {}  
 };
